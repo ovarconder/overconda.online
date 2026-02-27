@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Licensing API Boilerplate",
+    "description": "Starter API for validating software licenses, ready to be connected to Envato or your own database.",
+    "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+    "link": "#"
+  },
+  {
+    "name": "PHP Portfolio Template",
+    "description": "Minimal, Tailwind-powered portfolio homepage suitable for personal branding or small product sites.",
+    "image": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
+    "link": "#"
+  },
+  {
+    "name": "Railway Deployment Setup",
+    "description": "Deployment-ready configuration using Procfile and Composer for modern PHP hosting platforms.",
+    "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+    "link": "#"
+  }
+]
