@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overconda | Developer &amp; Content Creator</title>
+    <meta name="description" content="Overconda – Developer & Content Creator. IT & WordPress Development. Problem-solving first: plugins, software, web services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-50 antialiased">
+    <header class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-emerald-400 text-slate-950 font-semibold shadow-lg shadow-cyan-500/30">O</span>
+                <div>
+                    <h1 class="text-base md:text-lg font-semibold tracking-tight">Overconda</h1>
+                    <p class="text-[11px] md:text-xs text-slate-400" data-i18n="nav.tagline">Developer &amp; Content Creator · IT &amp; WordPress Development</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+                <a href="#hero" class="hover:text-cyan-300 transition-colors" data-i18n="nav.about">About</a>
+                <a href="#core-concept" class="hover:text-cyan-300 transition-colors" data-i18n="nav.coreConcept">Core Concept</a>
+                <a href="#projects" class="hover:text-cyan-300 transition-colors" data-i18n="nav.projects">Projects</a>
+                <a href="#contact" class="hover:text-cyan-300 transition-colors" data-i18n="nav.contact">Contact</a>
+                <a href="https://overconda.space/license-validation" class="inline-flex items-center gap-2 rounded-full border border-cyan-500/60 bg-cyan-500/10 px-3 py-1 text-[11px] font-semibold text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition-colors">
+                    <span data-i18n="nav.license">License Validation</span> <span aria-hidden="true" class="text-[13px]">↗</span>
+                </a>
+                <div class="flex items-center gap-1 border-l border-slate-700 pl-4 ml-2">
+                    <button type="button" data-lang="en" class="lang-btn px-2 py-0.5 rounded text-[11px] font-medium text-cyan-300 bg-cyan-500/20 border border-cyan-500/50" aria-pressed="true">EN</button>
+                    <button type="button" data-lang="th" class="lang-btn px-2 py-0.5 rounded text-[11px] font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition" aria-pressed="false">TH</button>
+                </div>
+            </nav>
+            <div class="md:hidden flex items-center gap-2">
+                <div class="flex items-center gap-1 rounded-full border border-slate-700 px-2 py-1">
+                    <button type="button" data-lang="en" class="lang-btn text-[11px] font-medium text-cyan-300" aria-pressed="true">EN</button>
+                    <span class="text-slate-600">|</span>
+                    <button type="button" data-lang="th" class="lang-btn text-[11px] font-medium text-slate-400" aria-pressed="false">TH</button>
+                </div>
+                <a href="https://overconda.space/license-validation" class="inline-flex items-center gap-1 rounded-full border border-cyan-500/60 bg-cyan-500/10 px-3 py-1 text-[11px] font-semibold text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400 transition-colors" data-i18n="nav.licenseShort">License</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-10 space-y-16">
+        <!-- Hero -->
+        <section id="hero" class="grid md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-10 items-center">
+            <div class="space-y-5">
+                <p class="text-xs font-mono uppercase tracking-[0.2em] text-cyan-400/80" data-i18n="hero.eyebrow">WordPress Plugins · Problem Solving First</p>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight" data-i18n-html="hero.title">Building <span class="text-cyan-400">real</span> tools for the IT world.</h2>
+                <p class="text-slate-300 text-sm md:text-base leading-relaxed" data-i18n-html="hero.subtitle">I'm <span class="font-semibold text-slate-100">Overconda</span> – Developer &amp; Content Creator focused on <span class="text-cyan-300">IT Infrastructure &amp; WordPress Development</span>, designing tools that pinpoint problems before fixing them.</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#projects" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-5 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition" data-i18n="hero.ctaProjects">Explore Projects</a>
+                    <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-5 py-2 text-sm font-semibold text-slate-100 hover:border-cyan-400 hover:text-cyan-200 transition" data-i18n="hero.ctaWork">Work with Overconda</a>
+                </div>
+                <div class="flex flex-wrap gap-4 text-[11px] text-slate-400">
+                    <div class="flex items-center gap-2"><span class="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span> <span data-i18n="hero.focus1">Focus: WordPress Plugins, Automation, Observability</span></div>
+                    <div class="flex items-center gap-2"><span class="inline-flex h-1.5 w-1.5 rounded-full bg-sky-400"></span> <span data-i18n="hero.focus2">Content: DevOps, Hosting, Best Practices</span></div>
+                </div>
+            </div>
+            <div class="rounded-2xl border border-sky-900/80 bg-gradient-to-br from-slate-950 via-slate-950 to-sky-950/40 p-5 md:p-6 shadow-[0_0_80px_rgba(56,189,248,0.25)]">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-[11px] font-mono text-slate-400">POST <span class="text-slate-200">/api/license/validate</span></div>
+                    <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-300 border border-emerald-500/40" data-i18n="ui.licensingReady">Licensing &amp; Support Ready</span>
+                </div>
+                <pre class="text-[11px] md:text-xs leading-relaxed font-mono text-slate-200 bg-slate-950/70 rounded-lg border border-slate-800 p-4 overflow-auto min-h-[100px]"><span id="license-code-text"></span><span id="license-code-cursor" class="inline-block w-[0.5em] animate-pulse" aria-hidden="true">|</span></pre>
+                <div class="mt-4 flex flex-wrap items-center gap-3">
+                    <a href="https://overconda.space/license-validation" class="inline-flex items-center gap-2 rounded-full bg-cyan-500/15 px-3 py-1.5 text-[11px] font-medium text-cyan-200 hover:bg-cyan-500/25 border border-cyan-500/50 transition-colors"><span data-i18n="ui.openLicense">Open License Validation</span> <span aria-hidden="true" class="text-[13px]">↗</span></a>
+                    <span class="text-[10px] text-slate-500" data-i18n="ui.envatoStyle">Designed for Envato-style licensing.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Concept -->
+        <section id="core-concept" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-[0.25em] text-sky-400/80" data-i18n="coreConcept.eyebrow">Core Concept</p>
+                    <h3 class="mt-1 text-2xl font-semibold tracking-tight" data-i18n="coreConcept.title">WordPress plugins that start with: &ldquo;What&rsquo;s the real problem?&rdquo;</h3>
+                </div>
+                <p class="max-w-xl text-sm text-slate-300" data-i18n-html="coreConcept.intro">Every Overconda Lab product is <span class="text-sky-300">Problem-Solving First</span>: separate signal from noise, see the root cause clearly, then fix in a safe, measurable way.</p>
+            </div>
+            <div class="grid gap-5 md:grid-cols-3">
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 space-y-2">
+                    <p class="text-xs font-mono text-sky-300/90">01 · Deep Problem Scanning</p>
+                    <h4 class="text-sm font-semibold" data-i18n="coreConcept.card1.title">See the problem before the whole site breaks</h4>
+                    <p class="text-xs text-slate-400" data-i18n="coreConcept.card1.desc">Observability and logging to help devs, admins, and agencies tell whether issues come from plugins, theme, or hosting.</p>
+                </article>
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 space-y-2">
+                    <p class="text-xs font-mono text-sky-300/90">02 · Native WordPress First</p>
+                    <h4 class="text-sm font-semibold" data-i18n="coreConcept.card2.title">Respect WordPress core</h4>
+                    <p class="text-xs text-slate-400" data-i18n="coreConcept.card2.desc">Honour hooks, filters, capabilities, and security so we don&rsquo;t add technical debt or odd side effects.</p>
+                </article>
+                <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 space-y-2">
+                    <p class="text-xs font-mono text-sky-300/90">03 · Maintainable &amp; Observable</p>
+                    <h4 class="text-sm font-semibold" data-i18n="coreConcept.card3.title">Built to scale and support long-term</h4>
+                    <p class="text-xs text-slate-400" data-i18n="coreConcept.card3.desc">Clear layering and structure, ready to extend into SaaS, license servers, and marketplace integrations like Envato.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projects: WordPress Plugins + Software + Web Services -->
+        <section id="projects" class="space-y-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-[0.25em] text-emerald-400/80" data-i18n="projects.eyebrow">Projects</p>
+                    <h3 class="mt-1 text-2xl font-semibold tracking-tight" data-i18n="projects.title">What we build: plugins, software, and web services</h3>
+                </div>
+                <p class="max-w-md text-xs md:text-sm text-slate-300" data-i18n="projects.intro">WordPress plugins, standalone tools, and web services. More items will appear here as they&rsquo;re ready.</p>
+            </div>
+
+            <!-- WordPress Plugins -->
+            <div class="rounded-2xl border border-emerald-800/50 bg-gradient-to-br from-emerald-800/60 to-slate-950 p-6 md:p-8 space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-300 text-sm font-mono">WP</span>
+                    <div>
+                        <h4 class="text-lg font-semibold tracking-tight" data-i18n="projects.wpPlugins.title">WordPress Plugins</h4>
+                        <p class="text-xs text-slate-400" data-i18n="projects.wpPlugins.subtitle">Tools for Dev, Agency &amp; Site Owners</p>
+                    </div>
+                </div>
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <article class="group rounded-2xl border border-slate-800/80 bg-slate-950/60 hover:border-cyan-500/80 hover:bg-slate-900/80 transition overflow-hidden flex flex-col">
+                        <div class="relative overflow-hidden">
+                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-cyan-500/10 via-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="aspect-[16/6] bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800/80 flex items-center justify-between px-4 py-3">
+                                <div class="space-y-1">
+                                    <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-500">WP Plugin · Problem Solver</p>
+                                    <h5 class="text-sm md:text-base font-semibold line-clamp-2">Overconda Conflict Detective</h5>
+                                </div>
+                                <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-medium border bg-amber-500/10 text-amber-300 border-amber-500/40" data-i18n="ui.comingSoon">Coming Soon</span>
+                            </div>
+                        </div>
+                        <div class="p-4 flex flex-col gap-3 flex-1">
+                            <p class="text-xs text-slate-300 leading-relaxed line-clamp-4" data-i18n="projects.wpPlugins.conflictDetectiveDesc">The ultimate tool to identify and resolve plugin/theme conflicts in seconds.</p>
+                            <div class="flex flex-wrap gap-1.5 mt-1">
+                                <span class="inline-flex items-center rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] text-slate-300 border border-slate-700/80">Conflict Scanner</span>
+                                <span class="inline-flex items-center rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] text-slate-300 border border-slate-700/80">Debugging</span>
+                                <span class="inline-flex items-center rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] text-slate-300 border border-slate-700/80">Performance</span>
+                            </div>
+                            <div class="mt-auto pt-2 text-[11px] text-slate-400">
+                                <span class="inline-flex items-center gap-1"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400/90"></span> <span data-i18n="projects.wpPlugins.focus">Focus on conflict detection</span></span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[200px] p-6 text-center" aria-hidden="true">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.morePlugins">More plugins</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.comingSoon">Coming Soon</p>
+                    </article>
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[200px] p-6 text-center" aria-hidden="true">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.newProduct">New product</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.stayTuned">Stay tuned</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Software & Tools -->
+            <div class="rounded-2xl border border-sky-800/50 bg-gradient-to-br from-sky-800/60 to-slate-950 p-6 md:p-8 space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-sky-500/20 text-sky-300 text-sm font-mono">SW</span>
+                    <div>
+                        <h4 class="text-lg font-semibold tracking-tight" data-i18n="projects.software.title">Software &amp; Tools</h4>
+                        <p class="text-xs text-slate-400" data-i18n="projects.software.subtitle">Standalone apps, CLI tools, automation</p>
+                    </div>
+                </div>
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[180px] p-6 text-center">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l4-4-4-4"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.softwarePlaceholder">Software projects</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.comingSoon">Coming Soon</p>
+                    </article>
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[180px] p-6 text-center">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.newProduct">New product</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.stayTuned">Stay tuned</p>
+                    </article>
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[180px] p-6 text-center">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.newProduct">New product</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.stayTuned">Stay tuned</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Web Services -->
+            <div class="rounded-2xl border border-amber-800/50 bg-gradient-to-br from-amber-800/60 to-slate-950 p-6 md:p-8 space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/20 text-amber-300 text-sm font-mono">WS</span>
+                    <div>
+                        <h4 class="text-lg font-semibold tracking-tight" data-i18n="projects.webServices.title">Web Services</h4>
+                        <p class="text-xs text-slate-400" data-i18n="projects.webServices.subtitle">APIs, dashboards, integrations</p>
+                    </div>
+                </div>
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[180px] p-6 text-center">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.webServicesPlaceholder">Web services</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.comingSoon">Coming Soon</p>
+                    </article>
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[180px] p-6 text-center">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.newProduct">New product</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.stayTuned">Stay tuned</p>
+                    </article>
+                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[180px] p-6 text-center">
+                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.newProduct">New product</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.stayTuned">Stay tuned</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="border-t border-slate-800 pt-8 space-y-3">
+            <h3 class="text-xl font-semibold tracking-tight" data-i18n="contact.title">Contact &amp; Collaboration</h3>
+            <p class="text-sm text-slate-300" data-i18n="contact.intro">Interested in working together, building plugins, or deep WordPress/Hosting debugging? Get in touch via the links below.</p>
+            <div class="flex flex-wrap gap-3 text-sm text-slate-200">
+                <a href="mailto:hello@overconda.space" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-1.5 hover:border-cyan-400 hover:text-cyan-200 transition"><span class="text-base">✉</span> hello@overconda.space</a>
+                <a href="https://www.youtube.com/@Overconda" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-1.5 hover:border-cyan-400 hover:text-cyan-200 transition">YouTube · Overconda</a>
+                <a href="https://x.com/overconda" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-1.5 hover:border-cyan-400 hover:text-cyan-200 transition">X (Twitter) · @overconda</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800 bg-slate-950/90">
+        <div class="max-w-6xl mx-auto px-4 py-4 text-[11px] text-slate-500 flex flex-col md:flex-row justify-between gap-2">
+            <span><span data-i18n="footer.rights">© Overconda Lab. All rights reserved.</span> <span id="year"></span></span>
+            <div class="flex flex-wrap gap-3 items-center">
+                <a href="https://overconda.space/license-validation" class="inline-flex items-center gap-1 rounded-full border border-slate-700 px-2.5 py-1 hover:border-cyan-400 hover:text-cyan-200 transition" data-i18n="nav.license">License Validation</a>
+                <span data-i18n="footer.built">Built with HTML &amp; Tailwind CSS · overconda.space</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+(function () {
+    var STORAGE_KEY = 'overconda-lang';
+    var I18N = {
+        en: {
+            metaDescription: 'Overconda – Developer & Content Creator. IT & WordPress Development. Problem-solving first: plugins, software, web services.',
+            nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', about: 'About', coreConcept: 'Core Concept', projects: 'Projects', contact: 'Contact', license: 'License Validation', licenseShort: 'License' },
+            hero: { eyebrow: 'WordPress Plugins · Problem Solving First', title: 'Building <span class="text-cyan-400">real</span> tools for the IT world.', subtitle: 'I\'m <span class="font-semibold text-slate-100">Overconda</span> – Developer &amp; Content Creator focused on <span class="text-cyan-300">IT Infrastructure &amp; WordPress Development</span>, designing tools that pinpoint problems before fixing them.', ctaProjects: 'Explore Projects', ctaWork: 'Work with Overconda', focus1: 'Focus: WordPress Plugins, Automation, Observability', focus2: 'Content: DevOps, Hosting, Best Practices' },
+            coreConcept: { eyebrow: 'Core Concept', title: 'WordPress plugins that start with: "What\'s the real problem?"', intro: 'Every Overconda Lab product is <span class="text-sky-300">Problem-Solving First</span>: separate signal from noise, see the root cause clearly, then fix in a safe, measurable way.', card1: { title: 'See the problem before the whole site breaks', desc: 'Observability and logging to help devs, admins, and agencies tell whether issues come from plugins, theme, or hosting.' }, card2: { title: 'Respect WordPress core', desc: 'Honour hooks, filters, capabilities, and security so we don\'t add technical debt or odd side effects.' }, card3: { title: 'Built to scale and support long-term', desc: 'Clear layering and structure, ready to extend into SaaS, license servers, and marketplace integrations like Envato.' } },
+            projects: { eyebrow: 'Projects', title: 'What we build: plugins, software, and web services', intro: 'WordPress plugins, standalone tools, and web services. More items will appear here as they\'re ready.', wpPlugins: { title: 'WordPress Plugins', subtitle: 'Tools for Dev, Agency & Site Owners', conflictDetectiveDesc: 'The ultimate tool to identify and resolve plugin/theme conflicts in seconds.', focus: 'Focus on conflict detection' }, software: { title: 'Software & Tools', subtitle: 'Standalone apps, CLI tools, automation' }, webServices: { title: 'Web Services', subtitle: 'APIs, dashboards, integrations' } },
+            ui: { comingSoon: 'Coming Soon', morePlugins: 'More plugins', newProduct: 'New product', stayTuned: 'Stay tuned', licensingReady: 'Licensing & Support Ready', openLicense: 'Open License Validation', envatoStyle: 'Designed for Envato-style licensing.', softwarePlaceholder: 'Software projects', webServicesPlaceholder: 'Web services' },
+            contact: { title: 'Contact & Collaboration', intro: 'Interested in working together, building plugins, or deep WordPress/Hosting debugging? Get in touch via the links below.' },
+            footer: { rights: '© Overconda Lab. All rights reserved.', built: 'Built with HTML & Tailwind CSS · overconda.space' }
+        },
+        th: {
+            metaDescription: 'Overconda – Developer & Content Creator · IT & WordPress Development · ปลั๊กอินและบริการโฟกัสแก้ปัญหา.',
+            nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', about: 'เกี่ยวกับ', coreConcept: 'แนวคิดหลัก', projects: 'โปรเจกต์', contact: 'ติดต่อ', license: 'ตรวจสอบ License', licenseShort: 'License' },
+            hero: { eyebrow: 'WordPress Plugins · Problem Solving First', title: 'สร้างเครื่องมือ<span class="text-cyan-400">จริง</span>บนโลก IT', subtitle: 'ผมคือ <span class="font-semibold text-slate-100">Overconda</span> – Developer &amp; Content Creator โฟกัสด้าน <span class="text-cyan-300">IT Infrastructure &amp; WordPress Development</span> ออกแบบเครื่องมือจับปัญหาให้ชัด ก่อนลงมือแก้.', ctaProjects: 'ดูโปรเจกต์', ctaWork: 'ทำงานกับ Overconda', focus1: 'โฟกัส: WordPress Plugins, Automation, Observability', focus2: 'คอนเทนต์: DevOps, Hosting, Best Practices' },
+            coreConcept: { eyebrow: 'Core Concept', title: 'WordPress Plugins ที่เริ่มจากคำถามว่า "ปัญหาคืออะไรแน่ๆ?"', intro: 'ทุกโปรดักต์จาก Overconda Lab ออกแบบแบบ <span class="text-sky-300">Problem-Solving First</span>: แยกสัญญาณจาก Noise มองเห็นต้นตอปัญหา แล้วค่อยแก้อย่างปลอดภัยและวัดผลได้.', card1: { title: 'มองเห็นปัญหา ก่อนล้มทั้ง Site', desc: 'ใช้ Observability และ Logging ช่วย Dev, Admin และ Agency แยกแยะว่าปัญหามาจาก Plugin, Theme หรือ Hosting.' }, card2: { title: 'เล่นกับ WordPress Core อย่างเคารพ', desc: 'เคารพ Hook, Filter, Capability และ Security ไม่สร้าง Technical Debt หรือ Side Effect แปลกๆ.' }, card3: { title: 'ออกแบบเพื่อ Scale และ Support ระยะยาว', desc: 'โครงสร้างแยกชั้นชัดเจน พร้อมต่อยอดเป็น SaaS, License Server และเชื่อม Marketplace อย่าง Envato.' } },
+            projects: { eyebrow: 'Projects', title: 'สิ่งที่เราสร้าง: ปลั๊กอิน, ซอฟต์แวร์ และเว็บเซอร์วิส', intro: 'WordPress plugins, เครื่องมือแยก และเว็บเซอร์วิส รายการจะเพิ่มเมื่อพร้อม.', wpPlugins: { title: 'WordPress Plugins', subtitle: 'เครื่องมือสำหรับ Dev, Agency และ Site Owner', conflictDetectiveDesc: 'เครื่องมือช่วยระบุและแก้ความขัดแย้ง plugin/theme ในไม่กี่วินาที.', focus: 'โฟกัสการตรวจจับความขัดแย้ง' }, software: { title: 'Software & Tools', subtitle: 'แอปแยกใช้, CLI, automation' }, webServices: { title: 'Web Services', subtitle: 'API, dashboard, integration' } },
+            ui: { comingSoon: 'เร็วๆ นี้', morePlugins: 'ปลั๊กอินเพิ่ม', newProduct: 'โปรดักต์ใหม่', stayTuned: 'รอติดตาม', licensingReady: 'Licensing & Support Ready', openLicense: 'เปิดหน้า License Validation', envatoStyle: 'ออกแบบสำหรับ licensing แบบ Envato.', softwarePlaceholder: 'โปรเจกต์ซอฟต์แวร์', webServicesPlaceholder: 'เว็บเซอร์วิส' },
+            contact: { title: 'Contact & Collaboration', intro: 'สนใจร่วมงาน ทำ Plugin หรือช่วย Debug WordPress/Hosting แบบลึกๆ ติดต่อ Overconda ได้ผ่านช่องทางด้านล่าง.' },
+            footer: { rights: '© Overconda Lab สงวนลิขสิทธิ์.', built: 'Built with HTML & Tailwind CSS · overconda.space' }
+        }
+    };
+
+    function get(obj, path) {
+        var keys = path.split('.');
+        for (var i = 0; i < keys.length; i++) obj = obj[keys[i]];
+        return obj != null ? obj : '';
+    }
+
+    function applyLang(lang) {
+        if (!I18N[lang]) lang = 'en';
+        var t = get.bind(null, I18N[lang]);
+        document.documentElement.lang = lang === 'th' ? 'th' : 'en';
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n');
+            var val = get(I18N[lang], key);
+            if (val) el.textContent = val;
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n-html');
+            var val = get(I18N[lang], key);
+            if (val) el.innerHTML = val;
+        });
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', I18N[lang].metaDescription || I18N.en.metaDescription);
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+            var isActive = btn.getAttribute('data-lang') === lang;
+            btn.setAttribute('aria-pressed', isActive);
+            if (isActive) {
+                btn.classList.add('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
+                btn.classList.remove('text-slate-400');
+            } else {
+                btn.classList.remove('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
+                btn.classList.add('text-slate-400');
+            }
+        });
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    }
+
+    var saved = (typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_KEY)) || 'en';
+    applyLang(saved === 'th' ? 'th' : 'en');
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var lang = this.getAttribute('data-lang');
+            if (lang) applyLang(lang);
+        });
+    });
+
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
+
+(function () {
+    var text = 'POST /api/validate\nContent-Type: application/json\n\n{\n  "license_key": "XXXX-XXXX-XXXX-XXXX"\n}';
+    var el = document.getElementById('license-code-text');
+    if (!el) return;
+    var typeMin = 45, typeMax = 120;
+    var deleteMin = 25, deleteMax = 55;
+    var pauseAfterType = 2200, pauseBeforeType = 900;
+
+    function rand(a, b) { return a + Math.random() * (b - a); }
+
+    function type() {
+        var i = 0;
+        function tick() {
+            if (i < text.length) {
+                el.textContent = text.slice(0, i + 1);
+                i++;
+                var delay = rand(typeMin, typeMax);
+                if (text[i - 1] === '\n' || text[i - 1] === '{' || text[i - 1] === '}') delay *= 1.2;
+                setTimeout(tick, delay);
+            } else {
+                setTimeout(erase, pauseAfterType);
+            }
+        }
+        tick();
+    }
+
+    function erase() {
+        var current = el.textContent;
+        if (current.length === 0) {
+            setTimeout(type, pauseBeforeType);
+            return;
+        }
+        el.textContent = current.slice(0, -1);
+        setTimeout(erase, rand(deleteMin, deleteMax));
+    }
+
+    setTimeout(type, 600);
+})();
+    </script>
+</body>
+</html>

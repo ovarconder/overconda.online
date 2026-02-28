@@ -1,22 +1,18 @@
 {
-  "name": "overdata/portfolio-licensing",
-  "description": "Portfolio website with licensing validation API (PHP)",
-  "type": "project",
-  "require": {
-    "php": ">=8.0",
-    "vlucas/phpdotenv": "^5.6"
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "src/"
+    "name": "overconda/licensing-api",
+    "description": "Headless License Validation API for WordPress plugins (Envato)",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "cp -n .env.example .env 2>/dev/null || true",
+        "post-update-cmd": "cp -n .env.example .env 2>/dev/null || true"
     }
-  },
-  "scripts": {
-    "post-install-cmd": [
-      "@php -r \"if (!file_exists('.env')) { copy('.env.example', '.env'); }\""
-    ],
-    "post-update-cmd": [
-      "@php -r \"if (!file_exists('.env')) { copy('.env.example', '.env'); }\""
-    ]
-  }
 }

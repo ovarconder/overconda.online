@@ -268,11 +268,11 @@ Content-Type: application/json
             </p>
             <div class="flex flex-wrap gap-3 text-sm text-slate-200">
                 <a
-                    href="mailto:hello@overconda.online"
+                    href="mailto:hello@overconda.space"
                     class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-1.5 hover:border-cyan-400 hover:text-cyan-200 transition"
                 >
                     <span class="text-base">✉</span>
-                    hello@overconda.online
+                    hello@overconda.space
                 </a>
                 <a
                     href="https://www.youtube.com/@Overconda"
