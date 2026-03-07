@@ -1,0 +1,58 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    image: overconda-api:latest
+    container_name: overconda-api
+    restart: unless-stopped
+    expose:
+      - "80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - ENVATO_API_KEY=${ENVATO_API_KEY}
+      - DATABASE_DSN=mysql:host=db;dbname=${MYSQL_DATABASE:-overconda};charset=utf8mb4
+      - DATABASE_USER=${MYSQL_USER:-overconda}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - ENVATO_API_KEY=${ENVATO_API_KEY}
+    depends_on:
+      db:
+        condition: service_healthy
+    working_dir: /var/www/html
+
+  nginx-proxy:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'   # HTTP
+      - '443:443' # HTTPS
+      - '81:81'   # Admin Panel (หน้าจัดการ SSL)
+    volumes:
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt
+  db:
+    image: mysql:8.0
+    container_name: overconda-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-overconda}
+      MYSQL_USER: ${MYSQL_USER:-overconda}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - overconda_mysql_data:/var/lib/mysql
+      - ./sql/licenses.sql:/docker-entrypoint-initdb.d/01-licenses.sql:ro
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  overconda_mysql_data:
