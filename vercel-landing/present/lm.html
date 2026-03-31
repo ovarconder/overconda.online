@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กัมพูชาหมิ่นพระบรมเดชานุภาพ</title>
+<style>
+  @import url('data:text/css,');
+
+  /* ─── FONTS (system stack with Thai support) ─────────────────── */
+  :root {
+    --bg-top:    #fdf6f0;
+    --bg-mid:    #f0e8f5;
+    --bg-bot:    #dde8f8;
+    --accent:    #b07fcc;
+    --accent2:   #7fa8cc;
+    --accent3:   #cc9e7f;
+    --text:      #2c2c3a;
+    --text-mute: #7a7a90;
+    --card-bg:   rgba(255,255,255,0.72);
+    --radius:    14px;
+    --shadow:    0 4px 28px rgba(80,60,120,0.10);
+    --font-head: 'Georgia', 'Sarabun', serif;
+    --font-body: 'Sarabun', 'Segoe UI', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    min-height: 100vh;
+    background: transparent;
+  }
+
+  /* ─── FIXED GRADIENT BG ───────────────────────────────────────── */
+  .bg-fixed {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      160deg,
+      #fdf6f0 0%,
+      #f7eef8 18%,
+      #edeaf8 32%,
+      #e4eef8 48%,
+      #dde8f8 62%,
+      #d9e4f0 75%,
+      #cfd8ec 88%,
+      #c8d2e8 100%
+    );
+  }
+  .bg-noise {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* ─── LAYOUT ──────────────────────────────────────────────────── */
+  .page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  /* ─── HERO ────────────────────────────────────────────────────── */
+  .site-hero {
+    text-align: center;
+    padding: 80px 0 60px;
+  }
+  .site-hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.15;
+  }
+  .site-hero .sub {
+    margin-top: 14px;
+    font-size: 1.05rem;
+    color: var(--text-mute);
+    max-width: 560px;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+  .divider {
+    display: block;
+    margin: 32px auto;
+    width: 48px;
+    height: 3px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  /* ─── SECTION ─────────────────────────────────────────────────── */
+  .s-block {
+    background: var(--card-bg);
+    backdrop-filter: blur(18px) saturate(1.3);
+    -webkit-backdrop-filter: blur(18px) saturate(1.3);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    padding: 48px 52px;
+    margin-bottom: 52px;
+    transition: box-shadow .3s;
+  }
+  .s-block:hover { box-shadow: 0 8px 48px rgba(80,60,120,0.14); }
+
+  .s-block h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .s-tag {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 99px;
+    margin-bottom: 16px;
+  }
+  .s-block p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #3a3a50;
+    margin-bottom: 18px;
+  }
+  .s-block p:last-of-type { margin-bottom: 0; }
+
+  /* ─── INLINE ARTICLE IMAGE ────────────────────────────────────── */
+  .article-img {
+    float: right;
+    margin: 6px 0 20px 28px;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 260px;
+    box-shadow: 0 6px 24px rgba(80,60,120,0.13);
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s;
+    flex-shrink: 0;
+  }
+  .article-img:hover { transform: scale(1.025); box-shadow: 0 10px 36px rgba(80,60,120,0.20); }
+  .article-img.left {
+    float: left;
+    margin: 6px 28px 20px 0;
+  }
+  .article-img img { width: 100%; display: block; }
+
+  /* ─── IMAGE SIZE CLASSES ──────────────────────────────────────────
+     ใช้กับ <img> โดยตรง หรือ <figure> ก็ได้
+     
+     Gallery thumbs  → .img-thumb   (cover, ความสูง fix ตาม ratio)
+     Article inline  → .img-inline  (ไม่ crop, จำกัด max-height)
+     
+     แนวนอน (landscape) ─ ratio กว้าง → ความสูงจะน้อยกว่า
+     แนวตั้ง (portrait)  ─ ratio สูง  → ความสูงจะมากกว่า แต่ไม่เกิน max
+  ─────────────────────────────────────────────────────────────────── */
+
+  /* GALLERY THUMBNAIL — รองรับทุก ratio อัตโนมัติ ไม่ต้องกำหนดเอง
+     - width: 100%  → เต็มคอลัมน์เสมอ
+     - height: auto → ความสูงตาม ratio จริงของรูป (landscape สั้น, portrait สูง)
+     - max-height   → กันรูปแนวตั้งสูงเกินไป โดย cover ส่วนที่เกิน */
+  .img-thumb {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ARTICLE INLINE IMAGE — แสดงเต็มรูปไม่ crop แต่จำกัดขนาดไม่ให้ล้น */
+  .img-inline {
+    width: 100%;
+    display: block;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+    object-position: center;
+    background: rgba(255,255,255,0.4);
+    border-radius: 4px;
+  }
+  .img-inline.tall  { max-height: 520px; }
+  .img-inline.short { max-height: 220px; }
+  .article-img figcaption {
+    background: rgba(255,255,255,0.82);
+    font-size: 0.78rem;
+    color: var(--text-mute);
+    padding: 8px 12px;
+    line-height: 1.5;
+  }
+  .clearfix::after { content:''; display:table; clear:both; }
+
+  /* ─── GALLERY TABS ────────────────────────────────────────────── */
+  .gallery-head {
+    margin: 40px 0 0;
+    border-top: 1px solid rgba(180,160,220,0.2);
+    padding-top: 32px;
+  }
+  .gallery-head h3 {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    color: var(--text-mute);
+    margin-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .tab-btn {
+    padding: 7px 20px;
+    border-radius: 99px;
+    border: 1.5px solid rgba(160,140,200,0.35);
+    background: transparent;
+    color: var(--text-mute);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all .2s;
+    font-weight: 600;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: #fff;
+    border-color: transparent;
+  }
+
+  /* ─── MASONRY GALLERY ─────────────────────────────────────────── */
+  .masonry {
+    columns: 3;
+    column-gap: 12px;
+  }
+  @media (max-width: 640px) { .masonry { columns: 2; } }
+  @media (max-width: 380px) { .masonry { columns: 1; } }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    box-shadow: 0 3px 14px rgba(80,60,120,0.10);
+    transition: transform .25s, box-shadow .25s;
+    background: rgba(255,255,255,0.5);
+  }
+  .masonry-item:hover { transform: scale(1.025); box-shadow: 0 8px 30px rgba(80,60,120,0.20); }
+  .masonry-item img { width: 100%; display: block; }
+  .masonry-item .item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(40,30,70,0.55) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity .25s;
+    display: flex;
+    align-items: flex-end;
+    padding: 14px;
+  }
+  .masonry-item:hover .item-overlay { opacity: 1; }
+  .item-overlay span {
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  /* Video item */
+  .masonry-item.video-item .play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .play-icon svg {
+    width: 48px; height: 48px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    opacity: 0.88;
+    transition: opacity .2s, transform .2s;
+  }
+  .masonry-item:hover .play-icon svg { opacity: 1; transform: scale(1.1); }
+
+  /* tab panel */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ─── LIGHTBOX ────────────────────────────────────────────────── */
+  #lb-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(14,10,30,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #lb-overlay.open { display: flex; }
+
+  #lb-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+    z-index: 10;
+  }
+  #lb-close:hover { background: rgba(255,255,255,0.22); }
+
+  #lb-counter {
+    position: absolute;
+    top: 26px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.55);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+  }
+
+  #lb-content {
+    max-width: min(90vw, 1100px);
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  #lb-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    display: block;
+    object-fit: contain;
+  }
+  #lb-content video {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    display: block;
+  }
+
+  .lb-nav {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, transform .2s;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+  .lb-nav:hover { background: rgba(255,255,255,0.22); transform: translateY(-50%) scale(1.06); }
+  #lb-prev { left: -70px; }
+  #lb-next { right: -70px; }
+  @media (max-width: 700px) {
+    #lb-prev { left: 8px; }
+    #lb-next { right: 8px; }
+  }
+
+  #lb-caption {
+    margin-top: 18px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.9rem;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* ─── LOADING ANIMATION ───────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .s-block {
+    animation: fadeUp .6s ease both;
+  }
+  .s-block:nth-child(1) { animation-delay: .05s; }
+  .s-block:nth-child(2) { animation-delay: .15s; }
+  .s-block:nth-child(3) { animation-delay: .25s; }
+  .s-block:nth-child(4) { animation-delay: .35s; }
+
+  /* ─── RESPONSIVE ──────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .s-block { padding: 30px 20px; }
+    .article-img, .article-img.left {
+      float: none; width: 100%; margin: 0 0 20px;
+    }
+    #lb-prev { left: 4px; }
+    #lb-next { right: 4px; }
+  }
+
+  /* ─── SCROLL TOP ──────────────────────────────────────────────── */
+  #scroll-top {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(120,80,180,0.30);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s, transform .3s;
+    z-index: 100;
+  }
+  #scroll-top.show { opacity: 1; pointer-events: all; }
+  #scroll-top:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<div class="bg-fixed"></div>
+<div class="bg-noise"></div>
+
+<div class="page-wrap">
+
+
+  <!-- ─────────────────────────────────────────────
+       SECTION 1  (Photos only)
+  ──────────────────────────────────────────────── -->
+  
+
+  <!-- ─────────────────────────────────────────────
+       SECTION 2  (Photos + Videos)
+  ──────────────────────────────────────────────── -->
+  <section class="s-block">
+    <span class="s-tag" style="background:linear-gradient(90deg,#7fa8cc,#7fccaa)">Section 02</span>
+    <h2>กัมพูชาหมิ่นพระบรมเดชานุภาพราชวงศ์ไทย</h2>
+
+
+    <!-- Gallery with tabs -->
+    <div class="gallery-head">
+      <h3>📷 งานแต่งงาน</h3>
+      <div class="masonry" data-gallery="g1">
+        <!-- items injected by JS below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────
+       SECTION 3  (Photos only, different color)
+  ──────────────────────────────────────────────── -->
+  <h3><i>To be continue...</i></h3>
+
+</div><!-- /page-wrap -->
+
+<!-- ─── SCROLL TOP ──────────────────── -->
+<button id="scroll-top" title="กลับด้านบน">↑</button>
+
+<!-- ─── LIGHTBOX ──────────────────────────────────────────────── -->
+<div id="lb-overlay" role="dialog" aria-modal="true">
+  <button id="lb-close" title="ปิด (Esc)">✕</button>
+  <div id="lb-counter"></div>
+  <div id="lb-content" style="position:relative;">
+    <button class="lb-nav" id="lb-prev" title="ก่อนหน้า (←)">‹</button>
+    <div id="lb-media"></div>
+    <button class="lb-nav" id="lb-next" title="ถัดไป (→)">›</button>
+  </div>
+  <div id="lb-caption"></div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════
+   GALLERY DATA  — แก้ไขตรงนี้ที่เดียว
+   ──────────────────────────────────────────────────
+   รูปภาพ  →  ใส่แค่ path string ได้เลย
+              "photos/img001.jpg"
+
+   วิดีโอ  →  ต้องเป็น object
+              { type:"video", src:"videos/clip.mp4" }
+              ใส่ thumb:"cover.jpg" ได้ถ้ามี ถ้าไม่มีจะ
+              ใช้ placeholder อัตโนมัติ
+════════════════════════════════════════════════════ */
+
+// ── placeholder helper — รับแค่ index, ไม่ต้องกำหนดขนาด ──────────
+// (ลบออกได้ทั้งหมดเมื่อใส่รูปจริง)
+const _sw = ["#c8b4e8","#b4d4e8","#b4e8ce","#e8d4b4","#e8b4c8","#d4e8b4","#b4c8e8","#e8c8b4","#c8e8e4","#d4b4e8"];
+function ph(i) {
+  const c = _sw[i % _sw.length];
+  return "data:image/svg+xml," + encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300">` +
+    `<rect fill="${c}" width="400" height="300"/>` +
+    `<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" ` +
+    `font-size="18" fill="rgba(255,255,255,0.9)" font-family="sans-serif">Photo ${i+1}</text>` +
+    `</svg>`);
+}
+
+// ── normalize: string → object (ใช้ใน buildGallery และ lightbox) ──
+function normalize(raw) {
+  if (typeof raw === "string") return { type:"image", src:raw };
+  if (!raw.type) raw.type = "image";
+  return raw;
+}
+
+// ══════════════════════════════════════════════════════════════════
+//  GALLERY DEFINITIONS  — แก้ไขตรงนี้ที่เดียว
+//  ใส่แค่ URL string:   "photos/img001.jpg"
+//  วิดีโอ:             { type:"video", src:"videos/clip.mp4" }
+//                       (ใส่ thumb:"cover.jpg" ด้วยได้ถ้ามี)
+// ══════════════════════════════════════════════════════════════════
+const GALLERIES = {
+  "g1": [
+
+    "images/lm/0a63c3c70406af0fce5b97d5c23c8071.jpeg",
+    "images/lm/6ecf0bde4db0de07ea1cb16e310e6cce.jpeg",
+    "images/lm/69547ab74e006aa31b2fb5954320f57f.jpeg",
+    "images/lm/1773725859713.jpg",
+    "images/lm/1773742971881.jpg",
+    "images/lm/att.0UMgz0J7f7wUKcDdvMBDK04ndixAYzsviN5gfRkc0Ns.jpg",
+    "images/lm/att.5bivFIjQF60iJl3iQn05PHV1Ud1UirPOrpzxCpOlJis.jpg",
+    "images/lm/att.5YJa9L2viYquvjQ15bT-O04P2wA8nYusjkb44iQsI-8.jpg",
+    "images/lm/att.BaOC6iIP13lPJw8BRR3uFLyWxIEiHU0AEvKy7365CBM.jpg",
+
+
+    "images/lm/657301384_4409090839350909_5098106344888762450_n.jpg",
+    "images/lm/657116087_4409091316017528_2701255873697171028_n.jpg",
+    "images/lm/656201632_4409091376017522_6596908100220278355_n.jpg",
+    "images/lm/655709393_35774055948908142_7167366434503783169_n.jpg",
+    "images/lm/654227584_35774055285574875_3246030098365593885_n.jpg",
+    "images/lm/656162176_10233286811664315_4178374909508050323_n.jpg",
+    "images/lm/656761688_4507508782906219_4954103736654210652_n.jpg",
+  ],
+  "g2": [
+    "images/wedding/518385870_1539539657378599_5050657838246095661_n.jpg",
+    "images/wedding/514426272_24202839292685512_2570870222044885711_n.jpg",
+    "images/wedding/633789371_1730813688251194_1684347241484857187_n.jpg",
+    "images/wedding/633992900_1730813774917852_3832947584056686422_n.jpg",
+    "images/wedding/633855980_1730813661584530_7891201408887983656_n.jpg",
+    "images/wedding/633748038_1730813671584529_3333237825827958264_n.jpg",
+  ],
+  "g2-videos": [
+    { type:"video", src:"", thumb:ph(0) },
+    { type:"video", src:"", thumb:ph(1) },
+    { type:"video", src:"", thumb:ph(2) },
+    { type:"video", src:"", thumb:ph(3) },
+  ],
+  "g3": [
+    ph(0), ph(1), ph(2), ph(3), ph(4), ph(5), ph(6),
+  ],
+};
+
+/* ════════════════════════════════════════════════════
+   BUILD MASONRY ITEMS
+════════════════════════════════════════════════════ */
+const SVG_PLAY = `<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="30" cy="30" r="29" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <polygon points="24,18 46,30 24,42" fill="#4a3080"/>
+</svg>`;
+
+function buildGallery(containerId, items) {
+  const el = document.querySelector(`[data-gallery="${containerId}"]`);
+  if (!el) return;
+  el.innerHTML = "";
+  items.forEach((raw, idx) => {
+    const item = normalize(raw);
+    const div = document.createElement("div");
+    div.className = "masonry-item" + (item.type === "video" ? " video-item" : "");
+    const imgSrc = item.type === "video" ? (item.thumb || "") : item.src;
+    div.innerHTML =
+      `<img class="img-thumb" src="${imgSrc}" alt="" loading="lazy">` +
+      `<div class="item-overlay"></div>` +
+      (item.type === "video" ? `<div class="play-icon">${SVG_PLAY}</div>` : "");
+    div.addEventListener("click", () => openLightbox(containerId, idx));
+    el.appendChild(div);
+  });
+}
+
+Object.entries(GALLERIES).forEach(([id, items]) => buildGallery(id, items));
+
+/* ════════════════════════════════════════════════════
+   LIGHTBOX
+════════════════════════════════════════════════════ */
+let lbGallery = null, lbIndex = 0;
+
+function openLightbox(galleryId, idx) {
+  lbGallery = galleryId;
+  lbIndex   = idx;
+  renderLb();
+  document.getElementById("lb-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox() {
+  const ov = document.getElementById("lb-overlay");
+  ov.classList.remove("open");
+  document.body.style.overflow = "";
+  // stop any video
+  const vid = document.querySelector("#lb-media video");
+  if (vid) vid.pause();
+}
+function renderLb() {
+  const items = GALLERIES[lbGallery];
+  const item  = normalize(items[lbIndex]);
+  const media = document.getElementById("lb-media");
+  media.innerHTML = "";
+
+  if (item.type === "video") {
+    if (item.src) {
+      const v = document.createElement("video");
+      v.src = item.src; v.controls = true; v.autoplay = true;
+      media.appendChild(v);
+    } else {
+      // no src yet — show placeholder thumb + message
+      const img = document.createElement("img");
+      img.src = item.thumb;
+      const msg = document.createElement("p");
+      msg.style.cssText = "color:rgba(255,255,255,0.6);text-align:center;margin-top:12px;font-size:.85rem";
+      msg.textContent = "ยังไม่ได้ใส่ไฟล์วิดีโอ — แก้ไข src ใน GALLERIES ด้านบน";
+      media.appendChild(img); media.appendChild(msg);
+    }
+  } else {
+    const img = document.createElement("img");
+    img.src = item.src; img.alt = item.cap || "";
+    media.appendChild(img);
+  }
+
+  document.getElementById("lb-caption").textContent = item.cap || "";
+  document.getElementById("lb-counter").textContent =
+    `${lbIndex + 1} / ${items.length}`;
+
+  document.getElementById("lb-prev").style.visibility = lbIndex > 0 ? "visible" : "hidden";
+  document.getElementById("lb-next").style.visibility = lbIndex < items.length - 1 ? "visible" : "hidden";
+}
+function lbMove(dir) {
+  const items = GALLERIES[lbGallery];
+  lbIndex = Math.max(0, Math.min(items.length - 1, lbIndex + dir));
+  const vid = document.querySelector("#lb-media video");
+  if (vid) vid.pause();
+  renderLb();
+}
+
+document.getElementById("lb-close").addEventListener("click", closeLightbox);
+document.getElementById("lb-prev").addEventListener("click", () => lbMove(-1));
+document.getElementById("lb-next").addEventListener("click", () => lbMove(+1));
+document.getElementById("lb-overlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("lb-overlay")) closeLightbox();
+});
+document.addEventListener("keydown", e => {
+  if (!document.getElementById("lb-overlay").classList.contains("open")) return;
+  if (e.key === "Escape")     closeLightbox();
+  if (e.key === "ArrowLeft")  lbMove(-1);
+  if (e.key === "ArrowRight") lbMove(+1);
+});
+
+/* ════════════════════════════════════════════════════
+   INLINE ARTICLE IMAGES → also open lightbox
+════════════════════════════════════════════════════ */
+document.querySelectorAll(".article-img[data-lb]").forEach(fig => {
+  fig.style.cursor = "pointer";
+  fig.addEventListener("click", () => {
+    try {
+      const d = JSON.parse(fig.dataset.lb);
+      // inject a one-item temp gallery
+      const tmpId = "_tmp_" + Math.random().toString(36).slice(2);
+      GALLERIES[tmpId] = [{ type: d.type, src: d.src, cap: d.caption }];
+      openLightbox(tmpId, 0);
+    } catch(e){}
+  });
+});
+
+/* ════════════════════════════════════════════════════
+   TABS
+════════════════════════════════════════════════════ */
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.dataset.tab;
+    const section  = btn.closest(".s-block");
+    section.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    section.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(targetId).classList.add("active");
+  });
+});
+
+/* ════════════════════════════════════════════════════
+   SCROLL TOP
+════════════════════════════════════════════════════ */
+const scrollBtn = document.getElementById("scroll-top");
+window.addEventListener("scroll", () => {
+  scrollBtn.classList.toggle("show", window.scrollY > 400);
+});
+scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+</script>
+</body>
+</html>

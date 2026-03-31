@@ -10,8 +10,9 @@ Or execute the SQL manually in your DB client.
 
 ## Tables
 
-- **licenses** – Stores license validation results (upserted on each successful validation)
+- **licenses** – Stores license validation results (Envato /api/validate)
 - **license_validation_logs** – Optional audit log of every validation attempt
+- **ovcd_licenses** – Plugin domain activation (404 Slimmer etc.) for `/api/v1/activate`. Run `sql/ovcd_licenses.sql` if you use that endpoint.
 
 ## Environment
 
