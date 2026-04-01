@@ -461,9 +461,26 @@
     <h2>กัมพูชาหมิ่นพระบรมเดชานุภาพราชวงศ์ไทย</h2>
 
 
+    <div style="
+  background: #c0392b;
+  color: #fff;
+  border-radius: 10px;
+  padding: 24px 32px;
+  margin: 20px 0 28px;
+  font-size: 2.45rem;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  border-left: 6px solid #922b21;
+">
+  ⚠️ คำเตือน: เนื้อหาในส่วนนี้มีภาพที่อาจสร้างความไม่สบายใจ
+  เพื่อใช้เป็นหลักฐานนำเสนอต่อหน่วยงานราชการเพื่อการปกป้องสถาบันและราชวงศ์เท่านั้น มิได้มีเจตนาอื่น
+</div>
+
+
     <!-- Gallery with tabs -->
     <div class="gallery-head">
-      <h3>📷 งานแต่งงาน</h3>
+      <h3>📷 ภาพหมิ่นพระบรมเดชานุภาพและหมิ่นราชวงศ์</h3>
       <div class="masonry" data-gallery="g1">
         <!-- items injected by JS below -->
       </div>
@@ -473,7 +490,6 @@
   <!-- ─────────────────────────────────────────────
        SECTION 3  (Photos only, different color)
   ──────────────────────────────────────────────── -->
-  <h3><i>To be continue...</i></h3>
 
 </div><!-- /page-wrap -->
 
@@ -493,6 +509,19 @@
 </div>
 
 <script>
+    const BASE = location.protocol === 'file:' ? '' : '/present/';
+  // fix hardcoded /present/ ใน <img src> ทั้งหมด
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('img[src^="/present/"]').forEach(img => {
+      img.setAttribute('src', 
+        img.getAttribute('src').replace('/present/', BASE)
+      );
+    });
+  });
+
+  const resolveSrc = src =>
+  (src && !src.startsWith('data:') && !src.startsWith('http'))
+    ? BASE + src : src;
 /* ════════════════════════════════════════════════════
    GALLERY DATA  — แก้ไขตรงนี้ที่เดียว
    ──────────────────────────────────────────────────
@@ -534,41 +563,57 @@ function normalize(raw) {
 const GALLERIES = {
   "g1": [
 
-    "/present/images/lm/0a63c3c70406af0fce5b97d5c23c8071.jpeg",
-    "/present/images/lm/6ecf0bde4db0de07ea1cb16e310e6cce.jpeg",
-    "/present/images/lm/69547ab74e006aa31b2fb5954320f57f.jpeg",
-    "/present/images/lm/1773725859713.jpg",
-    "/present/images/lm/1773742971881.jpg",
-    "/present/images/lm/att.0UMgz0J7f7wUKcDdvMBDK04ndixAYzsviN5gfRkc0Ns.jpg",
-    "/present/images/lm/att.5bivFIjQF60iJl3iQn05PHV1Ud1UirPOrpzxCpOlJis.jpg",
-    "/present/images/lm/att.5YJa9L2viYquvjQ15bT-O04P2wA8nYusjkb44iQsI-8.jpg",
-    "/present/images/lm/att.BaOC6iIP13lPJw8BRR3uFLyWxIEiHU0AEvKy7365CBM.jpg",
+    "images/lm/6ecf0bde4db0de07ea1cb16e310e6cce.jpeg",
+    "images/lm/69547ab74e006aa31b2fb5954320f57f.jpeg",
+    "images/lm/1773725859713.jpg",
+    "images/lm/1773742971881.jpg",
+    "images/lm/att.0UMgz0J7f7wUKcDdvMBDK04ndixAYzsviN5gfRkc0Ns.jpg",
+    "images/lm/att.5YJa9L2viYquvjQ15bT-O04P2wA8nYusjkb44iQsI-8.jpg",
+    "images/lm/att.BaOC6iIP13lPJw8BRR3uFLyWxIEiHU0AEvKy7365CBM.jpg",
 
 
-    "/present/images/lm/657301384_4409090839350909_5098106344888762450_n.jpg",
-    "/present/images/lm/657116087_4409091316017528_2701255873697171028_n.jpg",
-    "/present/images/lm/656201632_4409091376017522_6596908100220278355_n.jpg",
-    "/present/images/lm/655709393_35774055948908142_7167366434503783169_n.jpg",
-    "/present/images/lm/654227584_35774055285574875_3246030098365593885_n.jpg",
-    "/present/images/lm/656162176_10233286811664315_4178374909508050323_n.jpg",
-    "/present/images/lm/656761688_4507508782906219_4954103736654210652_n.jpg",
-  ],
-  "g2": [
-    "/present/images/wedding/518385870_1539539657378599_5050657838246095661_n.jpg",
-    "/present/images/wedding/514426272_24202839292685512_2570870222044885711_n.jpg",
-    "/present/images/wedding/633789371_1730813688251194_1684347241484857187_n.jpg",
-    "/present/images/wedding/633992900_1730813774917852_3832947584056686422_n.jpg",
-    "/present/images/wedding/633855980_1730813661584530_7891201408887983656_n.jpg",
-    "/present/images/wedding/633748038_1730813671584529_3333237825827958264_n.jpg",
-  ],
-  "g2-videos": [
-    { type:"video", src:"", thumb:ph(0) },
-    { type:"video", src:"", thumb:ph(1) },
-    { type:"video", src:"", thumb:ph(2) },
-    { type:"video", src:"", thumb:ph(3) },
-  ],
-  "g3": [
-    ph(0), ph(1), ph(2), ph(3), ph(4), ph(5), ph(6),
+    "images/lm/657301384_4409090839350909_5098106344888762450_n.jpg",
+    "images/lm/657116087_4409091316017528_2701255873697171028_n.jpg",
+    "images/lm/656201632_4409091376017522_6596908100220278355_n.jpg",
+    "images/lm/655709393_35774055948908142_7167366434503783169_n.jpg",
+    "images/lm/654227584_35774055285574875_3246030098365593885_n.jpg",
+    "images/lm/656162176_10233286811664315_4178374909508050323_n.jpg",
+    "images/lm/656761688_4507508782906219_4954103736654210652_n.jpg",
+
+    "images/lm/2/2781f3c958d51cc6f55869a4eeceb14a.jpeg",
+    "images/lm/2/066797273d3026fc5d53868f567b93f0.jpeg",
+    "images/lm/2/7449b09c0d461b0e92d1480c43613058.jpeg",
+    "images/lm/2/299677e6615919b4a78b892d8c5a87c0.jpeg",
+    "images/lm/2/25ac62974437876a354c13b14d636f0c.jpeg",
+    "images/lm/2/4c0563c3ec00497e84c79a5bc6ac1ec1.jpeg",
+    "images/lm/2/IMG_3469.PNG",
+    "images/lm/2/IMG_1305.PNG",
+    "images/lm/2/IMG_1309.PNG",
+    "images/lm/2/IMG_1306.PNG",
+    "images/lm/2/IMG_1307.PNG",
+    "images/lm/2/att.kSYdRc3A3FOH5Ew-6Ib8E6W1P6RIAy0KhICOSd1sIGM.jpg",
+    "images/lm/2/att.SQM_mhyXDEIley5sMMg9Avuvo9QnFeIYneOSH-w1K0w.jpg",
+    "images/lm/2/att.PGrj0YuAhjt5Ypnwzshn9tzJx56Bb4biWW8DjK7xIvc.jpg",
+    "images/lm/2/att.EYovC-8Fz7h_sW-Tbcd1UWpJM4LQ_jl43bezCGjSAfE.jpg",
+    "images/lm/2/att.lsqSs5NWnm03KDJnd2T0KKU3v57aB2qxIlafuaS8CJw.jpg",
+    "images/lm/2/att.PMlvhdzivG1P--NIuntHtjfkBl1oD4bus-w3OynFv0g.jpg",
+    "images/lm/2/att.SAKS2jLmTOS7OJS92OF2C9XQgjthms5k5ha0JgIZs30.jpg",
+    "images/lm/2/att.uBqWGku-Hysw9KVP1TpCkIcqWeKZ-ClMWODP__SLs74.jpg",
+    "images/lm/2/IMG_1324.PNG",
+    "images/lm/2/IMG_3778.PNG",
+    "images/lm/2/IMG_3788.PNG",
+    "images/lm/2/IMG_3767.PNG",
+    "images/lm/2/att.5bivFIjQF60iJl3iQn05PHV1Ud1UirPOrpzxCpOlJis.jpg",
+    "images/lm/2/4ee58a93317294bd1761f84a1d02e969.jpeg",
+    "images/lm/2/IMG_4108.PNG",
+    "images/lm/2/att.0UMgz0J7f7wUKcDdvMBDK04ndixAYzsviN5gfRkc0Ns.jpg",
+    "images/lm/2/att.evT9BM-ftA1xITbnGqeNOGBfqQD2sQvyFhCW1w4SsTY.jpg",
+    "images/lm/2/att.BaOC6iIP13lPJw8BRR3uFLyWxIEiHU0AEvKy7365CBM.jpg",
+    "images/lm/2/Screenshot 2569-04-01 at 11.37.27.png",
+    "images/lm/2/617571182_859352923667339_151243982429860372_n.jpg",
+    "images/lm/2/Screenshot 2569-04-01 at 12.07.32.png",
+    "images/lm/2/Screenshot 2569-04-01 at 12.17.38.png",
+    "images/lm/2/Screenshot 2569-04-01 at 12.19.40.png",
   ],
 };
 
@@ -588,7 +633,8 @@ function buildGallery(containerId, items) {
     const item = normalize(raw);
     const div = document.createElement("div");
     div.className = "masonry-item" + (item.type === "video" ? " video-item" : "");
-    const imgSrc = item.type === "video" ? (item.thumb || "") : item.src;
+    //const imgSrc = item.type === "video" ? (item.thumb || "") : item.src;   
+    const imgSrc = resolveSrc(item.type === "video" ? (item.thumb || "") : item.src);
     div.innerHTML =
       `<img class="img-thumb" src="${imgSrc}" alt="" loading="lazy">` +
       `<div class="item-overlay"></div>` +
@@ -629,12 +675,14 @@ function renderLb() {
   if (item.type === "video") {
     if (item.src) {
       const v = document.createElement("video");
-      v.src = item.src; v.controls = true; v.autoplay = true;
+      //v.src = item.src; v.controls = true; v.autoplay = true;
+      v.src = resolveSrc(item.src);
       media.appendChild(v);
     } else {
       // no src yet — show placeholder thumb + message
       const img = document.createElement("img");
-      img.src = item.thumb;
+      //img.src = item.thumb;
+      img.src = resolveSrc(item.thumb);
       const msg = document.createElement("p");
       msg.style.cssText = "color:rgba(255,255,255,0.6);text-align:center;margin-top:12px;font-size:.85rem";
       msg.textContent = "ยังไม่ได้ใส่ไฟล์วิดีโอ — แก้ไข src ใน GALLERIES ด้านบน";
@@ -642,7 +690,8 @@ function renderLb() {
     }
   } else {
     const img = document.createElement("img");
-    img.src = item.src; img.alt = item.cap || "";
+    //img.src = item.src; img.alt = item.cap || "";
+    img.src = resolveSrc(item.src);
     media.appendChild(img);
   }
 
