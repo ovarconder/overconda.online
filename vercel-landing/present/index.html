@@ -465,7 +465,7 @@
       <figure class="article-img"
         data-lb='{"type":"image","src":"data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%22520%22 height%3D%22360%22%3E%3Crect fill%3D%22%23d9c8f0%22 width%3D%22520%22 height%3D%22360%22/%3E%3Ctext x%3D%2250%25%22 y%3D%2250%25%22 dominant-baseline%3D%22middle%22 text-anchor%3D%22middle%22 font-size%3D%2222%22 fill%3D%22%238060b0%22 font-family%3D%22sans-serif%22%3EInline Image 1%3C/text%3E%3C/svg%3E","caption":"ภาพประกอบในบทความ ส่วนที่ 1"}'
       >
-        <img class="img-inline" src="/present/images/sc1-title.jpg" >
+        <img class="img-inline" src="images/sc1-title.jpg" >
       </figure>
 
       <p>>การอ้างสิทธิ์วัฒนธรรมไทยของกัมพูชามิได้เกิดจากประชาชนทั่วไปเพียงอย่างเดียว แต่มีรากฐานมาจากผู้นำระดับสูงและได้รับการสนับสนุนอย่างเป็นระบบจากทางการ ไม่ว่าจะเป็นการบรรจุในหลักสูตรการศึกษา การใช้เวทีนางงามและสัมมนาระดับชาติ รวมถึงการผลิตเนื้อหาโซเชียลมีเดียที่มีรัฐหนุนหลัง ซึ่งดำเนินมาอย่างต่อเนื่องและเข้มข้นขึ้นเรื่อยๆ</p>
@@ -491,7 +491,7 @@
       <figure class="article-img left"
         data-lb='{"type":"image","src":"data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%22520%22 height%3D%22400%22%3E%3Crect fill%3D%22%23c8e0f0%22 width%3D%22520%22 height%3D%22400%22/%3E%3Ctext x%3D%2250%25%22 y%3D%2250%25%22 dominant-baseline%3D%22middle%22 text-anchor%3D%22middle%22 font-size%3D%2222%22 fill%3D%22%23406080%22 font-family%3D%22sans-serif%22%3EInline Image 2%3C/text%3E%3C/svg%3E","caption":"ภาพประกอบในบทความ ส่วนที่ 2"}'
       >
-        <img class="img-inline" src="/present/images/wedding/518385870_1539539657378599_5050657838246095661_n.jpg" >
+        <img class="img-inline" src="images/wedding/518385870_1539539657378599_5050657838246095661_n.jpg" >
       </figure>
 
       <p>กัมพูชาสอดแทรกชุดไทยในคำขอขึ้นทะเบียน UNESCO ทั้งที่มีหลักฐานทางประวัติศาสตร์ชัดเจนว่าเครื่องแต่งกายดังกล่าวเป็นของไทยมาช้านาน และกัมพูชาเองเคยห้ามสวมใส่ที่นครวัดมาก่อน</p>
@@ -537,6 +537,19 @@
 </div>
 
 <script>
+  const BASE = location.protocol === 'file:' ? '' : '/present/';
+  // fix hardcoded /present/ ใน <img src> ทั้งหมด
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('img[src^="/present/"]').forEach(img => {
+      img.setAttribute('src', 
+        img.getAttribute('src').replace('/present/', BASE)
+      );
+    });
+  });
+
+  const resolveSrc = src =>
+  (src && !src.startsWith('data:') && !src.startsWith('http'))
+    ? BASE + src : src;
 /* ════════════════════════════════════════════════════
    GALLERY DATA  — แก้ไขตรงนี้ที่เดียว
    ──────────────────────────────────────────────────
@@ -577,47 +590,112 @@ function normalize(raw) {
 // ══════════════════════════════════════════════════════════════════
 const GALLERIES = {
   "g1": [
-    "/present/images/655647419_10232187999030308_4672403563905987749_n.jpg",
-    "/present/images/lyhyvx29ir83JtPhzWA-o.jpeg",
-    "/present/images/654726494_1487115146107660_1521295329253034828_n.jpg",
-    "/present/images/655219625_1487119262773915_5612854895969365221_n.jpg",
-    "/present/images/jenna.jpeg",
-    "/present/images/jenna2.jpeg",
-    "/present/images/494905234_1509560297123053_153067546298900001_n.jpg",
+    
+    "images/claim/657233087_122254603220168524_3172696446865156786_n.jpg",
+    "images/655647419_10232187999030308_4672403563905987749_n.jpg",
+    "images/lyhyvx29ir83JtPhzWA-o.jpeg",
+    "images/654726494_1487115146107660_1521295329253034828_n.jpg",
+    "images/655219625_1487119262773915_5612854895969365221_n.jpg",
+    "images/jenna.jpeg",
+    "images/jenna2.jpeg",
+    "images/494905234_1509560297123053_153067546298900001_n.jpg",
+    "images/claim/660543458_26834281899529048_2066733402974434361_n.jpg",
+    "images/claim/660780440_26834277466196158_4519271285780395524_n.jpg",
+    "images/claim/658784773_26834293949527843_925830824085117770_n.jpg",
+    "images/claim/662525255_26834287306195174_1573485932021124742_n.jpg",
+    "images/claim/660240467_26834292396194665_2568839137712304745_n.jpg",
+    "images/claim/662686805_26834291902861381_3388522287251472050_n.jpg",
+    "images/claim/660136994_26831533406470564_3844168424351576225_n.jpg",
+    "images/claim/FB_IMG_1774963540497.jpg",
+    "images/claim/660935514_26832962859660952_1693257709622045564_n.jpg",
+    "images/claim/659052230_26832816129675625_5008368099044457707_n.jpg",
+    "images/claim/658153200_26832962882994283_5215608605345155619_n.jpg",
+    "images/claim/658924456_26833137102976861_8563145340921074174_n.jpg",
+    "images/claim/661197255_26833136742976897_831481419388530192_n.jpg",
+    "images/claim/660455599_26833136909643547_425673268890911668_n.jpg",
+    "images/claim/658814256_26833148562975715_5224992951983068737_n.jpg",
+    "images/claim/658403764_26833149286308976_3679160716731444281_n.jpg",
+    "images/claim/657339694_26833149089642329_8885870680804711879_n.jpg",
+    "images/claim/658914085_26833149052975666_1627797624287399639_n.jpg",
+    "images/claim/658525896_26833149509642287_8947136916273659331_n.jpg",
+    "images/claim/659683808_26833149382975633_1139355447782145065_n.jpg",
+    "images/claim/662891774_26833148402975731_7745952884938984972_n.jpg",
+    "images/claim/642219740_26492694727021102_136364094349134243_n.jpg",
+    "images/claim/641489991_26492694783687763_4383290594789166106_n.jpg",
+    "images/claim/641313881_26492702960353612_4571025886483446578_n.jpg",
+    "images/claim/640928277_26492703113686930_120362279988713246_n.jpg",
+    "images/claim/643853313_26492703293686912_917450766273384529_n.jpg",
+    "images/claim/642396436_26492704503686791_58678388404909074_n.jpg",
+    "images/claim/643759009_26492704657020109_1767869776016311348_n.jpg",
+    "images/claim/643762612_26492705110353397_8953226347852858226_n.jpg",
+    "images/claim/641439961_26492705573686684_367297685223475216_n.jpg",
+    "images/claim/640928623_26492705750353333_7134261113117778423_n.jpg",
+    "images/claim/641646988_26492706360353272_8235950072737015713_n.jpg",
+    "images/claim/641373128_26492706433686598_3761565505341849741_n.jpg",
+    "images/claim/643440853_26492706757019899_69239767738470350_n.jpg",
+    "images/claim/642845165_26492707217019853_9185609383844917366_n.jpg",
+    "images/claim/641479631_26492708230353085_6684997611912148996_n.jpg",
+    "images/claim/642417207_26492710810352827_722715554312136860_n.jpg",
+    "images/claim/641423643_26492702637020311_5733125112754662805_n.jpg",
+    "images/claim/642487358_26492703660353542_2884205089256323610_n.jpg",
+    "images/claim/643419022_26492701593687082_1495912151233634148_n.jpg",
+    "images/claim/643695752_26492701793687062_8729544309174919724_n.jpg",
+    "images/claim/642398547_26492702780353630_7789915209923971904_n.jpg",
+    "images/claim/643765298_26492706270353281_4287620517393944962_n.jpg",
+    "images/claim/641471962_26492721667018408_8568667811417731025_n.jpg",
+    "images/claim/643810786_26492723513684890_1592567720767768607_n.jpg",
+    "images/claim/640286212_26492725157018059_8318779099790375615_n.jpg",
+    "images/claim/643328734_26492728543684387_8660675333897433636_n.jpg",
+    "images/claim/642394603_26492722377018337_6711576811805869330_n.jpg",
+    "images/claim/641637844_26492727183684523_9047691047676267226_n.jpg",
+    "images/claim/643419199_26492726133684628_6299132195694827716_n.jpg",
+    "images/claim/641503037_26492722013685040_263083168971652385_n.jpg",
+    "images/claim/644080318_26492725797017995_5495698017567074748_n.jpg",
+    "images/claim/641279299_26492721803685061_8166089769733886759_n.jpg",
+    "images/claim/643448252_26492724990351409_9049179233737559251_n.jpg",
+    "images/claim/642385489_26492723150351593_6196466270837045328_n.jpg",
+    "images/claim/642742861_26492727530351155_8589314509948154517_n.jpg",
+    "images/claim/643683192_26492726437017931_4799045168853324612_n.jpg",
+    "images/claim/643430277_26492762323681009_8235518233848235162_n.jpg",
+    "images/claim/641386426_26492758120348096_8982732989545552872_n.jpg",
+    "images/claim/641536790_26492757300348178_8178660986528351162_n.jpg",
   ],
   "g2": [
-    "/present/images/wedding/518385870_1539539657378599_5050657838246095661_n.jpg",
-    "/present/images/wedding/514426272_24202839292685512_2570870222044885711_n.jpg",
-    "/present/images/wedding/old/592855839_1184364607001210_7342766850142834484_n.jpg",
-    "/present/images/wedding/old/592460045_1183366970434307_3331611041743072261_n.jpg",
-    "/present/images/wedding/old/615143807_1212491267521877_3397948687520478320_n.jpg",
-    "/present/images/wedding/old/515925540_3954403008169209_2961269799385408590_n.jpg",
-    "/present/images/wedding/old/516532307_3954403274835849_6649866483484491928_n.jpg",
-    "/present/images/wedding/old/516656959_3954403551502488_3331162864978434956_n.jpg",
-    "/present/images/wedding/old/516875889_3954403634835813_3097731756624555737_n.jpg",
-    "/present/images/wedding/old/516929533_3954403771502466_7843559145473305081_n.jpg",
-    "/present/images/wedding/old/515865096_3954404068169103_7432360565589994897_n.jpg",
-    "/present/images/wedding/old/517133243_3954404184835758_6180910165955516426_n.jpg",
-    "/present/images/wedding/old/515971412_3954404408169069_1455117828359995073_n.jpg",
-    "/present/images/wedding/old/515932198_3954404468169063_2544581509125947583_n.jpg",
-    "/present/images/wedding/old/516499541_3954404508169059_4125231247044374152_n.jpg",
-    "/present/images/wedding/old/515581676_3954404604835716_4138917257894895755_n.jpg",
-    "/present/images/wedding/old/516444556_3954404741502369_7806288908951624175_n.jpg",
+    "images/wedding/518385870_1539539657378599_5050657838246095661_n.jpg",
+    "images/wedding/514426272_24202839292685512_2570870222044885711_n.jpg",
+    "images/wedding/old/592855839_1184364607001210_7342766850142834484_n.jpg",
+    "images/wedding/old/592460045_1183366970434307_3331611041743072261_n.jpg",
+    "images/wedding/old/615143807_1212491267521877_3397948687520478320_n.jpg",
+    "images/wedding/old/515925540_3954403008169209_2961269799385408590_n.jpg",
+    "images/wedding/old/516532307_3954403274835849_6649866483484491928_n.jpg",
+    "images/wedding/old/516656959_3954403551502488_3331162864978434956_n.jpg",
+    "images/wedding/old/516875889_3954403634835813_3097731756624555737_n.jpg",
+    "images/wedding/old/516929533_3954403771502466_7843559145473305081_n.jpg",
+    "images/wedding/old/515865096_3954404068169103_7432360565589994897_n.jpg",
+    "images/wedding/old/517133243_3954404184835758_6180910165955516426_n.jpg",
+    "images/wedding/old/515971412_3954404408169069_1455117828359995073_n.jpg",
+    "images/wedding/old/515932198_3954404468169063_2544581509125947583_n.jpg",
+    "images/wedding/old/516499541_3954404508169059_4125231247044374152_n.jpg",
+    "images/wedding/old/515581676_3954404604835716_4138917257894895755_n.jpg",
+    "images/wedding/old/516444556_3954404741502369_7806288908951624175_n.jpg",
 ],
 "g2-2": [
-    "/present/images/wedding/633789371_1730813688251194_1684347241484857187_n.jpg",
-    "/present/images/wedding/633992900_1730813774917852_3832947584056686422_n.jpg",
-    "/present/images/wedding/633855980_1730813661584530_7891201408887983656_n.jpg",
-    "/present/images/wedding/633748038_1730813671584529_3333237825827958264_n.jpg",
-    "/present/images/wedding/new/a3dfb9b63db63c93f5a9148d440d0899.jpg",
-    "/present/images/wedding/new/d877bd162c6b86df01401265fff2ee74.jpg",
-    "/present/images/wedding/new/3454f6295242062424f9eb2f64e141ad.jpg",
-    "/present/images/wedding/new/644508519_3398308050326438_1642143051846688093_n.jpg",
-    "/present/images/wedding/new/615106325_3348094095347834_4368972521213225918_n.jpg",
-    "/present/images/wedding/new/652427321_3419062661584310_65968659331676477_n.jpg",
-    "/present/images/wedding/new/555046947_798293539620176_6762027635616909298_n.jpg",
-    "/present/images/wedding/new/bc29694a121f156654ab66ca04809011.jpg",
-    "/present/images/wedding/new/Screenshot 2569-03-31 at 17.10.53.png",
+    "images/wedding/633789371_1730813688251194_1684347241484857187_n.jpg",
+    "images/wedding/633748038_1730813671584529_3333237825827958264_n.jpg",
+    "images/wedding/new/a3dfb9b63db63c93f5a9148d440d0899.jpg",
+    "images/wedding/new/d877bd162c6b86df01401265fff2ee74.jpg",
+    "images/wedding/new/3454f6295242062424f9eb2f64e141ad.jpg",
+    "images/wedding/new/644508519_3398308050326438_1642143051846688093_n.jpg",
+    "images/wedding/new/615106325_3348094095347834_4368972521213225918_n.jpg",
+    "images/wedding/new/652427321_3419062661584310_65968659331676477_n.jpg",
+    "images/wedding/new/555046947_798293539620176_6762027635616909298_n.jpg",
+    "images/wedding/new/bc29694a121f156654ab66ca04809011.jpg",
+    "images/wedding/new/Screenshot 2569-03-31 at 17.10.53.png",
+  ],
+  "g2-unesco": [
+
+    "images/wedding/633992900_1730813774917852_3832947584056686422_n.jpg",
+    "images/wedding/633855980_1730813661584530_7891201408887983656_n.jpg",
   ],
   "g2-videos": [
     { type:"video", src:"", thumb:ph(0) },
@@ -646,7 +724,9 @@ function buildGallery(containerId, items) {
     const item = normalize(raw);
     const div = document.createElement("div");
     div.className = "masonry-item" + (item.type === "video" ? " video-item" : "");
-    const imgSrc = item.type === "video" ? (item.thumb || "") : item.src;
+    //const imgSrc = item.type === "video" ? (item.thumb || "") : item.src;
+    //const imgSrc = BASE + (item.type === "video" ? (item.thumb || "") : item.src);
+    const imgSrc = resolveSrc(item.type === "video" ? (item.thumb || "") : item.src);
     div.innerHTML =
       `<img class="img-thumb" src="${imgSrc}" alt="" loading="lazy">` +
       `<div class="item-overlay"></div>` +
@@ -679,6 +759,7 @@ function closeLightbox() {
   if (vid) vid.pause();
 }
 function renderLb() {
+
   const items = GALLERIES[lbGallery];
   const item  = normalize(items[lbIndex]);
   const media = document.getElementById("lb-media");
@@ -687,12 +768,14 @@ function renderLb() {
   if (item.type === "video") {
     if (item.src) {
       const v = document.createElement("video");
-      v.src = item.src; v.controls = true; v.autoplay = true;
+      //v.src = item.src; v.controls = true; v.autoplay = true;
+      v.src = resolveSrc(item.src);
       media.appendChild(v);
     } else {
       // no src yet — show placeholder thumb + message
       const img = document.createElement("img");
-      img.src = item.thumb;
+      //img.src = item.thumb;
+      img.src = resolveSrc(item.thumb);
       const msg = document.createElement("p");
       msg.style.cssText = "color:rgba(255,255,255,0.6);text-align:center;margin-top:12px;font-size:.85rem";
       msg.textContent = "ยังไม่ได้ใส่ไฟล์วิดีโอ — แก้ไข src ใน GALLERIES ด้านบน";
@@ -700,7 +783,8 @@ function renderLb() {
     }
   } else {
     const img = document.createElement("img");
-    img.src = item.src; img.alt = item.cap || "";
+    //img.src = item.src; img.alt = item.cap || "";
+    img.src = resolveSrc(item.src);
     media.appendChild(img);
   }
 
