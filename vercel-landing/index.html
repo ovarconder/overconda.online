@@ -148,12 +148,30 @@
                         <p class="text-sm font-medium text-slate-400" data-i18n="ui.morePlugins">More plugins</p>
                         <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.comingSoon">Coming Soon</p>
                     </article>
-                    <article class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-950/40 flex flex-col items-center justify-center min-h-[200px] p-6 text-center" aria-hidden="true">
-                        <div class="w-12 h-12 rounded-2xl border border-slate-600 flex items-center justify-center text-slate-500 mb-3">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                        </div>
-                        <p class="text-sm font-medium text-slate-400" data-i18n="ui.newProduct">New product</p>
-                        <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="ui.stayTuned">Stay tuned</p>
+                    <article class="group rounded-2xl border border-slate-800/80 bg-slate-950/60 hover:border-cyan-500/80 hover:bg-slate-900/80 transition overflow-hidden flex flex-col">
+                        <a href="/projects/404-slimmer/" class="flex flex-col flex-1">
+                            <div class="relative overflow-hidden">
+                                <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-cyan-500/10 via-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="aspect-[16/6] bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800/80 flex items-center justify-between px-4 py-3">
+                                    <div class="space-y-1">
+                                        <p class="text-[11px] font-mono uppercase tracking-[0.2em] text-slate-500">WP Plugin · 404 Error Manager</p>
+                                        <h5 class="text-sm md:text-base font-semibold line-clamp-2">404 Slimmer</h5>
+                                    </div>
+                                    <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-medium border bg-emerald-500/10 text-emerald-300 border-emerald-500/40" data-i18n="ui.availableNow">Available</span>
+                                </div>
+                            </div>
+                            <div class="p-4 flex flex-col gap-3 flex-1">
+                                <p class="text-xs text-slate-300 leading-relaxed line-clamp-4" data-i18n="projects.wpPlugins.slimmerDesc">Lightweight 404 error manager – detect, log, and redirect broken links to reduce server load and improve SEO.</p>
+                                <div class="flex flex-wrap gap-1.5 mt-1">
+                                    <span class="inline-flex items-center rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] text-slate-300 border border-slate-700/80">404 Logging</span>
+                                    <span class="inline-flex items-center rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] text-slate-300 border border-slate-700/80">Redirects</span>
+                                    <span class="inline-flex items-center rounded-full bg-slate-900/80 px-2 py-0.5 text-[10px] text-slate-300 border border-slate-700/80">SEO</span>
+                                </div>
+                                <div class="mt-auto pt-2 text-[11px] text-slate-400">
+                                    <span class="inline-flex items-center gap-1"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400/90"></span> <span data-i18n="projects.wpPlugins.slimmerFocus">Free &amp; Pro plans available</span></span>
+                                </div>
+                            </div>
+                        </a>
                     </article>
                 </div>
             </div>
@@ -244,6 +262,9 @@
             <span><span data-i18n="footer.rights">© Overconda Lab. All rights reserved.</span> <span id="year"></span></span>
             <div class="flex flex-wrap gap-3 items-center">
                 <a href="https://overconda.space/license-validation" class="inline-flex items-center gap-1 rounded-full border border-slate-700 px-2.5 py-1 hover:border-cyan-400 hover:text-cyan-200 transition" data-i18n="nav.license">License Validation</a>
+                <a href="/legal/terms" class="hover:text-cyan-200 transition" data-i18n="footer.terms">Terms</a>
+                <a href="/legal/privacy" class="hover:text-cyan-200 transition" data-i18n="footer.privacy">Privacy</a>
+                <a href="/legal/refund" class="hover:text-cyan-200 transition" data-i18n="footer.refund">Refund</a>
                 <span data-i18n="footer.built">Built with HTML &amp; Tailwind CSS · overconda.space</span>
             </div>
         </div>
@@ -258,20 +279,20 @@
             nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', about: 'About', coreConcept: 'Core Concept', projects: 'Projects', contact: 'Contact', license: 'License Validation', licenseShort: 'License' },
             hero: { eyebrow: 'WordPress Plugins · Problem Solving First', title: 'Building <span class="text-cyan-400">real</span> tools for the IT world.', subtitle: 'I\'m <span class="font-semibold text-slate-100">Overconda</span> – Developer &amp; Content Creator focused on <span class="text-cyan-300">IT Infrastructure &amp; WordPress Development</span>, designing tools that pinpoint problems before fixing them.', ctaProjects: 'Explore Projects', ctaWork: 'Work with Overconda', focus1: 'Focus: WordPress Plugins, Automation, Observability', focus2: 'Content: DevOps, Hosting, Best Practices' },
             coreConcept: { eyebrow: 'Core Concept', title: 'WordPress plugins that start with: "What\'s the real problem?"', intro: 'Every Overconda Lab product is <span class="text-sky-300">Problem-Solving First</span>: separate signal from noise, see the root cause clearly, then fix in a safe, measurable way.', card1: { title: 'See the problem before the whole site breaks', desc: 'Observability and logging to help devs, admins, and agencies tell whether issues come from plugins, theme, or hosting.' }, card2: { title: 'Respect WordPress core', desc: 'Honour hooks, filters, capabilities, and security so we don\'t add technical debt or odd side effects.' }, card3: { title: 'Built to scale and support long-term', desc: 'Clear layering and structure, ready to extend into SaaS, license servers, and marketplace integrations like Envato.' } },
-            projects: { eyebrow: 'Projects', title: 'What we build: plugins, software, and web services', intro: 'WordPress plugins, standalone tools, and web services. More items will appear here as they\'re ready.', wpPlugins: { title: 'WordPress Plugins', subtitle: 'Tools for Dev, Agency & Site Owners', conflictDetectiveDesc: 'The ultimate tool to identify and resolve plugin/theme conflicts in seconds.', focus: 'Focus on conflict detection' }, software: { title: 'Software & Tools', subtitle: 'Standalone apps, CLI tools, automation' }, webServices: { title: 'Web Services', subtitle: 'APIs, dashboards, integrations' } },
-            ui: { comingSoon: 'Coming Soon', morePlugins: 'More plugins', newProduct: 'New product', stayTuned: 'Stay tuned', licensingReady: 'Licensing & Support Ready', openLicense: 'Open License Validation', envatoStyle: 'Designed for Envato-style licensing.', softwarePlaceholder: 'Software projects', webServicesPlaceholder: 'Web services' },
+            projects: { eyebrow: 'Projects', title: 'What we build: plugins, software, and web services', intro: 'WordPress plugins, standalone tools, and web services. More items will appear here as they\'re ready.', wpPlugins: { title: 'WordPress Plugins', subtitle: 'Tools for Dev, Agency & Site Owners', conflictDetectiveDesc: 'The ultimate tool to identify and resolve plugin/theme conflicts in seconds.', focus: 'Focus on conflict detection', slimmerDesc: 'Lightweight 404 error manager – detect, log, and redirect broken links to reduce server load and improve SEO.', slimmerFocus: 'Free & Pro plans available' }, software: { title: 'Software & Tools', subtitle: 'Standalone apps, CLI tools, automation' }, webServices: { title: 'Web Services', subtitle: 'APIs, dashboards, integrations' } },
+            ui: { comingSoon: 'Coming Soon', morePlugins: 'More plugins', newProduct: 'New product', stayTuned: 'Stay tuned', availableNow: 'Available', licensingReady: 'Licensing & Support Ready', openLicense: 'Open License Validation', envatoStyle: 'Designed for Envato-style licensing.', softwarePlaceholder: 'Software projects', webServicesPlaceholder: 'Web services' },
             contact: { title: 'Contact & Collaboration', intro: 'Interested in working together, building plugins, or deep WordPress/Hosting debugging? Get in touch via the links below.' },
-            footer: { rights: '© Overconda Lab. All rights reserved.', built: 'Built with HTML & Tailwind CSS · overconda.space' }
+            footer: { rights: '© Overconda Lab. All rights reserved.', built: 'Built with HTML & Tailwind CSS · overconda.space', terms: 'Terms', privacy: 'Privacy', refund: 'Refund' }
         },
         th: {
             metaDescription: 'Overconda – Developer & Content Creator · IT & WordPress Development · ปลั๊กอินและบริการโฟกัสแก้ปัญหา.',
             nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', about: 'เกี่ยวกับ', coreConcept: 'แนวคิดหลัก', projects: 'โปรเจกต์', contact: 'ติดต่อ', license: 'ตรวจสอบ License', licenseShort: 'License' },
             hero: { eyebrow: 'WordPress Plugins · Problem Solving First', title: 'สร้างเครื่องมือ<span class="text-cyan-400">จริง</span>บนโลก IT', subtitle: 'ผมคือ <span class="font-semibold text-slate-100">Overconda</span> – Developer &amp; Content Creator โฟกัสด้าน <span class="text-cyan-300">IT Infrastructure &amp; WordPress Development</span> ออกแบบเครื่องมือจับปัญหาให้ชัด ก่อนลงมือแก้.', ctaProjects: 'ดูโปรเจกต์', ctaWork: 'ทำงานกับ Overconda', focus1: 'โฟกัส: WordPress Plugins, Automation, Observability', focus2: 'คอนเทนต์: DevOps, Hosting, Best Practices' },
             coreConcept: { eyebrow: 'Core Concept', title: 'WordPress Plugins ที่เริ่มจากคำถามว่า "ปัญหาคืออะไรแน่ๆ?"', intro: 'ทุกโปรดักต์จาก Overconda Lab ออกแบบแบบ <span class="text-sky-300">Problem-Solving First</span>: แยกสัญญาณจาก Noise มองเห็นต้นตอปัญหา แล้วค่อยแก้อย่างปลอดภัยและวัดผลได้.', card1: { title: 'มองเห็นปัญหา ก่อนล้มทั้ง Site', desc: 'ใช้ Observability และ Logging ช่วย Dev, Admin และ Agency แยกแยะว่าปัญหามาจาก Plugin, Theme หรือ Hosting.' }, card2: { title: 'เล่นกับ WordPress Core อย่างเคารพ', desc: 'เคารพ Hook, Filter, Capability และ Security ไม่สร้าง Technical Debt หรือ Side Effect แปลกๆ.' }, card3: { title: 'ออกแบบเพื่อ Scale และ Support ระยะยาว', desc: 'โครงสร้างแยกชั้นชัดเจน พร้อมต่อยอดเป็น SaaS, License Server และเชื่อม Marketplace อย่าง Envato.' } },
-            projects: { eyebrow: 'Projects', title: 'สิ่งที่เราสร้าง: ปลั๊กอิน, ซอฟต์แวร์ และเว็บเซอร์วิส', intro: 'WordPress plugins, เครื่องมือแยก และเว็บเซอร์วิส รายการจะเพิ่มเมื่อพร้อม.', wpPlugins: { title: 'WordPress Plugins', subtitle: 'เครื่องมือสำหรับ Dev, Agency และ Site Owner', conflictDetectiveDesc: 'เครื่องมือช่วยระบุและแก้ความขัดแย้ง plugin/theme ในไม่กี่วินาที.', focus: 'โฟกัสการตรวจจับความขัดแย้ง' }, software: { title: 'Software & Tools', subtitle: 'แอปแยกใช้, CLI, automation' }, webServices: { title: 'Web Services', subtitle: 'API, dashboard, integration' } },
-            ui: { comingSoon: 'เร็วๆ นี้', morePlugins: 'ปลั๊กอินเพิ่ม', newProduct: 'โปรดักต์ใหม่', stayTuned: 'รอติดตาม', licensingReady: 'Licensing & Support Ready', openLicense: 'เปิดหน้า License Validation', envatoStyle: 'ออกแบบสำหรับ licensing แบบ Envato.', softwarePlaceholder: 'โปรเจกต์ซอฟต์แวร์', webServicesPlaceholder: 'เว็บเซอร์วิส' },
+            projects: { eyebrow: 'Projects', title: 'สิ่งที่เราสร้าง: ปลั๊กอิน, ซอฟต์แวร์ และเว็บเซอร์วิส', intro: 'WordPress plugins, เครื่องมือแยก และเว็บเซอร์วิส รายการจะเพิ่มเมื่อพร้อม.', wpPlugins: { title: 'WordPress Plugins', subtitle: 'เครื่องมือสำหรับ Dev, Agency และ Site Owner', conflictDetectiveDesc: 'เครื่องมือช่วยระบุและแก้ความขัดแย้ง plugin/theme ในไม่กี่วินาที.', focus: 'โฟกัสการตรวจจับความขัดแย้ง', slimmerDesc: 'ตัวจัดการ 404 Error น้ำหนักเบา – ตรวจจับ บันทึก และ Redirect ลิงก์เสีย ลดภาระเซิร์ฟเวอร์และปรับปรุง SEO', slimmerFocus: 'มีแพลนฟรีและ Pro' }, software: { title: 'Software & Tools', subtitle: 'แอปแยกใช้, CLI, automation' }, webServices: { title: 'Web Services', subtitle: 'API, dashboard, integration' } },
+            ui: { comingSoon: 'เร็วๆ นี้', morePlugins: 'ปลั๊กอินเพิ่ม', newProduct: 'โปรดักต์ใหม่', stayTuned: 'รอติดตาม', availableNow: 'พร้อมใช้งาน', licensingReady: 'Licensing & Support Ready', openLicense: 'เปิดหน้า License Validation', envatoStyle: 'ออกแบบสำหรับ licensing แบบ Envato.', softwarePlaceholder: 'โปรเจกต์ซอฟต์แวร์', webServicesPlaceholder: 'เว็บเซอร์วิส' },
             contact: { title: 'Contact & Collaboration', intro: 'สนใจร่วมงาน ทำ Plugin หรือช่วย Debug WordPress/Hosting แบบลึกๆ ติดต่อ Overconda ได้ผ่านช่องทางด้านล่าง.' },
-            footer: { rights: '© Overconda Lab สงวนลิขสิทธิ์.', built: 'Built with HTML & Tailwind CSS · overconda.space' }
+            footer: { rights: '© Overconda Lab สงวนลิขสิทธิ์.', built: 'Built with HTML & Tailwind CSS · overconda.space', terms: 'ข้อกำหนด', privacy: 'ความเป็นส่วนตัว', refund: 'คืนเงิน' }
         }
     };
 
