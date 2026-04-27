@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Slimmer | Overconda</title>
+    <meta name="description" content="Lightweight 404 error manager for WordPress – detect, log, and redirect broken links to reduce server load and improve SEO.">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-50 antialiased">
+    <header class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <a href="/" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-emerald-400 text-slate-950 font-semibold shadow-lg shadow-cyan-500/30">O</span>
+                    <div>
+                        <h1 class="text-base md:text-lg font-semibold tracking-tight">Overconda</h1>
+                        <p class="text-[11px] md:text-xs text-slate-400" data-i18n="nav.tagline">Developer &amp; Content Creator · IT &amp; WordPress Development</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+                <a href="/" class="hover:text-cyan-300 transition-colors" data-i18n="nav.home">Home</a>
+                <a href="/#projects" class="hover:text-cyan-300 transition-colors" data-i18n="nav.projects">Projects</a>
+                <a href="/#contact" class="hover:text-cyan-300 transition-colors" data-i18n="nav.contact">Contact</a>
+                <div class="flex items-center gap-1 border-l border-slate-700 pl-4 ml-2">
+                    <button type="button" data-lang="en" class="lang-btn px-2 py-0.5 rounded text-[11px] font-medium text-cyan-300 bg-cyan-500/20 border border-cyan-500/50" aria-pressed="true">EN</button>
+                    <button type="button" data-lang="th" class="lang-btn px-2 py-0.5 rounded text-[11px] font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition" aria-pressed="false">TH</button>
+                </div>
+            </nav>
+            <div class="md:hidden flex items-center gap-2">
+                <div class="flex items-center gap-1 rounded-full border border-slate-700 px-2 py-1">
+                    <button type="button" data-lang="en" class="lang-btn text-[11px] font-medium text-cyan-300" aria-pressed="true">EN</button>
+                    <span class="text-slate-600">|</span>
+                    <button type="button" data-lang="th" class="lang-btn text-[11px] font-medium text-slate-400" aria-pressed="false">TH</button>
+                </div>
+                <a href="/" class="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-300 hover:border-cyan-400 hover:text-cyan-200 transition-colors" data-i18n="nav.home">Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-8">
+        <div>
+            <p class="text-xs font-mono uppercase tracking-[0.25em] text-cyan-400/80" data-i18n="slimmer.eyebrow">WordPress Plugin</p>
+            <h2 class="mt-1 text-2xl md:text-3xl font-semibold tracking-tight" data-i18n="page.title">404 Slimmer</h2>
+            <p class="text-sm text-slate-400 mt-2" data-i18n="page.tagline">Lightweight 404 error manager – detect, log, and redirect broken links to reduce server load and improve SEO.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800/80 bg-gradient-to-br from-slate-900/80 to-slate-950 p-6 md:p-8 space-y-6">
+            <div class="flex flex-wrap items-center gap-3">
+                <span class="inline-flex items-center rounded-full px-3 py-1 text-[12px] font-medium border bg-emerald-500/10 text-emerald-300 border-emerald-500/40" data-i18n="slimmer.badge">Free &amp; Pro</span>
+                <span class="inline-flex items-center rounded-full px-3 py-1 text-[12px] font-medium border bg-sky-500/10 text-sky-300 border-sky-500/40" data-i18n="slimmer.badge2">WordPress Plugin</span>
+            </div>
+
+            <h3 class="text-lg font-semibold text-slate-100" data-i18n="slimmer.features.title">Features</h3>
+            <ul class="space-y-3 text-sm text-slate-300">
+                <li class="flex items-start gap-3"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 text-xs mt-0.5">✓</span> <span data-i18n="slimmer.features.1"><strong>404 Logging</strong> — Automatically logs all 404 errors with timestamps, requested URLs, referrer, and user agent.</span></li>
+                <li class="flex items-start gap-3"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 text-xs mt-0.5">✓</span> <span data-i18n="slimmer.features.2"><strong>Smart Redirects</strong> — Set up permanent (301) or temporary (302) redirects from the log entries with a single click.</span></li>
+                <li class="flex items-start gap-3"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 text-xs mt-0.5">✓</span> <span data-i18n="slimmer.features.3"><strong>Log Viewer</strong> — Clean, paginated admin panel to browse, search, and filter 404 entries.</span></li>
+                <li class="flex items-start gap-3"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 text-xs mt-0.5">✓</span> <span data-i18n="slimmer.features.4"><strong>Email Notifications</strong> — Get notified when 404 errors are detected (Pro feature).</span></li>
+                <li class="flex items-start gap-3"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 text-xs mt-0.5">✓</span> <span data-i18n="slimmer.features.5"><strong>CSV Export</strong> — Export logs for external analysis (Pro feature).</span></li>
+                <li class="flex items-start gap-3"><span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400 text-xs mt-0.5">✓</span> <span data-i18n="slimmer.features.6"><strong>SEO Friendly</strong> — Helps reduce crawl errors and improve user experience by fixing broken links.</span></li>
+            </ul>
+
+            <div class="border-t border-slate-800/80 pt-6">
+                <p class="text-sm text-slate-400" data-i18n="slimmer.cta">Coming soon to the WordPress Plugin Directory and available as a premium version with advanced features.</p>
+            </div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-6 md:p-8">
+            <h3 class="text-lg font-semibold text-slate-100 mb-4" data-i18n="slimmer.plans.title">Plans &amp; Pricing</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="rounded-xl border border-slate-800/80 p-5 space-y-3">
+                    <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.free.title">Free</h4>
+                    <p class="text-2xl font-bold">$0</p>
+                    <ul class="text-xs text-slate-400 space-y-1.5">
+                        <li data-i18n="slimmer.plans.free.1">✓ 404 Logging</li>
+                        <li data-i18n="slimmer.plans.free.2">✓ Redirect Manager</li>
+                        <li data-i18n="slimmer.plans.free.3">✓ Log Viewer</li>
+                        <li data-i18n="slimmer.plans.free.4">✕ Email Notifications</li>
+                        <li data-i18n="slimmer.plans.free.5">✕ CSV Export</li>
+                        <li data-i18n="slimmer.plans.free.6">✕ Priority Support</li>
+                    </ul>
+                </div>
+                <div class="rounded-xl border border-cyan-500/40 bg-cyan-500/5 p-5 space-y-3 relative">
+                    <span class="absolute -top-2.5 right-3 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-500/50" data-i18n="slimmer.plans.pro.popular">Popular</span>
+                    <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.pro.title">Pro</h4>
+                    <p class="text-2xl font-bold">$19 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.pro.perYear">/year</span></p>
+                    <ul class="text-xs text-slate-400 space-y-1.5">
+                        <li data-i18n="slimmer.plans.pro.1">✓ All Free features</li>
+                        <li data-i18n="slimmer.plans.pro.2">✓ Email Notifications</li>
+                        <li data-i18n="slimmer.plans.pro.3">✓ CSV Export</li>
+                        <li data-i18n="slimmer.plans.pro.4">✓ Priority Support</li>
+                        <li data-i18n="slimmer.plans.pro.5">✓ 1 Site License</li>
+                    </ul>
+                </div>
+                <div class="rounded-xl border border-slate-800/80 p-5 space-y-3">
+                    <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.agency.title">Agency</h4>
+                    <p class="text-2xl font-bold">$49 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.agency.perYear">/year</span></p>
+                    <ul class="text-xs text-slate-400 space-y-1.5">
+                        <li data-i18n="slimmer.plans.agency.1">✓ All Pro features</li>
+                        <li data-i18n="slimmer.plans.agency.2">✓ Up to 10 Sites</li>
+                        <li data-i18n="slimmer.plans.agency.3">✓ Email Notifications</li>
+                        <li data-i18n="slimmer.plans.agency.4">✓ CSV Export</li>
+                        <li data-i18n="slimmer.plans.agency.5">✓ Priority Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center py-6">
+            <a href="/" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-cyan-200 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span data-i18n="slimmer.back">Back to Home</span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-800 bg-slate-950/90">
+        <div class="max-w-6xl mx-auto px-4 py-4 text-[11px] text-slate-500 flex flex-col md:flex-row justify-between gap-2">
+            <span><span data-i18n="footer.rights">© Overconda Lab. All rights reserved.</span> <span id="year"></span></span>
+            <div class="flex flex-wrap gap-3 items-center">
+                <a href="/" class="hover:text-cyan-200 transition" data-i18n="nav.home">Home</a>
+                <a href="/legal/terms" class="hover:text-cyan-200 transition" data-i18n="footer.terms">Terms of Service</a>
+                <a href="/legal/privacy" class="hover:text-cyan-200 transition" data-i18n="footer.privacy">Privacy Policy</a>
+                <a href="/legal/refund" class="hover:text-cyan-200 transition" data-i18n="footer.refund">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+(function () {
+    var STORAGE_KEY = 'overconda-lang';
+    var I18N = {
+        en: {
+            nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', home: 'Home', projects: 'Projects', contact: 'Contact' },
+            page: { title: '404 Slimmer', tagline: 'Lightweight 404 error manager – detect, log, and redirect broken links to reduce server load and improve SEO.' },
+            slimmer: { eyebrow: 'WordPress Plugin', badge: 'Free & Pro', badge2: 'WordPress Plugin', back: 'Back to Home',
+                features: { title: 'Features', '1': '<strong>404 Logging</strong> — Automatically logs all 404 errors with timestamps, requested URLs, referrer, and user agent.', '2': '<strong>Smart Redirects</strong> — Set up permanent (301) or temporary (302) redirects from the log entries with a single click.', '3': '<strong>Log Viewer</strong> — Clean, paginated admin panel to browse, search, and filter 404 entries.', '4': '<strong>Email Notifications</strong> — Get notified when 404 errors are detected (Pro feature).', '5': '<strong>CSV Export</strong> — Export logs for external analysis (Pro feature).', '6': '<strong>SEO Friendly</strong> — Helps reduce crawl errors and improve user experience by fixing broken links.' },
+                cta: 'Coming soon to the WordPress Plugin Directory and available as a premium version with advanced features.',
+                plans: { title: 'Plans & Pricing',
+                    free: { title: 'Free', '1': '✓ 404 Logging', '2': '✓ Redirect Manager', '3': '✓ Log Viewer', '4': '✕ Email Notifications', '5': '✕ CSV Export', '6': '✕ Priority Support' },
+                    pro: { title: 'Pro', perYear: '/year', popular: 'Popular', '1': '✓ All Free features', '2': '✓ Email Notifications', '3': '✓ CSV Export', '4': '✓ Priority Support', '5': '✓ 1 Site License' },
+                    agency: { title: 'Agency', perYear: '/year', '1': '✓ All Pro features', '2': '✓ Up to 10 Sites', '3': '✓ Email Notifications', '4': '✓ CSV Export', '5': '✓ Priority Support' }
+                }
+            },
+            footer: { rights: '© Overconda Lab. All rights reserved.', terms: 'Terms of Service', privacy: 'Privacy Policy', refund: 'Refund Policy' }
+        },
+        th: {
+            nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', home: 'หน้าแรก', projects: 'โปรเจกต์', contact: 'ติดต่อ' },
+            page: { title: '404 Slimmer', tagline: 'ตัวจัดการ 404 Error น้ำหนักเบา – ตรวจจับ บันทึก และ Redirect ลิงก์เสีย ลดภาระเซิร์ฟเวอร์และปรับปรุง SEO' },
+            slimmer: { eyebrow: 'ปลั๊กอิน WordPress', badge: 'ฟรี & เสียเงิน', badge2: 'ปลั๊กอิน WordPress', back: 'กลับหน้าแรก',
+                features: { title: 'ฟีเจอร์', '1': '<strong>บันทึก 404</strong> — บันทึกข้อผิดพลาด 404 อัตโนมัติพร้อมวันที่, URL, referrer และเบราว์เซอร์', '2': '<strong>Redirect อัจฉริยะ</strong> — ตั้งค่า Permanent 301 หรือ Temporary 302 redirects ได้คลิกเดียว', '3': '<strong>Log Viewer</strong> — แผงจัดการที่สะอาดตา แบ่งหน้า ค้นหา และกรองรายการ 404', '4': '<strong>อีเมลแจ้งเตือน</strong> — แจ้งเตือนเมื่อพบ 404 ใหม่ (ฟีเจอร์ Pro)', '5': '<strong>ส่งออก CSV</strong> — ส่งออกบันทึกเพื่อวิเคราะห์ภายนอก (ฟีเจอร์ Pro)', '6': '<strong>SEO Friendly</strong> — ช่วยลด crawl errors และปรับปรุงประสบการณ์ผู้ใช้' },
+                cta: 'เร็วๆ นี้ใน WordPress Plugin Directory และมีเวอร์ชันพรีเมียมพร้อมฟีเจอร์เพิ่มเติม',
+                plans: { title: 'แผนและราคา',
+                    free: { title: 'ฟรี', '1': '✓ บันทึก 404', '2': '✓ จัดการ Redirect', '3': '✓ Log Viewer', '4': '✕ แจ้งเตือนอีเมล', '5': '✕ ส่งออก CSV', '6': '✕ การสนับสนุนลำดับความสำคัญ' },
+                    pro: { title: 'Pro', perYear: '/ปี', popular: 'มาแรง', '1': '✓ ฟีเจอร์ฟรีทั้งหมด', '2': '✓ แจ้งเตือนอีเมล', '3': '✓ ส่งออก CSV', '4': '✓ การสนับสนุนลำดับความสำคัญ', '5': '✓ 1 เว็บไซต์' },
+                    agency: { title: 'Agency', perYear: '/ปี', '1': '✓ ฟีเจอร์ Pro ทั้งหมด', '2': '✓ มากถึง 10 เว็บไซต์', '3': '✓ แจ้งเตือนอีเมล', '4': '✓ ส่งออก CSV', '5': '✓ การสนับสนุนลำดับความสำคัญ' }
+                }
+            },
+            footer: { rights: '© Overconda Lab สงวนลิขสิทธิ์.', terms: 'ข้อกำหนดการให้บริการ', privacy: 'นโยบายความเป็นส่วนตัว', refund: 'นโยบายการคืนเงิน' }
+        }
+    };
+
+    function get(obj, path) {
+        var keys = path.split('.');
+        for (var i = 0; i < keys.length; i++) obj = obj[keys[i]];
+        return obj != null ? obj : '';
+    }
+
+    function applyLang(lang) {
+        if (!I18N[lang]) lang = 'en';
+        document.documentElement.lang = lang === 'th' ? 'th' : 'en';
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var val = get(I18N[lang], el.getAttribute('data-i18n'));
+            if (val) el.innerHTML = val;
+        });
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+            var isActive = btn.getAttribute('data-lang') === lang;
+            btn.setAttribute('aria-pressed', isActive);
+            if (isActive) {
+                btn.classList.add('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
+                btn.classList.remove('text-slate-400');
+            } else {
+                btn.classList.remove('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
+                btn.classList.add('text-slate-400');
+            }
+        });
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    }
+
+    var saved = (typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_KEY)) || 'en';
+    applyLang(saved === 'th' ? 'th' : 'en');
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var lang = this.getAttribute('data-lang');
+            if (lang) applyLang(lang);
+        });
+    });
+
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
+    </script>
+</body>
+</html>
