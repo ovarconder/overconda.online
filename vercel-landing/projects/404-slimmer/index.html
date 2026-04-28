@@ -69,43 +69,49 @@
 
         <div class="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-6 md:p-8">
             <h3 class="text-lg font-semibold text-slate-100 mb-4" data-i18n="slimmer.plans.title">Plans &amp; Pricing</h3>
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="rounded-xl border border-slate-800/80 p-5 space-y-3">
-                    <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.free.title">Free</h4>
-                    <p class="text-2xl font-bold">$0</p>
-                    <ul class="text-xs text-slate-400 space-y-1.5">
-                        <li data-i18n="slimmer.plans.free.1">✓ 404 Logging</li>
-                        <li data-i18n="slimmer.plans.free.2">✓ Redirect Manager</li>
-                        <li data-i18n="slimmer.plans.free.3">✓ Log Viewer</li>
-                        <li data-i18n="slimmer.plans.free.4">✕ Email Notifications</li>
-                        <li data-i18n="slimmer.plans.free.5">✕ CSV Export</li>
-                        <li data-i18n="slimmer.plans.free.6">✕ Priority Support</li>
-                    </ul>
+            <div class="grid md:grid-cols-3 gap-4 items-stretch">
+                <div class="rounded-xl border border-slate-800/80 p-5 flex flex-col space-y-3">
+                    <div class="flex-1 space-y-3">
+                        <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.free.title">Free</h4>
+                        <p class="text-2xl font-bold">$0</p>
+                        <ul class="text-xs text-slate-400 space-y-1.5">
+                            <li data-i18n="slimmer.plans.free.1">✓ 404 Logging</li>
+                            <li data-i18n="slimmer.plans.free.2">✓ Redirect Manager</li>
+                            <li data-i18n="slimmer.plans.free.3">✓ Log Viewer</li>
+                            <li data-i18n="slimmer.plans.free.4">✕ Email Notifications</li>
+                            <li data-i18n="slimmer.plans.free.5">✕ CSV Export</li>
+                            <li data-i18n="slimmer.plans.free.6">✕ Priority Support</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="rounded-xl border border-cyan-500/40 bg-cyan-500/5 p-5 space-y-3 relative">
-                    <span class="absolute -top-2.5 right-3 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-500/50" data-i18n="slimmer.plans.pro.popular">Popular</span>
-                    <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.pro.title">Pro</h4>
-                    <p class="text-2xl font-bold">$19 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.pro.perYear">/year</span></p>
-                    <ul class="text-xs text-slate-400 space-y-1.5">
-                        <li data-i18n="slimmer.plans.pro.1">✓ All Free features</li>
-                        <li data-i18n="slimmer.plans.pro.2">✓ Email Notifications</li>
-                        <li data-i18n="slimmer.plans.pro.3">✓ CSV Export</li>
-                        <li data-i18n="slimmer.plans.pro.4">✓ Priority Support</li>
-                        <li data-i18n="slimmer.plans.pro.5">✓ 1 Site License</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/XXXXXXXXXX" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full" data-i18n="slimmer.plans.pro.buy">Buy License</a>
+                <div class="rounded-xl border border-cyan-500/40 bg-cyan-500/5 p-5 flex flex-col space-y-3 relative">
+                    <span class="absolute -top-2.5 right-3 inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold bg-cyan-600 text-white shadow-sm" data-i18n="slimmer.plans.pro.popular">Popular</span>
+                    <div class="flex-1 space-y-3">
+                        <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.pro.title">Pro</h4>
+                        <p class="text-2xl font-bold">$19 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.pro.perYear">/year</span></p>
+                        <ul class="text-xs text-slate-400 space-y-1.5">
+                            <li data-i18n="slimmer.plans.pro.1">✓ All Free features</li>
+                            <li data-i18n="slimmer.plans.pro.2">✓ Email Notifications</li>
+                            <li data-i18n="slimmer.plans.pro.3">✓ CSV Export</li>
+                            <li data-i18n="slimmer.plans.pro.4">✓ Priority Support</li>
+                            <li data-i18n="slimmer.plans.pro.5">✓ 1 Site License</li>
+                        </ul>
+                    </div>
+                    <a href="https://buy.stripe.com/XXXXXXXXXX" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full" data-i18n="slimmer.plans.pro.buy">Buy License</a>
                 </div>
-                <div class="rounded-xl border border-slate-800/80 p-5 space-y-3">
-                    <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.agency.title">Agency</h4>
-                    <p class="text-2xl font-bold">$49 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.agency.perYear">/year</span></p>
-                    <ul class="text-xs text-slate-400 space-y-1.5">
-                        <li data-i18n="slimmer.plans.agency.1">✓ All Pro features</li>
-                        <li data-i18n="slimmer.plans.agency.2">✓ Up to 10 Sites</li>
-                        <li data-i18n="slimmer.plans.agency.3">✓ Email Notifications</li>
-                        <li data-i18n="slimmer.plans.agency.4">✓ CSV Export</li>
-                        <li data-i18n="slimmer.plans.agency.5">✓ Priority Support</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/YYYYYYYYYY" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-700/60 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-200 hover:bg-sky-500/20 hover:border-sky-500 transition w-full" data-i18n="slimmer.plans.agency.buy">Buy License</a>
+                <div class="rounded-xl border border-slate-800/80 p-5 flex flex-col space-y-3">
+                    <div class="flex-1 space-y-3">
+                        <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.agency.title">Agency</h4>
+                        <p class="text-2xl font-bold">$49 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.agency.perYear">/year</span></p>
+                        <ul class="text-xs text-slate-400 space-y-1.5">
+                            <li data-i18n="slimmer.plans.agency.1">✓ All Pro features</li>
+                            <li data-i18n="slimmer.plans.agency.2">✓ Up to 10 Sites</li>
+                            <li data-i18n="slimmer.plans.agency.3">✓ Email Notifications</li>
+                            <li data-i18n="slimmer.plans.agency.4">✓ CSV Export</li>
+                            <li data-i18n="slimmer.plans.agency.5">✓ Priority Support</li>
+                        </ul>
+                    </div>
+                    <a href="https://buy.stripe.com/YYYYYYYYYY" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-700/60 bg-sky-500/10 px-4 py-2.5 text-sm font-semibold text-sky-200 hover:bg-sky-500/20 hover:border-sky-500 transition w-full" data-i18n="slimmer.plans.agency.buy">Buy License</a>
                 </div>
             </div>
         </div>
