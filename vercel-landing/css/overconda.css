@@ -25,48 +25,96 @@
 }
 
 /* ----------------------------------------------------------
-   Screenshot Gallery (3-column grid)
+   Screenshot Gallery – Carousel (prev / next)
    ---------------------------------------------------------- */
-.screenshot-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.screenshot-item {
-    display: block;
-    border-radius: 0.75rem;
+.screenshot-carousel {
+    position: relative;
     overflow: hidden;
+    border-radius: 0.75rem;
     border: 1px solid rgba(51, 65, 85, 0.5);
     background: rgba(15, 23, 42, 0.6);
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.screenshot-item:hover {
-    border-color: rgba(34, 211, 238, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+.screenshot-carousel .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
 }
 
-.screenshot-item img {
+.screenshot-carousel .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.screenshot-carousel .carousel-slide img {
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 10;
-    object-fit: cover;
+    object-fit: contain;
+    background: rgba(2, 6, 23, 0.8);
 }
 
-/* Tablet: 2 columns */
-@media (max-width: 768px) {
-    .screenshot-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
+/* Prev / Next buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(51, 65, 85, 0.6);
+    background: rgba(15, 23, 42, 0.8);
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    backdrop-filter: blur(4px);
+    font-size: 1.25rem;
+    line-height: 1;
+    user-select: none;
 }
 
-/* Mobile: 1 column */
-@media (max-width: 480px) {
-    .screenshot-grid {
-        grid-template-columns: 1fr;
-    }
+.carousel-btn:hover {
+    background: rgba(30, 41, 59, 0.9);
+    color: #22d3ee;
+    border-color: rgba(34, 211, 238, 0.5);
+}
+
+.carousel-btn-prev {
+    left: 0.75rem;
+}
+
+.carousel-btn-next {
+    right: 0.75rem;
+}
+
+/* Dot indicators */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0 0;
+}
+
+.carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(51, 65, 85, 0.6);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    background: #22d3ee;
+    border-color: #22d3ee;
+}
+
+.carousel-dot:hover {
+    border-color: rgba(34, 211, 238, 0.5);
 }
