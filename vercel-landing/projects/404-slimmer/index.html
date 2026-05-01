@@ -35,6 +35,37 @@
         </div>
     </header>
 
+    <!-- ════════════════════════════════════ -->
+    <!-- FOUNDER'S DEAL BANNER              -->
+    <!-- ════════════════════════════════════ -->
+    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-slate-950">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
+      <div class="relative px-6 py-6 md:py-8 text-center">
+        <p class="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1 text-[11px] font-bold uppercase tracking-[0.15em] backdrop-blur-sm mb-3">
+          ⏳ Limited Time
+        </p>
+        <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight drop-shadow-sm">
+          FOUNDER'S DEAL
+        </h2>
+        <p class="mt-1 text-base md:text-lg font-semibold text-slate-900/80">
+          First 100 Licenses Only — Lifetime Access
+        </p>
+        <!-- Progress Bar -->
+        <div class="max-w-md mx-auto mt-4">
+          <div class="flex justify-between text-xs font-bold text-slate-900/70 mb-1">
+            <span>🔥 <span id="claimed-count">82</span> claimed</span>
+            <span><span id="remaining-count">18</span> left</span>
+          </div>
+          <div class="h-3 w-full rounded-full bg-slate-900/20 overflow-hidden">
+            <div id="progress-fill" class="h-full rounded-full bg-gradient-to-r from-emerald-300 via-cyan-300 to-sky-300 transition-all duration-1000" style="width:82%"></div>
+          </div>
+          <p class="mt-1 text-[11px] font-bold uppercase tracking-wider text-slate-900/70 animate-pulse">
+            ⚡ HURRY! ALMOST GONE
+          </p>
+        </div>
+      </div>
+    </div>
+
     <main class="max-w-4xl mx-auto px-4 py-10 space-y-8">
         <div>
             <p class="text-xs font-mono uppercase tracking-[0.25em] text-cyan-400/80" data-i18n="slimmer.eyebrow">WordPress Plugin</p>
@@ -63,52 +94,107 @@
             </div>
         </div>
 
+        <!-- ════════════════════════════════════ -->
+        <!-- PRICING CARDS — Founder's Deal      -->
+        <!-- ════════════════════════════════════ -->
         <div class="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-6 md:p-8">
-            <h3 class="text-lg font-semibold text-slate-100 mb-4" data-i18n="slimmer.plans.title">Plans & Pricing</h3>
+            <div class="text-center mb-6">
+                <h3 class="text-lg font-semibold text-slate-100" data-i18n="slimmer.plans.title">Plans & Pricing</h3>
+                <p class="text-sm text-slate-400 mt-1">One-time payment. Lifetime updates. No recurring fees.</p>
+            </div>
             <div class="grid md:grid-cols-3 gap-4 items-stretch">
-                <div class="rounded-xl border border-slate-800/80 p-5 flex flex-col space-y-3">
+                <!-- ═══ Personal $19 ═══ -->
+                <div class="rounded-xl border border-slate-800/80 p-5 flex flex-col space-y-3 hover:border-cyan-500/40 transition">
                     <div class="flex-1 space-y-3">
-                        <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.free.title">Free</h4>
-                        <p class="text-2xl font-bold">$0</p>
+                        <h4 class="font-semibold text-slate-100">Personal</h4>
+                        <p class="text-xs text-slate-400">For a single website</p>
+                        <p class="text-2xl font-bold">$19 <span class="text-sm font-normal text-slate-400">one-time</span></p>
+                        <p class="text-xs text-emerald-400 font-semibold">🌱 Lifetime Updates</p>
                         <ul class="text-xs text-slate-400 space-y-1.5">
-                            <li data-i18n="slimmer.plans.free.1">✓ 404 Logging</li>
-                            <li data-i18n="slimmer.plans.free.2">✓ Redirect Manager</li>
-                            <li data-i18n="slimmer.plans.free.3">✓ Log Viewer</li>
-                            <li data-i18n="slimmer.plans.free.4">✕ Email Notifications</li>
-                            <li data-i18n="slimmer.plans.free.5">✕ CSV Export</li>
-                            <li data-i18n="slimmer.plans.free.6">✕ Priority Support</li>
+                            <li>✓ 1 Website License</li>
+                            <li>✓ 404 Logging &amp; Redirects</li>
+                            <li>✓ 5 Premium 404 Templates</li>
+                            <li>✓ Whitelist Paths &amp; IPs</li>
+                            <li>✓ 30-Day Statistics</li>
+                            <li>✓ Founder Discount — future products</li>
+                            <li>✓ Priority Support</li>
                         </ul>
                     </div>
+                    <button onclick="checkout('personal')" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full">
+                        🪑 Claim Your Founder Seat (Lifetime)
+                    </button>
                 </div>
-                <div class="rounded-xl border border-cyan-500/40 bg-cyan-500/5 p-5 flex flex-col space-y-3 relative">
-                    <span class="absolute -top-2.5 right-3 inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold bg-cyan-600 text-white shadow-sm" data-i18n="slimmer.plans.pro.popular">Popular</span>
+                <!-- ═══ Pro $49 ═══ (featured) -->
+                <div class="rounded-xl border border-cyan-500/40 bg-cyan-500/5 p-5 flex flex-col space-y-3 relative scale-[1.02] shadow-xl shadow-cyan-500/10">
+                    <span class="absolute -top-2.5 right-3 inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold bg-cyan-600 text-white shadow-sm">🌟 Best Value</span>
                     <div class="flex-1 space-y-3">
-                        <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.pro.title">Pro</h4>
-                        <p class="text-2xl font-bold">$19 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.pro.perYear">/year</span></p>
+                        <h4 class="font-semibold text-slate-100">Pro</h4>
+                        <p class="text-xs text-slate-400">For freelancers &amp; small agencies</p>
+                        <p class="text-2xl font-bold">$49 <span class="text-sm font-normal text-slate-400">one-time</span></p>
+                        <p class="text-xs text-emerald-400 font-semibold">🌱 Lifetime Updates</p>
                         <ul class="text-xs text-slate-400 space-y-1.5">
-                            <li data-i18n="slimmer.plans.pro.1">✓ All Free features</li>
-                            <li data-i18n="slimmer.plans.pro.2">✓ Email Notifications</li>
-                            <li data-i18n="slimmer.plans.pro.3">✓ CSV Export</li>
-                            <li data-i18n="slimmer.plans.pro.4">✓ Priority Support</li>
-                            <li data-i18n="slimmer.plans.pro.5">✓ 1 Site License</li>
+                            <li>✓ Up to 5 Websites</li>
+                            <li>✓ 404 Logging &amp; Redirects</li>
+                            <li>✓ 5 Premium 404 Templates</li>
+                            <li>✓ Whitelist Paths &amp; IPs</li>
+                            <li>✓ Webhook Notifications</li>
+                            <li>✓ 30-Day Statistics</li>
+                            <li>✓ Founder Discount — future products</li>
+                            <li>✓ Priority Support</li>
                         </ul>
                     </div>
-                    <a href="https://buy.stripe.com/00weVegaT0FD9SGfiyg7e00" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full" data-i18n="slimmer.plans.pro.buy">Buy License</a>
+                    <button onclick="checkout('pro')" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full">
+                        🪑 Claim Your Founder Seat (Lifetime)
+                    </button>
                 </div>
-                <div class="rounded-xl border border-slate-800/80 p-5 flex flex-col space-y-3">
+                <!-- ═══ Agency $99 ═══ -->
+                <div class="rounded-xl border border-slate-800/80 p-5 flex flex-col space-y-3 hover:border-cyan-500/40 transition">
                     <div class="flex-1 space-y-3">
-                        <h4 class="font-semibold text-slate-100" data-i18n="slimmer.plans.agency.title">Agency</h4>
-                        <p class="text-2xl font-bold">$59 <span class="text-sm font-normal text-slate-400" data-i18n="slimmer.plans.agency.perYear">/year</span></p>
+                        <h4 class="font-semibold text-slate-100">Agency</h4>
+                        <p class="text-xs text-slate-400">For agencies &amp; dev teams</p>
+                        <p class="text-2xl font-bold">$99 <span class="text-sm font-normal text-slate-400">one-time</span></p>
+                        <p class="text-xs text-emerald-400 font-semibold">🌱 Lifetime Updates</p>
                         <ul class="text-xs text-slate-400 space-y-1.5">
-                            <li data-i18n="slimmer.plans.agency.1">✓ All Pro features</li>
-                            <li data-i18n="slimmer.plans.agency.2">✓ Up to 10 Sites</li>
-                            <li data-i18n="slimmer.plans.agency.3">✓ Email Notifications</li>
-                            <li data-i18n="slimmer.plans.agency.4">✓ CSV Export</li>
-                            <li data-i18n="slimmer.plans.agency.5">✓ Priority Support</li>
+                            <li>✓ Up to 20 Websites</li>
+                            <li>✓ 404 Logging &amp; Redirects</li>
+                            <li>✓ 5 Premium 404 Templates</li>
+                            <li>✓ Whitelist Paths &amp; IPs</li>
+                            <li>✓ Webhook Notifications</li>
+                            <li>✓ 30-Day Statistics</li>
+                            <li>✓ Founder Discount — future products</li>
+                            <li>✓ Priority Support</li>
                         </ul>
                     </div>
-                    <a href="https://buy.stripe.com/3cI8wQ8Ir8852qe3zQg7e01่ยว" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border border-sky-700/60 bg-sky-500/10 px-4 py-2.5 text-sm font-semibold text-sky-200 hover:bg-sky-500/20 hover:border-sky-500 transition w-full" data-i18n="slimmer.plans.agency.buy">Buy License</a>
+                    <button onclick="checkout('agency')" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full">
+                        🪑 Claim Your Founder Seat (Lifetime)
+                    </button>
                 </div>
+            </div>
+
+            <!-- ═══ Standard Price Comparison (Disabled) ═══ -->
+            <div class="mt-6 rounded-xl border border-slate-800/60 bg-slate-900/40 p-5 opacity-60 select-none">
+                <div class="text-center mb-3">
+                    <span class="inline-flex items-center rounded-full bg-slate-800 px-3 py-1 text-[10px] font-semibold text-slate-400 border border-slate-700">
+                        📅 Standard Price — Coming Soon
+                    </span>
+                </div>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div class="rounded-lg border border-slate-800/60 p-3">
+                        <p class="text-sm text-slate-400">Personal</p>
+                        <p class="text-lg font-bold text-slate-500">$19 <span class="text-xs font-normal text-slate-600">/year</span></p>
+                    </div>
+                    <div class="rounded-lg border border-slate-800/60 p-3">
+                        <p class="text-sm text-slate-400">Pro</p>
+                        <p class="text-lg font-bold text-slate-500">$49 <span class="text-xs font-normal text-slate-600">/year</span></p>
+                    </div>
+                    <div class="rounded-lg border border-slate-800/60 p-3">
+                        <p class="text-sm text-slate-400">Agency</p>
+                        <p class="text-lg font-bold text-slate-500">$99 <span class="text-xs font-normal text-slate-600">/year</span></p>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-slate-500 mt-3">
+                    ☝️ Same price but <strong class="text-slate-400">per year</strong> instead of lifetime. Grab the Founder's Deal now!
+                </p>
             </div>
         </div>
 
@@ -188,6 +274,56 @@
             </div>
         </div>
     </footer>
+
+    <!-- ════════════════════════════════════ -->
+    <!-- Stripe Checkout Script              -->
+    <!-- ════════════════════════════════════ -->
+    <script>
+    const API_CHECKOUT = 'https://api.overconda.space/api/checkout/create-session';
+    const TOTAL_SLOTS = 100;
+    let claimed = 82;
+
+    function updateProgress() {
+      const pct = Math.min((claimed / TOTAL_SLOTS) * 100, 100);
+      document.getElementById('claimed-count').textContent = claimed;
+      document.getElementById('remaining-count').textContent = TOTAL_SLOTS - claimed;
+      const fill = document.getElementById('progress-fill');
+      if (fill) fill.style.width = pct + '%';
+    }
+    updateProgress();
+
+    async function checkout(plan) {
+      const btn = event.currentTarget;
+      btn.disabled = true;
+      btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span> Redirecting...';
+
+      try {
+        const res = await fetch(API_CHECKOUT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ plan }),
+        });
+        const data = await res.json();
+        if (!data.success || !data.url) throw new Error(data.message || 'Failed');
+        claimed = Math.min(claimed + 1, TOTAL_SLOTS);
+        try { localStorage.setItem('ovcd_founder_claimed', claimed); } catch(e) {}
+        updateProgress();
+        window.location.href = data.url;
+      } catch (err) {
+        alert('Error: ' + err.message);
+        btn.disabled = false;
+        btn.innerHTML = '🪑 Claim Your Founder Seat (Lifetime)';
+      }
+    }
+
+    (function() {
+      try {
+        const saved = localStorage.getItem('ovcd_founder_claimed');
+        if (saved) claimed = parseInt(saved, 10) || 82;
+      } catch(e) {}
+      updateProgress();
+    })();
+    </script>
 
     <script>
 (function () {
@@ -313,6 +449,63 @@
         carousel.setAttribute('tabindex', '0');
     }
 })();
+    </script>
+
+    <!-- ════════════════════════════════════ -->
+    <!-- Stripe Checkout + Founder Counter   -->
+    <!-- ════════════════════════════════════ -->
+    <script>
+    (function() {
+        const TOTAL_SLOTS = 100;
+        let claimed = 82;
+
+        // Restore from localStorage
+        try {
+            var saved = localStorage.getItem('ovcd_founder_claimed');
+            if (saved) claimed = parseInt(saved, 10) || 82;
+        } catch(e) {}
+
+        function updateProgress() {
+            var pct = Math.min((claimed / TOTAL_SLOTS) * 100, 100);
+            var cEl = document.getElementById('claimed-count');
+            var rEl = document.getElementById('remaining-count');
+            var pEl = document.getElementById('progress-fill');
+            if (cEl) cEl.textContent = claimed;
+            if (rEl) rEl.textContent = TOTAL_SLOTS - claimed;
+            if (pEl) pEl.style.width = pct + '%';
+        }
+        updateProgress();
+
+        window.checkout = async function(plan) {
+            var btn = event.currentTarget;
+            btn.disabled = true;
+            btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span> Redirecting...';
+
+            try {
+                var res = await fetch('https://api.overconda.space/api/checkout/create-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ plan: plan }),
+                });
+                var data = await res.json();
+
+                if (!data.success || !data.url) {
+                    throw new Error(data.message || 'Failed to create session');
+                }
+
+                // Increment counter
+                claimed = Math.min(claimed + 1, TOTAL_SLOTS);
+                try { localStorage.setItem('ovcd_founder_claimed', claimed); } catch(e) {}
+                updateProgress();
+
+                window.location.href = data.url;
+            } catch(err) {
+                alert('Error: ' + err.message);
+                btn.disabled = false;
+                btn.innerHTML = '🪑 Claim Your Founder Seat (Lifetime)';
+            }
+        };
+    })();
     </script>
 </body>
 </html>
