@@ -50,6 +50,10 @@
         <p class="mt-1 text-base md:text-lg font-semibold text-slate-900/80">
           First 100 Licenses Only — Lifetime Access
         </p>
+        <!-- Value Messaging -->
+        <p class="mt-2 text-sm md:text-base font-bold text-slate-900/90 drop-shadow-sm">
+          🎯 Pay once, own it forever — get lifetime access at the price of a 1-year subscription
+        </p>
         <!-- Progress Bar -->
         <div class="max-w-md mx-auto mt-4">
           <div class="flex justify-between text-xs font-bold text-slate-900/70 mb-1">
@@ -108,6 +112,11 @@
                     <div class="flex-1 space-y-3">
                         <h4 class="font-semibold text-slate-100">Personal</h4>
                         <p class="text-xs text-slate-400">For a single website</p>
+                        <!-- Strikethrough pricing -->
+                        <div class="text-xs text-slate-500">
+                            <span class="line-through decoration-rose-400 decoration-2">$59</span>
+                            <span class="text-[10px] text-slate-600 ml-1">lifetime value</span>
+                        </div>
                         <p class="text-2xl font-bold">$19 <span class="text-sm font-normal text-slate-400">one-time</span></p>
                         <p class="text-xs text-emerald-400 font-semibold">🌱 Lifetime Updates</p>
                         <ul class="text-xs text-slate-400 space-y-1.5">
@@ -123,6 +132,8 @@
                     <button onclick="checkout('personal')" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full">
                         🪑 Claim Your Founder Seat (Lifetime)
                     </button>
+                    <!-- Savings note -->
+                    <p class="text-center text-[11px] text-emerald-400/80 font-medium">💰 You save <strong>$40</strong>/year forever</p>
                 </div>
                 <!-- ═══ Pro $49 ═══ (featured) -->
                 <div class="rounded-xl border border-cyan-500/40 bg-cyan-500/5 p-5 flex flex-col space-y-3 relative scale-[1.02] shadow-xl shadow-cyan-500/10">
@@ -130,6 +141,11 @@
                     <div class="flex-1 space-y-3">
                         <h4 class="font-semibold text-slate-100">Pro</h4>
                         <p class="text-xs text-slate-400">For freelancers &amp; small agencies</p>
+                        <!-- Strikethrough pricing -->
+                        <div class="text-xs text-slate-500">
+                            <span class="line-through decoration-rose-400 decoration-2">$149</span>
+                            <span class="text-[10px] text-slate-600 ml-1">lifetime value</span>
+                        </div>
                         <p class="text-2xl font-bold">$49 <span class="text-sm font-normal text-slate-400">one-time</span></p>
                         <p class="text-xs text-emerald-400 font-semibold">🌱 Lifetime Updates</p>
                         <ul class="text-xs text-slate-400 space-y-1.5">
@@ -146,12 +162,19 @@
                     <button onclick="checkout('pro')" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full">
                         🪑 Claim Your Founder Seat (Lifetime)
                     </button>
+                    <!-- Savings note -->
+                    <p class="text-center text-[11px] text-emerald-400/80 font-medium">💰 You save <strong>$100</strong>/year forever</p>
                 </div>
                 <!-- ═══ Agency $99 ═══ -->
                 <div class="rounded-xl border border-slate-800/80 p-5 flex flex-col space-y-3 hover:border-cyan-500/40 transition">
                     <div class="flex-1 space-y-3">
                         <h4 class="font-semibold text-slate-100">Agency</h4>
                         <p class="text-xs text-slate-400">For agencies &amp; dev teams</p>
+                        <!-- Strikethrough pricing -->
+                        <div class="text-xs text-slate-500">
+                            <span class="line-through decoration-rose-400 decoration-2">$299</span>
+                            <span class="text-[10px] text-slate-600 ml-1">lifetime value</span>
+                        </div>
                         <p class="text-2xl font-bold">$99 <span class="text-sm font-normal text-slate-400">one-time</span></p>
                         <p class="text-xs text-emerald-400 font-semibold">🌱 Lifetime Updates</p>
                         <ul class="text-xs text-slate-400 space-y-1.5">
@@ -168,6 +191,8 @@
                     <button onclick="checkout('agency')" class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/40 hover:brightness-110 transition w-full">
                         🪑 Claim Your Founder Seat (Lifetime)
                     </button>
+                    <!-- Savings note -->
+                    <p class="text-center text-[11px] text-emerald-400/80 font-medium">💰 You save <strong>$200</strong>/year forever</p>
                 </div>
             </div>
 
@@ -193,8 +218,15 @@
                     </div>
                 </div>
                 <p class="text-center text-xs text-slate-500 mt-3">
-                    ☝️ Same price but <strong class="text-slate-400">per year</strong> instead of lifetime. Grab the Founder's Deal now!
+                    ☝️ This is the regular annual rate for new customers after the Founder's Deal ends — same price, but <strong class="text-slate-400">billed every year</strong> instead of once.
                 </p>
+                <!-- Founder Credibility Note -->
+                <div class="mt-4 pt-4 border-t border-slate-800/40 text-center">
+                    <p class="text-xs text-slate-500 italic leading-relaxed max-w-xl mx-auto">
+                        🫶 Special thanks to our first 100 founders for supporting Overconda. 
+                        Your belief in us earns you this permanent value.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -276,190 +308,14 @@
     </footer>
 
     <!-- ════════════════════════════════════ -->
-    <!-- Stripe Checkout Script              -->
-    <!-- ════════════════════════════════════ -->
-    <script>
-    const API_CHECKOUT = 'https://api.overconda.space/api/checkout/create-session';
-    const TOTAL_SLOTS = 100;
-    let claimed = 82;
-
-    function updateProgress() {
-      const pct = Math.min((claimed / TOTAL_SLOTS) * 100, 100);
-      document.getElementById('claimed-count').textContent = claimed;
-      document.getElementById('remaining-count').textContent = TOTAL_SLOTS - claimed;
-      const fill = document.getElementById('progress-fill');
-      if (fill) fill.style.width = pct + '%';
-    }
-    updateProgress();
-
-    async function checkout(plan) {
-      const btn = event.currentTarget;
-      btn.disabled = true;
-      btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span> Redirecting...';
-
-      try {
-        const res = await fetch(API_CHECKOUT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ plan }),
-        });
-        const data = await res.json();
-        if (!data.success || !data.url) throw new Error(data.message || 'Failed');
-        claimed = Math.min(claimed + 1, TOTAL_SLOTS);
-        try { localStorage.setItem('ovcd_founder_claimed', claimed); } catch(e) {}
-        updateProgress();
-        window.location.href = data.url;
-      } catch (err) {
-        alert('Error: ' + err.message);
-        btn.disabled = false;
-        btn.innerHTML = '🪑 Claim Your Founder Seat (Lifetime)';
-      }
-    }
-
-    (function() {
-      try {
-        const saved = localStorage.getItem('ovcd_founder_claimed');
-        if (saved) claimed = parseInt(saved, 10) || 82;
-      } catch(e) {}
-      updateProgress();
-    })();
-    </script>
-
-    <script>
-(function () {
-    var STORAGE_KEY = 'overconda-lang';
-    var I18N = {
-        en: {
-            nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', home: 'Home', projects: 'Projects', contact: 'Contact' },
-            page: { title: '404 Slimmer', tagline: 'Lightweight 404 error manager – detect, log, and redirect broken links to reduce server load and improve SEO.' },
-            slimmer: { eyebrow: 'WordPress Plugin', badge: 'Free & Pro', badge2: 'WordPress Plugin', back: 'Back to Home',
-                features: { title: 'Features', '1': '<strong>404 Logging</strong> — Automatically logs all 404 errors with timestamps, requested URLs, referrer, and user agent.', '2': '<strong>Smart Redirects</strong> — Set up permanent (301) or temporary (302) redirects from the log entries with a single click.', '3': '<strong>Log Viewer</strong> — Clean, paginated admin panel to browse, search, and filter 404 entries.', '4': '<strong>Email Notifications</strong> — Get notified when 404 errors are detected (Pro feature).', '5': '<strong>CSV Export</strong> — Export logs for external analysis (Pro feature).', '6': '<strong>SEO Friendly</strong> — Helps reduce crawl errors and improve user experience by fixing broken links.' },
-                cta: 'Coming soon to the WordPress Plugin Directory and available as a premium version with advanced features.',
-                plans: { title: 'Plans & Pricing',
-                    free: { title: 'Free', '1': '✓ 404 Logging', '2': '✓ Redirect Manager', '3': '✓ Log Viewer', '4': '✕ Email Notifications', '5': '✕ CSV Export', '6': '✕ Priority Support' },
-                    pro: { title: 'Pro', perYear: '/year', popular: 'Popular', buy: 'Buy License', '1': '✓ All Free features', '2': '✓ Email Notifications', '3': '✓ CSV Export', '4': '✓ Priority Support', '5': '✓ 1 Site License' },
-                    agency: { title: 'Agency', perYear: '/year', buy: 'Buy License', '1': '✓ All Pro features', '2': '✓ Up to 10 Sites', '3': '✓ Email Notifications', '4': '✓ CSV Export', '5': '✓ Priority Support' }
-                },
-                screenshots: { title: 'Screenshots' }
-            },
-            footer: { rights: '© Overconda Lab. All rights reserved.', terms: 'Terms of Service', privacy: 'Privacy Policy', refund: 'Refund Policy' }
-        },
-        th: {
-            nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', home: 'หน้าแรก', projects: 'โปรเจกต์', contact: 'ติดต่อ' },
-            page: { title: '404 Slimmer', tagline: 'ตัวจัดการ 404 Error น้ำหนักเบา – ตรวจจับ บันทึก และ Redirect ลิงก์เสีย ลดภาระเซิร์ฟเวอร์และปรับปรุง SEO' },
-            slimmer: { eyebrow: 'ปลั๊กอิน WordPress', badge: 'ฟรี & เสียเงิน', badge2: 'ปลั๊กอิน WordPress', back: 'กลับหน้าแรก',
-                features: { title: 'ฟีเจอร์', '1': '<strong>บันทึก 404</strong> — บันทึกข้อผิดพลาด 404 อัตโนมัติพร้อมวันที่, URL, referrer และเบราว์เซอร์', '2': '<strong>Redirect อัจฉริยะ</strong> — ตั้งค่า Permanent 301 หรือ Temporary 302 redirects ได้คลิกเดียว', '3': '<strong>Log Viewer</strong> — แผงจัดการที่สะอาดตา แบ่งหน้า ค้นหา และกรองรายการ 404', '4': '<strong>อีเมลแจ้งเตือน</strong> — แจ้งเตือนเมื่อพบ 404 ใหม่ (ฟีเจอร์ Pro)', '5': '<strong>ส่งออก CSV</strong> — ส่งออกบันทึกเพื่อวิเคราะห์ภายนอก (ฟีเจอร์ Pro)', '6': '<strong>SEO Friendly</strong> — ช่วยลด crawl errors และปรับปรุงประสบการณ์ผู้ใช้' },
-                cta: 'เร็วๆ นี้ใน WordPress Plugin Directory และมีเวอร์ชันพรีเมียมพร้อมฟีเจอร์เพิ่มเติม',
-                plans: { title: 'แผนและราคา',
-                    free: { title: 'ฟรี', '1': '✓ บันทึก 404', '2': '✓ จัดการ Redirect', '3': '✓ Log Viewer', '4': '✕ แจ้งเตือนอีเมล', '5': '✕ ส่งออก CSV', '6': '✕ การสนับสนุนลำดับความสำคัญ' },
-                    pro: { title: 'Pro', perYear: '/ปี', popular: 'มาแรง', buy: 'ซื้อ License', '1': '✓ ฟีเจอร์ฟรีทั้งหมด', '2': '✓ แจ้งเตือนอีเมล', '3': '✓ ส่งออก CSV', '4': '✓ การสนับสนุนลำดับความสำคัญ', '5': '✓ 1 เว็บไซต์' },
-                    agency: { title: 'Agency', perYear: '/ปี', buy: 'ซื้อ License', '1': '✓ ฟีเจอร์ Pro ทั้งหมด', '2': '✓ มากถึง 10 เว็บไซต์', '3': '✓ แจ้งเตือนอีเมล', '4': '✓ ส่งออก CSV', '5': '✓ การสนับสนุนลำดับความสำคัญ' }
-                },
-                screenshots: { title: 'ภาพตัวอย่าง' }
-            },
-            footer: { rights: '© Overconda Lab สงวนลิขสิทธิ์.', terms: 'ข้อกำหนดการให้บริการ', privacy: 'นโยบายความเป็นส่วนตัว', refund: 'นโยบายการคืนเงิน' }
-        }
-    };
-
-    function get(obj, path) {
-        var keys = path.split('.');
-        for (var i = 0; i < keys.length; i++) obj = obj[keys[i]];
-        return obj != null ? obj : '';
-    }
-
-    function applyLang(lang) {
-        if (!I18N[lang]) lang = 'en';
-        document.documentElement.lang = lang === 'th' ? 'th' : 'en';
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-            var val = get(I18N[lang], el.getAttribute('data-i18n'));
-            if (val) el.innerHTML = val;
-        });
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-            var isActive = btn.getAttribute('data-lang') === lang;
-            btn.setAttribute('aria-pressed', isActive);
-            if (isActive) {
-                btn.classList.add('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
-                btn.classList.remove('text-slate-400');
-            } else {
-                btn.classList.remove('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
-                btn.classList.add('text-slate-400');
-            }
-        });
-        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
-    }
-
-    var saved = (typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_KEY)) || 'en';
-    applyLang(saved === 'th' ? 'th' : 'en');
-
-    document.querySelectorAll('.lang-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var lang = this.getAttribute('data-lang');
-            if (lang) applyLang(lang);
-        });
-    });
-
-    var yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    /* ---- Screenshot Carousel ---- */
-    var carousel = document.getElementById('screenshotCarousel');
-    if (carousel) {
-        var track = carousel.querySelector('.carousel-track');
-        var slides = track.querySelectorAll('.carousel-slide');
-        var prevBtn = carousel.querySelector('.carousel-btn-prev');
-        var nextBtn = carousel.querySelector('.carousel-btn-next');
-        var dotsContainer = document.getElementById('carouselDots');
-        var current = 0;
-        var total = slides.length;
-
-        function updateCarousel() {
-            track.style.transform = 'translateX(-' + (current * 100) + '%)';
-            var dots = dotsContainer.querySelectorAll('.carousel-dot');
-            dots.forEach(function (d, i) {
-                d.classList.toggle('active', i === current);
-            });
-        }
-
-        function goTo(index) {
-            if (index < 0) index = total - 1;
-            if (index >= total) index = 0;
-            current = index;
-            updateCarousel();
-        }
-
-        // Create dots
-        for (var i = 0; i < total; i++) {
-            var dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-            dot.addEventListener('click', (function (idx) {
-                return function () { goTo(idx); };
-            })(i));
-            dotsContainer.appendChild(dot);
-        }
-
-        prevBtn.addEventListener('click', function () { goTo(current - 1); });
-        nextBtn.addEventListener('click', function () { goTo(current + 1); });
-
-        // Keyboard navigation
-        carousel.addEventListener('keydown', function (e) {
-            if (e.key === 'ArrowLeft') { goTo(current - 1); e.preventDefault(); }
-            if (e.key === 'ArrowRight') { goTo(current + 1); e.preventDefault(); }
-        });
-        carousel.setAttribute('tabindex', '0');
-    }
-})();
-    </script>
-
-    <!-- ════════════════════════════════════ -->
     <!-- Stripe Checkout + Founder Counter   -->
     <!-- ════════════════════════════════════ -->
     <script>
     (function() {
+        const API_CHECKOUT = 'https://api.overconda.space/api/checkout/create-session';
         const TOTAL_SLOTS = 100;
         let claimed = 82;
 
-        // Restore from localStorage
         try {
             var saved = localStorage.getItem('ovcd_founder_claimed');
             if (saved) claimed = parseInt(saved, 10) || 82;
@@ -482,7 +338,7 @@
             btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span> Redirecting...';
 
             try {
-                var res = await fetch('https://api.overconda.space/api/checkout/create-session', {
+                var res = await fetch(API_CHECKOUT, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ plan: plan }),
@@ -493,7 +349,6 @@
                     throw new Error(data.message || 'Failed to create session');
                 }
 
-                // Increment counter
                 claimed = Math.min(claimed + 1, TOTAL_SLOTS);
                 try { localStorage.setItem('ovcd_founder_claimed', claimed); } catch(e) {}
                 updateProgress();
