@@ -369,61 +369,104 @@
             </div>
         </div>
 
-        <!-- Screenshots Gallery – Carousel -->
+        <!-- ════════════════════════════════════ -->
+        <!-- FAQ — Frequently Asked Questions   -->
+        <!-- ════════════════════════════════════ -->
         <div class="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-6 md:p-8">
-            <h3 class="text-lg font-semibold text-slate-100 mb-4" data-i18n="slimmer.screenshots.title">Screenshots</h3>
-            <div class="screenshot-carousel" id="screenshotCarousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.42.06.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.42.06.png" alt="404 Slimmer Screenshot 1" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.42.31.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.42.31.png" alt="404 Slimmer Screenshot 2" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.42.52.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.42.52.png" alt="404 Slimmer Screenshot 3" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.44.21.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.44.21.png" alt="404 Slimmer Screenshot 4" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.44.33.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.44.33.png" alt="404 Slimmer Screenshot 5" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.44.48.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.44.48.png" alt="404 Slimmer Screenshot 6" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.45.00.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.45.00.png" alt="404 Slimmer Screenshot 7" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.46.20.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.46.20.png" alt="404 Slimmer Screenshot 8" loading="lazy" />
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <a href="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.46.31.png" target="_blank">
-                            <img src="/images/404-slimmer/Screenshot%202569-04-28%20at%2021.46.31.png" alt="404 Slimmer Screenshot 9" loading="lazy" />
-                        </a>
+            <h3 class="text-lg font-semibold text-slate-100 mb-1 text-center" data-i18n="faq.title">Frequently Asked Questions</h3>
+            <p class="text-xs text-slate-400 text-center mb-6" data-i18n="faq.subtitle">Everything you need to know about 404 Slimmer</p>
+            <div class="faq-accordion space-y-2 max-w-3xl mx-auto" id="faqAccordion">
+                <!-- Group 1: General -->
+                <div class="faq-group">
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-1 mb-2" data-i18n="faq.group.general">General Questions</p>
+                    <div class="space-y-1">
+                        <div class="faq-item rounded-xl border border-slate-800/60 bg-slate-900/40 overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q1.q">What is 404 Slimmer?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q1.a">404 Slimmer is a lightweight WordPress plugin designed to efficiently detect and manage 404 errors. It helps reduce server load and improves SEO for your website.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item rounded-xl border border-slate-800/60 bg-slate-900/40 overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q2.q">How does the renewal system work?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q2.a">For future regular customers, it will be an annual subscription model. However, if you purchase during our Founder's Deal, you receive free lifetime updates with no annual renewals — ever.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item rounded-xl border border-slate-800/60 bg-slate-900/40 overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q3.q">Will it work with other SEO plugins?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q3.a">Absolutely. 404 Slimmer is designed to work alongside all popular SEO plugins. It serves as a lightweight complement, handling 404 database management to keep things clean and fast.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Previous screenshot">&#8249;</button>
-                <button type="button" class="carousel-btn carousel-btn-next" aria-label="Next screenshot">&#8250;</button>
+                <!-- Group 2: Founder's Deal -->
+                <div class="faq-group mt-6">
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-1 mb-2" data-i18n="faq.group.founder">Founder's Deal Specific</p>
+                    <div class="space-y-1">
+                        <div class="faq-item rounded-xl border border-cyan-500/20 bg-cyan-500/[0.03] overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q4.q">Is the Lifetime Access really limited?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q4.a">Yes, it is strictly limited. We are offering this lifetime benefit to only the first 100 supporters during our launch phase. Once the slots are filled, the system will switch to annual pricing for new customers immediately.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item rounded-xl border border-cyan-500/20 bg-cyan-500/[0.03] overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q5.q">How does the Founder Discount for future products work?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q5.a">When you purchase 404 Slimmer during the Founder's Deal, your email is saved in our special membership system. When we launch new plugins under the Overconda brand, you will automatically receive a 30–50% discount coupon sent directly to your email.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item rounded-xl border border-cyan-500/20 bg-cyan-500/[0.03] overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q6.q">Where can I get support if I have issues?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q6.a">Founders receive Priority Support. You can contact our dev team directly through the special support channel listed in your License management page. We are here to help you every step of the way.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Group 3: Technical & Licensing -->
+                <div class="faq-group mt-6">
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-1 mb-2" data-i18n="faq.group.technical">Technical &amp; Licensing</p>
+                    <div class="space-y-1">
+                        <div class="faq-item rounded-xl border border-slate-800/60 bg-slate-900/40 overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q7.q">Will the plugin still work if I don't renew (subscription model)?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q7.a">The plugin will continue to function normally, but you will no longer receive new feature updates, bug fixes, or technical support. This could affect long-term security, so we recommend staying updated.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item rounded-xl border border-slate-800/60 bg-slate-900/40 overflow-hidden transition-all duration-200">
+                            <button class="faq-trigger w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-medium text-slate-200 hover:text-cyan-200 transition-colors" aria-expanded="false">
+                                <span data-i18n="faq.q8.q">How is the site count calculated for each plan?</span>
+                                <svg class="faq-icon w-4 h-4 shrink-0 text-slate-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="px-4 pb-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq.q8.a">We count by the number of domains with an active License. For example, the Pro plan supports up to 5 websites, and the Agency plan supports up to 20 websites. You can manage adding or removing sites yourself through the membership dashboard.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-dots" id="carouselDots"></div>
         </div>
 
         <div class="text-center py-6">
@@ -501,5 +544,198 @@
         };
     })();
     </script>
-</body>
-</html>
+
+    <!-- ════════════════════════════════════ -->
+    <!-- i18n + FAQ Accordion                -->
+    <!-- ════════════════════════════════════ -->
+    <script>
+    (function () {
+        var STORAGE_KEY = 'overconda-lang';
+        var I18N = {
+            en: {
+                nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', home: 'Home', projects: 'Projects', contact: 'Contact' },
+                page: { title: '404 Slimmer', tagline: 'Lightweight 404 error manager – detect, log, and redirect broken links to reduce server load and improve SEO.' },
+                slimmer: { eyebrow: 'WordPress Plugin', badge: 'Free & Pro', badge2: 'WordPress Plugin', back: 'Back to Home',
+                    features: { title: 'Features', '1': '<strong>404 Logging</strong> — Automatically logs all 404 errors with timestamps, requested URLs, referrer, and user agent.', '2': '<strong>Smart Redirects</strong> — Set up permanent (301) or temporary (302) redirects from the log entries with a single click.', '3': '<strong>Log Viewer</strong> — Clean, paginated admin panel to browse, search, and filter 404 entries.', '4': '<strong>Email Notifications</strong> — Get notified when 404 errors are detected <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-2 py-0.5 text-[10px] font-bold text-slate-950 ml-1">Pro</span>', '5': '<strong>CSV Export</strong> — Export logs for external analysis <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-2 py-0.5 text-[10px] font-bold text-slate-950 ml-1">Pro</span>', '6': '<strong>SEO Friendly</strong> — Helps reduce crawl errors and improve user experience by fixing broken links.' },
+                    cta: 'Coming soon to the WordPress Plugin Directory and available as a premium version with advanced features.',
+                    plans: { title: 'Plans & Pricing',
+                        free: { title: 'Free', '1': '✓ 404 Logging', '2': '✓ Redirect Manager', '3': '✓ Log Viewer', '4': '✕ Email Notifications', '5': '✕ CSV Export', '6': '✕ Priority Support' },
+                        pro: { title: 'Pro', perYear: '/year', popular: 'Popular', buy: 'Buy License', '1': '✓ All Free features', '2': '✓ Email Notifications', '3': '✓ CSV Export', '4': '✓ Priority Support', '5': '✓ 1 Site License' },
+                        agency: { title: 'Agency', perYear: '/year', buy: 'Buy License', '1': '✓ All Pro features', '2': '✓ Up to 10 Sites', '3': '✓ Email Notifications', '4': '✓ CSV Export', '5': '✓ Priority Support' }
+                    },
+                    screenshots: { title: 'Screenshots' }
+                },
+                footer: { rights: '© Overconda Lab. All rights reserved.', terms: 'Terms of Service', privacy: 'Privacy Policy', refund: 'Refund Policy' },
+                faq: {
+                    title: 'Frequently Asked Questions',
+                    subtitle: 'Everything you need to know about 404 Slimmer',
+                    group: { general: 'General Questions', founder: "Founder's Deal Specific", technical: 'Technical & Licensing' },
+                    q1: { q: 'What is 404 Slimmer?', a: '404 Slimmer is a lightweight WordPress plugin designed to efficiently detect and manage 404 errors. It helps reduce server load and improves SEO for your website.' },
+                    q2: { q: 'How does the renewal system work?', a: 'For future regular customers, it will be an annual subscription model. However, if you purchase during our Founder\u2019s Deal, you receive free lifetime updates with no annual renewals \u2014 ever.' },
+                    q3: { q: 'Will it work with other SEO plugins?', a: 'Absolutely. 404 Slimmer is designed to work alongside all popular SEO plugins. It serves as a lightweight complement, handling 404 database management to keep things clean and fast.' },
+                    q4: { q: 'Is the Lifetime Access really limited?', a: 'Yes, it is strictly limited. We are offering this lifetime benefit to only the first 100 supporters during our launch phase. Once the slots are filled, the system will switch to annual pricing for new customers immediately.' },
+                    q5: { q: 'How does the Founder Discount for future products work?', a: 'When you purchase 404 Slimmer during the Founder\u2019s Deal, your email is saved in our special membership system. When we launch new plugins under the Overconda brand, you will automatically receive a 30\u201350% discount coupon sent directly to your email.' },
+                    q6: { q: 'Where can I get support if I have issues?', a: 'Founders receive Priority Support. You can contact our dev team directly through the special support channel listed in your License management page. We are here to help you every step of the way.' },
+                    q7: { q: 'Will the plugin still work if I don\u2019t renew (subscription model)?', a: 'The plugin will continue to function normally, but you will no longer receive new feature updates, bug fixes, or technical support. This could affect long-term security, so we recommend staying updated.' },
+                    q8: { q: 'How is the site count calculated for each plan?', a: 'We count by the number of domains with an active License. For example, the Pro plan supports up to 5 websites, and the Agency plan supports up to 20 websites. You can manage adding or removing sites yourself through the membership dashboard.' }
+                }
+            },
+            th: {
+                nav: { tagline: 'Developer & Content Creator · IT & WordPress Development', home: 'หน้าแรก', projects: 'โปรเจกต์', contact: 'ติดต่อ' },
+                page: { title: '404 Slimmer', tagline: 'ตัวจัดการ 404 Error น้ำหนักเบา – ตรวจจับ บันทึก และ Redirect ลิงก์เสีย ลดภาระเซิร์ฟเวอร์และปรับปรุง SEO' },
+                slimmer: { eyebrow: 'ปลั๊กอิน WordPress', badge: 'ฟรี & เสียเงิน', badge2: 'ปลั๊กอิน WordPress', back: 'กลับหน้าแรก',
+                    features: { title: 'ฟีเจอร์', '1': '<strong>บันทึก 404</strong> — บันทึกข้อผิดพลาด 404 อัตโนมัติพร้อมวันที่, URL, referrer และเบราว์เซอร์', '2': '<strong>Redirect อัจฉริยะ</strong> — ตั้งค่า Permanent 301 หรือ Temporary 302 redirects ได้คลิกเดียว', '3': '<strong>Log Viewer</strong> — แผงจัดการที่สะอาดตา แบ่งหน้า ค้นหา และกรองรายการ 404', '4': '<strong>อีเมลแจ้งเตือน</strong> — แจ้งเตือนเมื่อพบ 404 ใหม่ <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-2 py-0.5 text-[10px] font-bold text-slate-950 ml-1">Pro</span>', '5': '<strong>ส่งออก CSV</strong> — ส่งออกบันทึกเพื่อวิเคราะห์ภายนอก <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400 px-2 py-0.5 text-[10px] font-bold text-slate-950 ml-1">Pro</span>', '6': '<strong>SEO Friendly</strong> — ช่วยลด crawl errors และปรับปรุงประสบการณ์ผู้ใช้' },
+                    cta: 'เร็วๆ นี้ใน WordPress Plugin Directory และมีเวอร์ชันพรีเมียมพร้อมฟีเจอร์เพิ่มเติม',
+                    plans: { title: 'แผนและราคา',
+                        free: { title: 'ฟรี', '1': '✓ บันทึก 404', '2': '✓ จัดการ Redirect', '3': '✓ Log Viewer', '4': '✕ แจ้งเตือนอีเมล', '5': '✕ ส่งออก CSV', '6': '✕ การสนับสนุนลำดับความสำคัญ' },
+                        pro: { title: 'Pro', perYear: '/ปี', popular: 'มาแรง', buy: 'ซื้อ License', '1': '✓ ฟีเจอร์ฟรีทั้งหมด', '2': '✓ แจ้งเตือนอีเมล', '3': '✓ ส่งออก CSV', '4': '✓ การสนับสนุนลำดับความสำคัญ', '5': '✓ 1 เว็บไซต์' },
+                        agency: { title: 'Agency', perYear: '/ปี', buy: 'ซื้อ License', '1': '✓ ฟีเจอร์ Pro ทั้งหมด', '2': '✓ มากถึง 10 เว็บไซต์', '3': '✓ แจ้งเตือนอีเมล', '4': '✓ ส่งออก CSV', '5': '✓ การสนับสนุนลำดับความสำคัญ' }
+                    },
+                    screenshots: { title: 'ภาพตัวอย่าง' }
+                },
+                footer: { rights: '© Overconda Lab สงวนลิขสิทธิ์.', terms: 'ข้อกำหนดการให้บริการ', privacy: 'นโยบายความเป็นส่วนตัว', refund: 'นโยบายการคืนเงิน' },
+                faq: {
+                    title: 'คำถามที่พบบ่อย',
+                    subtitle: 'ทุกสิ่งที่คุณต้องรู้เกี่ยวกับ 404 Slimmer',
+                    group: { general: 'คำถามทั่วไป', founder: 'เกี่ยวกับ Founder\u2019s Deal', technical: 'ด้านเทคนิคและสิทธิ์การใช้งาน' },
+                    q1: { q: '404 Slimmer คืออะไร?', a: 'เป็นปลั๊กอิน WordPress ขนาดเล็ก (Lightweight) ที่ออกแบบมาเพื่อตรวจจับและจัดการข้อผิดพลาด 404 อย่างมีประสิทธิภาพ ช่วยลดภาระการทำงานของเซิร์ฟเวอร์และช่วยปรับปรุง SEO ให้กับเว็บไซต์ของคุณ' },
+                    q2: { q: 'ระบบต่ออายุการใช้งาน (Renewal) เป็นอย่างไร?', a: 'สำหรับลูกค้าทั่วไปในอนาคตจะเป็นระบบรายปี แต่ถ้าคุณซื้อในช่วง Founder\u2019s Deal คุณจะได้รับสิทธิ์อัปเดตฟรีตลอดชีพโดยไม่ต้องต่ออายุรายปีอีกเลย' },
+                    q3: { q: 'สามารถใช้งานร่วมกับปลั๊กอิน SEO ตัวอื่นได้ไหม?', a: 'ได้แน่นอนครับ 404 Slimmer ออกแบบมาให้ทำงานร่วมกับปลั๊กอิน SEO ยอดนิยมได้ทุกตัว โดยทำหน้าที่เสริมในส่วนของการจัดการฐานข้อมูล 404 ให้เบาและคลีนที่สุด' },
+                    q4: { q: 'สิทธิ์ Lifetime Access ของ Founder มีจำนวนจำกัดจริงไหม?', a: 'จำกัดจริงๆ ครับ เรามอบสิทธิ์นี้ให้กับ 100 ท่านแรกที่สนับสนุนโครงการในช่วงเปิดตัวเท่านั้น หลังจากครบจำนวน ระบบจะเปลี่ยนเป็นราคาแบบรายปีสำหรับลูกค้าใหม่ทันที' },
+                    q5: { q: 'ส่วนลด Founder สำหรับสินค้าในอนาคตใช้งานอย่างไร?', a: 'เมื่อคุณซื้อ 404 Slimmer ในช่วง Founder\u2019s Deal อีเมลของคุณจะถูกบันทึกไว้ในระบบสมาชิกพิเศษ เมื่อเราเปิดตัวปลั๊กอินตัวใหม่ภายใต้แบรนด์ Overconda คุณจะได้รับคูปองส่วนลด 30-50% ส่งตรงถึงอีเมลของคุณโดยอัตโนมัติครับ' },
+                    q6: { q: 'ถ้าใช้งานแล้วพบปัญหา จะติดต่อสอบถามได้ที่ไหน?', a: 'สำหรับกลุ่ม Founder เรามีสิทธิ์ Priority Support คุณสามารถติดต่อทีมงานผู้พัฒนาได้โดยตรงผ่านช่องทางสนับสนุนพิเศษที่ระบุไว้ในหน้าจัดการ License ของคุณครับ' },
+                    q7: { q: 'หากไม่ต่ออายุในปีถัดไป (สำหรับรุ่น Subscription) ปลั๊กอินยังทำงานอยู่ไหม?', a: 'ปลั๊กอินจะยังคงทำงานได้ตามปกติ แต่คุณจะไม่ได้รับการอัปเดตฟีเจอร์ใหม่ๆ การแก้บั๊ก หรือการสนับสนุนทางเทคนิค ซึ่งอาจส่งผลต่อความปลอดภัยในระยะยาวครับ' },
+                    q8: { q: 'การนับจำนวน Site ของแต่ละแผนเป็นอย่างไร?', a: 'เรานับตามจำนวน Domain ที่มีการ Active License ครับ เช่น แผน Pro รองรับได้สูงสุด 5 เว็บไซต์ และแผน Agency รองรับได้ 20 เว็บไซต์ โดยคุณสามารถจัดการเพิ่มหรือถอนสิทธิ์เว็บไซต์เองได้ผ่านระบบจัดการสมาชิกครับ' }
+                }
+            }
+        };
+
+        function get(obj, path) {
+            var keys = path.split('.');
+            for (var i = 0; i < keys.length; i++) {
+                if (obj == null) return '';
+                obj = obj[keys[i]];
+            }
+            return obj != null ? obj : '';
+        }
+
+        function applyLang(lang) {
+            if (!I18N[lang]) lang = 'en';
+            document.documentElement.lang = lang === 'th' ? 'th' : 'en';
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                var val = get(I18N[lang], el.getAttribute('data-i18n'));
+                if (val) el.innerHTML = val;
+            });
+            document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                var isActive = btn.getAttribute('data-lang') === lang;
+                btn.setAttribute('aria-pressed', isActive);
+                if (isActive) {
+                    btn.classList.add('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
+                    btn.classList.remove('text-slate-400');
+                } else {
+                    btn.classList.remove('text-cyan-300', 'bg-cyan-500/20', 'border', 'border-cyan-500/50');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+            try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+        }
+
+        var saved = (typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_KEY)) || 'en';
+        applyLang(saved === 'th' ? 'th' : 'en');
+
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var lang = this.getAttribute('data-lang');
+                if (lang) applyLang(lang);
+            });
+        });
+
+        var yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        /* ---- Screenshot Carousel ---- */
+        var carousel = document.getElementById('screenshotCarousel');
+        if (carousel) {
+            var track = carousel.querySelector('.carousel-track');
+            var slides = track.querySelectorAll('.carousel-slide');
+            var prevBtn = carousel.querySelector('.carousel-btn-prev');
+            var nextBtn = carousel.querySelector('.carousel-btn-next');
+            var dotsContainer = document.getElementById('carouselDots');
+            var current = 0;
+            var total = slides.length;
+
+            function updateCarousel() {
+                track.style.transform = 'translateX(-' + (current * 100) + '%)';
+                var dots = dotsContainer.querySelectorAll('.carousel-dot');
+                dots.forEach(function (d, i) {
+                    d.classList.toggle('active', i === current);
+                });
+            }
+
+            function goTo(index) {
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                current = index;
+                updateCarousel();
+            }
+
+            for (var i = 0; i < total; i++) {
+                var dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                dot.addEventListener('click', (function (idx) {
+                    return function () { goTo(idx); };
+                })(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            prevBtn.addEventListener('click', function () { goTo(current - 1); });
+            nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+            carousel.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { goTo(current - 1); e.preventDefault(); }
+                if (e.key === 'ArrowRight') { goTo(current + 1); e.preventDefault(); }
+            });
+            carousel.setAttribute('tabindex', '0');
+        }
+
+        /* ---- FAQ Accordion ---- */
+        var accordion = document.getElementById('faqAccordion');
+        if (accordion) {
+            accordion.querySelectorAll('.faq-trigger').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var item = this.closest('.faq-item');
+                    var answer = item.querySelector('.faq-answer');
+                    var icon = this.querySelector('.faq-icon');
+                    var isOpen = this.getAttribute('aria-expanded') === 'true';
+
+                    // Close all siblings in same group
+                    var group = item.closest('.space-y-1');
+                    if (group) {
+                        group.querySelectorAll('.faq-item').forEach(function (sibling) {
+                            if (sibling !== item) {
+                                var sBtn = sibling.querySelector('.faq-trigger');
+                                var sAnswer = sibling.querySelector('.faq-answer');
+                                var sIcon = sibling.querySelector('.faq-icon');
+                                sBtn.setAttribute('aria-expanded', 'false');
+                                sAnswer.style.maxHeight = '0';
+                                if (sIcon) sIcon.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                    }
+
+                    if (isOpen) {
+                        this.setAttribute('aria-expanded', 'false');
+                        answer.style.maxHeight = '0';
+                        if (icon) icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        this.setAttribute('aria-expanded', 'true');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        if (icon) icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        }
+    })();
+    </script>
+</body></html>
