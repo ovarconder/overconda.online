@@ -385,13 +385,6 @@
   @media (max-width: 700px) {
     #lb-prev { left: 8px; }
     #lb-next { right: 8px; }
-    .kh-lb-nav, #kh-lb-prev, #kh-lb-next {
-      position:absolute !important;
-      top:50% !important;
-      transform:translateY(-50%) !important;
-    }
-    #kh-lb-prev { left: 8px !important; }
-    #kh-lb-next { right: 8px !important; }
   }
 
   #lb-caption {
@@ -516,18 +509,6 @@
       </div>
     </div>
 
-    <!-- ─── KH PROFILES LIGHTBOX ────────────────────────────────── -->
-    <div id="kh-lb-overlay" style="position:fixed;inset:0;z-index:2000;background:rgba(14,10,30,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;flex-direction:column;">
-      <button id="kh-lb-close" style="position:absolute;top:20px;right:24px;background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.5rem;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">✕</button>
-      <div id="kh-lb-name" style="color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:6px;text-align:center;"></div>
-      <div id="kh-lb-counter" style="color:rgba(255,255,255,0.5);font-size:0.78rem;margin-bottom:12px;"></div>
-      <div id="kh-lb-content" style="max-width:min(90vw,1100px);max-height:80vh;display:flex;align-items:center;justify-content:center;position:relative;">
-        <button class="kh-lb-nav" id="kh-lb-prev" style="position:absolute;left:-70px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.4rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">‹</button>
-        <div id="kh-lb-media"></div>
-        <button class="kh-lb-nav" id="kh-lb-next" style="position:absolute;right:-70px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.4rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">›</button>
-      </div>
-      <div id="kh-lb-caption" style="margin-top:14px;color:rgba(255,255,255,0.55);font-size:0.82rem;text-align:center;max-width:600px;line-height:1.5;"></div>
-    </div>
     <!-- ─── END KH PROFILES ─────────────────────────────────────── -->
 
     <!-- Gallery with tabs -->
@@ -965,98 +946,20 @@ function buildKhProfiles() {
     card.appendChild(img);
     card.appendChild(label);
 
-    // คลิก → เปิด lightbox
-    card.addEventListener("click", () => openKhLightbox(folderName, p.label));
+    // คลิก → เปิดหน้าแยก
+    card.addEventListener("click", () => {
+      const url = "kh-gallery.html?folder=" + encodeURIComponent(folderName) + "&name=" + encodeURIComponent(p.label);
+      window.open(url, "_blank");
+    });
 
     grid.appendChild(card);
   });
 }
 
-// ── KH Lightbox ──────────────────────────────────────
-let khLbFolder = null;
-let khLbIndex  = 0;
-
-function openKhLightbox(folderName, displayName) {
-  khLbFolder = folderName;
-  khLbIndex  = 0;
-  renderKhLb(displayName);
-  document.getElementById("kh-lb-overlay").style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-
-function closeKhLightbox() {
-  document.getElementById("kh-lb-overlay").style.display = "none";
-  document.body.style.overflow = "";
-  const vid = document.querySelector("#kh-lb-media video");
-  if (vid) vid.pause();
-}
-
-function renderKhLb(displayName) {
-  const files = khProfileFiles[khLbFolder] || ["0.png"];
-  const file  = files[khLbIndex];
-  const src   = resolveSrc(khBase + encodeURIComponent(khLbFolder) + "/" + encodeURIComponent(file));
-
-  const media = document.getElementById("kh-lb-media");
-  media.innerHTML = "";
-
-  // check if it's a video by extension
-  const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(file);
-  if (isVideo) {
-    const v = document.createElement("video");
-    v.src = src;
-    v.controls = true;
-    v.autoplay = true;
-    v.style.cssText = "max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 20px 80px rgba(0,0,0,0.5);display:block;";
-    media.appendChild(v);
-  } else {
-    const img = document.createElement("img");
-    img.src = src;
-    img.style.cssText = "max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 20px 80px rgba(0,0,0,0.5);display:block;object-fit:contain;";
-    img.onerror = function() {
-      this.style.display = "none";
-      const err = document.createElement("p");
-      err.style.cssText = "color:rgba(255,255,255,0.4);font-size:0.85rem;";
-      err.textContent = "⚠️ ไม่พบไฟล์: " + file;
-      media.appendChild(err);
-    };
-    media.appendChild(img);
-  }
-
-  document.getElementById("kh-lb-name").textContent = displayName || khLbFolder;
-  document.getElementById("kh-lb-counter").textContent = (khLbIndex + 1) + " / " + files.length;
-  document.getElementById("kh-lb-caption").textContent = "";
-
-  // nav visibility
-  document.getElementById("kh-lb-prev").style.visibility = khLbIndex > 0 ? "visible" : "hidden";
-  document.getElementById("kh-lb-next").style.visibility = khLbIndex < files.length - 1 ? "visible" : "hidden";
-}
-
-function khLbMove(dir) {
-  const files = khProfileFiles[khLbFolder] || ["0.png"];
-  khLbIndex = Math.max(0, Math.min(files.length - 1, khLbIndex + dir));
-  const displayName = document.getElementById("kh-lb-name").textContent;
-  const vid = document.querySelector("#kh-lb-media video");
-  if (vid) vid.pause();
-  renderKhLb(displayName);
-}
-
-// ── Bind KH Lightbox events ──────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   buildKhProfiles();
-
-  document.getElementById("kh-lb-close").addEventListener("click", closeKhLightbox);
-  document.getElementById("kh-lb-prev").addEventListener("click", () => khLbMove(-1));
-  document.getElementById("kh-lb-next").addEventListener("click", () => khLbMove(+1));
-  document.getElementById("kh-lb-overlay").addEventListener("click", e => {
-    if (e.target === document.getElementById("kh-lb-overlay")) closeKhLightbox();
-  });
-  document.addEventListener("keydown", e => {
-    if (document.getElementById("kh-lb-overlay").style.display !== "flex") return;
-    if (e.key === "Escape")       closeKhLightbox();
-    if (e.key === "ArrowLeft")    khLbMove(-1);
-    if (e.key === "ArrowRight")   khLbMove(+1);
-  });
 });
+
 </script>
 </body>
 </html>

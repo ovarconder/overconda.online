@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KH Profile Gallery</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Sarabun', 'Segoe UI', sans-serif;
+    background: linear-gradient(160deg, #fdf6f0, #f0e8f5, #dde8f8);
+    color: #2c2c3a;
+    padding: 40px 24px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: #7a7a90;
+  }
+  h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    font-family: 'Georgia', serif;
+  }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .back-link a {
+    color: #7a7a90;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back-link a:hover { text-decoration: underline; }
+  .grid {
+    columns: 3;
+    column-gap: 14px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width:700px) { .grid { columns: 2; } }
+  @media (max-width:400px) { .grid { columns: 1; } }
+  .grid-item {
+    break-inside: avoid;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(80,60,120,0.12);
+    background: rgba(255,255,255,0.7);
+    transition: transform .2s;
+  }
+  .grid-item:hover { transform: scale(1.02); }
+  .grid-item img { width: 100%; display: block; }
+  .loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7a7a90;
+    font-size: 1rem;
+  }
+  .error {
+    text-align: center;
+    padding: 60px 20px;
+    color: #c0392b;
+    font-size: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>👤 โปรไฟล์</h1>
+<h2 id="profile-name"></h2>
+<div class="back-link"><a href="lm.html" target="_top">← กลับไปหน้าก่อน</a></div>
+<div class="grid" id="gallery-grid">
+  <div class="loading" id="loading-msg">⏳ กำลังโหลดรูปภาพ...</div>
+</div>
+
+<script>
+  const BASE = location.protocol === 'file:' ? '' : '/present/';
+
+  const khProfileFiles = {
+    "E Luke Curry Thaii": ["0.png","Screenshot 2569-05-02 at 22.07.25.png","Screenshot 2569-05-02 at 22.08.00.png","Screenshot 2569-05-02 at 22.08.21.png","Screenshot 2569-05-02 at 22.11.06.png","Screenshot 2569-05-02 at 22.11.13.png","Screenshot 2569-05-02 at 22.11.40.png"],
+    "KH I love you": ["0.png","Screenshot 2569-05-02 at 22.15.58.png","Screenshot 2569-05-02 at 22.16.35.png","Screenshot 2569-05-02 at 22.17.30.png","Screenshot 2569-05-02 at 22.18.04.png","Screenshot 2569-05-02 at 22.19.07.png","Screenshot 2569-05-02 at 22.19.38.png","Screenshot 2569-05-02 at 22.19.55.png","Screenshot 2569-05-02 at 22.20.26.png","Screenshot 2569-05-05 at 14.21.34.png"],
+    "RT": ["0.png","Screenshot 2569-05-02 at 21.32.29.png","Screenshot 2569-05-02 at 21.32.42.png","Screenshot 2569-05-02 at 21.32.57.png","Screenshot 2569-05-02 at 21.33.23.png","Screenshot 2569-05-02 at 21.33.53.png","Screenshot 2569-05-02 at 21.34.28.png","Screenshot 2569-05-02 at 21.35.00.png","Screenshot 2569-05-02 at 21.35.28.png"],
+    "Sem Channy": ["0.png","Screenshot 2569-05-05 at 14.01.42.png","Screenshot 2569-05-05 at 14.03.03.png","Screenshot 2569-05-05 at 14.03.20.png","Screenshot 2569-05-05 at 14.03.37.png","Screenshot 2569-05-05 at 14.03.53.png","Screenshot 2569-05-05 at 14.04.17.png","Screenshot 2569-05-05 at 14.05.28.png"],
+    "Veren VR": ["0.png","Screenshot 2569-05-05 at 14.12.36.png","Screenshot 2569-05-05 at 14.13.36.png","Screenshot 2569-05-05 at 14.14.38.png"],
+    "Your Heart": ["0.png","Screenshot 2569-05-02 at 22.51.13.png","Screenshot 2569-05-02 at 22.51.38.png","Screenshot 2569-05-02 at 22.53.48.png","Screenshot 2569-05-02 at 22.57.41.png","Screenshot 2569-05-02 at 22.58.00.png"],
+  };
+
+  const params = new URLSearchParams(location.search);
+  const folder = params.get('folder');
+  const name = params.get('name') || folder;
+
+  document.getElementById('profile-name').textContent = name;
+
+  const grid = document.getElementById('gallery-grid');
+  const loading = document.getElementById('loading-msg');
+
+  if (!folder || !khProfileFiles[folder]) {
+    loading.className = 'error';
+    loading.textContent = '❌ ไม่พบโปรไฟล์นี้';
+  } else {
+    const files = khProfileFiles[folder];
+    loading.remove();
+
+    files.forEach(file => {
+      const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(file);
+      const src = BASE + 'images/khprofiles/' + folder + '/' + file;
+
+      const div = document.createElement('div');
+      div.className = 'grid-item';
+
+      if (isVideo) {
+        const vid = document.createElement('video');
+        vid.src = src;
+        vid.controls = true;
+        vid.style.width = '100%';
+        vid.style.display = 'block';
+        div.appendChild(vid);
+      } else {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = file;
+        img.loading = 'lazy';
+        img.onerror = function() {
+          this.style.background = '#e8ddf0';
+          this.style.padding = '40px 20px';
+          this.alt = '⚠️ ' + file;
+        };
+        div.appendChild(img);
+      }
+
+      grid.appendChild(div);
+    });
+  }
+</script>
+</body>
+</html>
