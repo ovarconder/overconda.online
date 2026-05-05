@@ -385,6 +385,13 @@
   @media (max-width: 700px) {
     #lb-prev { left: 8px; }
     #lb-next { right: 8px; }
+    .kh-lb-nav, #kh-lb-prev, #kh-lb-next {
+      position:absolute !important;
+      top:50% !important;
+      transform:translateY(-50%) !important;
+    }
+    #kh-lb-prev { left: 8px !important; }
+    #kh-lb-next { right: 8px !important; }
   }
 
   #lb-caption {
@@ -408,6 +415,23 @@
   .s-block:nth-child(2) { animation-delay: .15s; }
   .s-block:nth-child(3) { animation-delay: .25s; }
   .s-block:nth-child(4) { animation-delay: .35s; }
+
+  /* ─── PROFILE CARD ──────────────────────────────────────────── */
+  .profile-card { position:relative; }
+  .profile-card .img-wrap {
+    position:relative;
+    overflow:hidden;
+  }
+  .profile-card:hover .img-wrap::after {
+    content:'👁';
+    position:absolute;
+    inset:0;
+    background:rgba(40,30,70,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+  }
 
   /* ─── RESPONSIVE ──────────────────────────────────────────────── */
   @media (max-width: 640px) {
@@ -477,6 +501,34 @@
   เพื่อใช้เป็นหลักฐานนำเสนอต่อหน่วยงานราชการเพื่อการปกป้องสถาบันและราชวงศ์เท่านั้น มิได้มีเจตนาอื่น
 </div>
 
+<!-- ─── KH PROFILES SECTION ──────────────────────────────────── -->
+    <div class="profiles-section" style="margin: 28px 0 10px;">
+      <span class="s-tag" style="background:linear-gradient(90deg,#cc7faa,#cc9e7f)">KHMER PROFILES</span>
+      <h3 style="font-family:var(--font-head);font-size:1.2rem;color:var(--text);margin-bottom:16px;">
+        👤 โปรไฟล์ผู้ต้องสงสัย — เฟซบุ๊กที่เกี่ยวข้อง
+      </h3>
+      <p style="font-size:0.9rem;color:var(--text-mute);margin-bottom:24px;line-height:1.7;">
+        คลิกที่ภาพโปรไฟล์เพื่อดูรูปภาพทั้งหมดในแกลเลอรีของแต่ละบัญชี
+      </p>
+
+      <div class="profile-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;">
+        <!-- profile cards injected by JS below -->
+      </div>
+    </div>
+
+    <!-- ─── KH PROFILES LIGHTBOX ────────────────────────────────── -->
+    <div id="kh-lb-overlay" style="position:fixed;inset:0;z-index:2000;background:rgba(14,10,30,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;flex-direction:column;">
+      <button id="kh-lb-close" style="position:absolute;top:20px;right:24px;background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.5rem;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">✕</button>
+      <div id="kh-lb-name" style="color:rgba(255,255,255,0.7);font-size:0.9rem;margin-bottom:6px;text-align:center;"></div>
+      <div id="kh-lb-counter" style="color:rgba(255,255,255,0.5);font-size:0.78rem;margin-bottom:12px;"></div>
+      <div id="kh-lb-content" style="max-width:min(90vw,1100px);max-height:80vh;display:flex;align-items:center;justify-content:center;position:relative;">
+        <button class="kh-lb-nav" id="kh-lb-prev" style="position:absolute;left:-70px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.4rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">‹</button>
+        <div id="kh-lb-media"></div>
+        <button class="kh-lb-nav" id="kh-lb-next" style="position:absolute;right:-70px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:1.4rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">›</button>
+      </div>
+      <div id="kh-lb-caption" style="margin-top:14px;color:rgba(255,255,255,0.55);font-size:0.82rem;text-align:center;max-width:600px;line-height:1.5;"></div>
+    </div>
+    <!-- ─── END KH PROFILES ─────────────────────────────────────── -->
 
     <!-- Gallery with tabs -->
     <div class="gallery-head">
@@ -779,6 +831,232 @@ window.addEventListener("scroll", () => {
   scrollBtn.classList.toggle("show", window.scrollY > 400);
 });
 scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+/* ════════════════════════════════════════════════════
+   KH PROFILES — ใช้ 0.png เป็น thumbnail
+   เปิด lightbox แสดงรูปทั้งหมดใน folder นั้น
+════════════════════════════════════════════════════ */
+
+// ── กำหนด Profiles ──────────────────────────────────
+// folder name → display name (เปลี่ยนได้)
+const KH_PROFILES = [
+  { folder:"E Luke Curry Thaii", label:"E Luke Curry Thaii" },
+  { folder:"KH I love you",      label:"KH I love you" },
+  { folder:"RT",                  label:"RT" },
+  { folder:"Sem Channy",         label:"Sem Channy" },
+  { folder:"Veren VR",           label:"Veren VR" },
+  { folder:"Your Heart",         label:"Your Heart" },
+];
+
+// ── เก็บรูปในแต่ละ profile (เรียง 0.png ก่อน) ──────
+const khProfileImages = {};
+const khBase = "images/khprofiles/";
+
+// ── ดึงรายชื่อไฟล์จาก folder ผ่าน HEAD request + fallback ──
+// เนื่องจากเราไม่รู้ชื่อไฟล์ทั้งหมดล่วงหน้า 
+// จึง hardcode ตามที่สำรวจจาก filesystem
+const khProfileFiles = {
+  "E Luke Curry Thaii": [
+    "0.png",
+    "Screenshot 2569-05-02 at 22.07.25.png",
+    "Screenshot 2569-05-02 at 22.08.00.png",
+    "Screenshot 2569-05-02 at 22.08.21.png",
+    "Screenshot 2569-05-02 at 22.11.06.png",
+    "Screenshot 2569-05-02 at 22.11.13.png",
+    "Screenshot 2569-05-02 at 22.11.40.png",
+  ],
+  "KH I love you": [
+    "0.png",
+    "Screenshot 2569-05-02 at 22.15.58.png",
+    "Screenshot 2569-05-02 at 22.16.35.png",
+    "Screenshot 2569-05-02 at 22.17.30.png",
+    "Screenshot 2569-05-02 at 22.18.04.png",
+    "Screenshot 2569-05-02 at 22.19.07.png",
+    "Screenshot 2569-05-02 at 22.19.38.png",
+    "Screenshot 2569-05-02 at 22.19.55.png",
+    "Screenshot 2569-05-02 at 22.20.26.png",
+    "Screenshot 2569-05-05 at 14.21.34.png",
+  ],
+  "RT": [
+    "0.png",
+    "Screenshot 2569-05-02 at 21.32.29.png",
+    "Screenshot 2569-05-02 at 21.32.42.png",
+    "Screenshot 2569-05-02 at 21.32.57.png",
+    "Screenshot 2569-05-02 at 21.33.23.png",
+    "Screenshot 2569-05-02 at 21.33.53.png",
+    "Screenshot 2569-05-02 at 21.34.28.png",
+    "Screenshot 2569-05-02 at 21.35.00.png",
+    "Screenshot 2569-05-02 at 21.35.28.png",
+  ],
+  "Sem Channy": [
+    "0.png",
+    "Screenshot 2569-05-05 at 14.01.42.png",
+    "Screenshot 2569-05-05 at 14.03.03.png",
+    "Screenshot 2569-05-05 at 14.03.20.png",
+    "Screenshot 2569-05-05 at 14.03.37.png",
+    "Screenshot 2569-05-05 at 14.03.53.png",
+    "Screenshot 2569-05-05 at 14.04.17.png",
+    "Screenshot 2569-05-05 at 14.05.28.png",
+  ],
+  "Veren VR": [
+    "0.png",
+    "Screenshot 2569-05-05 at 14.12.36.png",
+    "Screenshot 2569-05-05 at 14.13.36.png",
+    "Screenshot 2569-05-05 at 14.14.38.png",
+  ],
+  "Your Heart": [
+    "0.png",
+    "Screenshot 2569-05-02 at 22.51.13.png",
+    "Screenshot 2569-05-02 at 22.51.38.png",
+    "Screenshot 2569-05-02 at 22.53.48.png",
+    "Screenshot 2569-05-02 at 22.57.41.png",
+    "Screenshot 2569-05-02 at 22.58.00.png",
+  ],
+};
+
+// ── สร้าง profile cards ──────────────────────────────
+function buildKhProfiles() {
+  const grid = document.querySelector(".profile-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+
+  KH_PROFILES.forEach((p, idx) => {
+    const folderName = p.folder;
+    const files = khProfileFiles[folderName] || ["0.png"];
+    // ใช้ 0.png เป็น thumbnail
+    const thumbPath = khBase + encodeURIComponent(folderName) + "/0.png";
+    const resolvedThumb = resolveSrc(thumbPath);
+
+    const card = document.createElement("div");
+    card.className = "profile-card";
+    card.style.cssText = `
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(12px) saturate(1.2);
+      -webkit-backdrop-filter: blur(12px) saturate(1.2);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: var(--radius);
+      box-shadow: 0 3px 16px rgba(80,60,120,0.08);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      display: flex;
+      flex-direction: column;
+    `;
+    card.onmouseover = () => { card.style.transform = "translateY(-4px)"; card.style.boxShadow = "0 8px 32px rgba(80,60,120,0.16)"; };
+    card.onmouseout  = () => { card.style.transform = ""; card.style.boxShadow = ""; };
+
+    // thumbnail
+    const img = document.createElement("img");
+    img.src = resolvedThumb;
+    img.alt = p.label;
+    img.style.cssText = "width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#e8ddf0;";
+
+    // label
+    const label = document.createElement("div");
+    label.style.cssText = "padding:14px 16px;font-size:0.85rem;font-weight:600;color:var(--text);text-align:center;border-top:1px solid rgba(200,180,220,0.25);";
+    label.textContent = p.label;
+
+    // badge — จำนวนรูป
+    const badge = document.createElement("span");
+    badge.style.cssText = "display:inline-block;background:linear-gradient(90deg,#cc7faa,#cc9e7f);color:#fff;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle;";
+    badge.textContent = files.length + " รูป";
+
+    label.appendChild(badge);
+    card.appendChild(img);
+    card.appendChild(label);
+
+    // คลิก → เปิด lightbox
+    card.addEventListener("click", () => openKhLightbox(folderName, p.label));
+
+    grid.appendChild(card);
+  });
+}
+
+// ── KH Lightbox ──────────────────────────────────────
+let khLbFolder = null;
+let khLbIndex  = 0;
+
+function openKhLightbox(folderName, displayName) {
+  khLbFolder = folderName;
+  khLbIndex  = 0;
+  renderKhLb(displayName);
+  document.getElementById("kh-lb-overlay").style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeKhLightbox() {
+  document.getElementById("kh-lb-overlay").style.display = "none";
+  document.body.style.overflow = "";
+  const vid = document.querySelector("#kh-lb-media video");
+  if (vid) vid.pause();
+}
+
+function renderKhLb(displayName) {
+  const files = khProfileFiles[khLbFolder] || ["0.png"];
+  const file  = files[khLbIndex];
+  const src   = resolveSrc(khBase + encodeURIComponent(khLbFolder) + "/" + encodeURIComponent(file));
+
+  const media = document.getElementById("kh-lb-media");
+  media.innerHTML = "";
+
+  // check if it's a video by extension
+  const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(file);
+  if (isVideo) {
+    const v = document.createElement("video");
+    v.src = src;
+    v.controls = true;
+    v.autoplay = true;
+    v.style.cssText = "max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 20px 80px rgba(0,0,0,0.5);display:block;";
+    media.appendChild(v);
+  } else {
+    const img = document.createElement("img");
+    img.src = src;
+    img.style.cssText = "max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 20px 80px rgba(0,0,0,0.5);display:block;object-fit:contain;";
+    img.onerror = function() {
+      this.style.display = "none";
+      const err = document.createElement("p");
+      err.style.cssText = "color:rgba(255,255,255,0.4);font-size:0.85rem;";
+      err.textContent = "⚠️ ไม่พบไฟล์: " + file;
+      media.appendChild(err);
+    };
+    media.appendChild(img);
+  }
+
+  document.getElementById("kh-lb-name").textContent = displayName || khLbFolder;
+  document.getElementById("kh-lb-counter").textContent = (khLbIndex + 1) + " / " + files.length;
+  document.getElementById("kh-lb-caption").textContent = "";
+
+  // nav visibility
+  document.getElementById("kh-lb-prev").style.visibility = khLbIndex > 0 ? "visible" : "hidden";
+  document.getElementById("kh-lb-next").style.visibility = khLbIndex < files.length - 1 ? "visible" : "hidden";
+}
+
+function khLbMove(dir) {
+  const files = khProfileFiles[khLbFolder] || ["0.png"];
+  khLbIndex = Math.max(0, Math.min(files.length - 1, khLbIndex + dir));
+  const displayName = document.getElementById("kh-lb-name").textContent;
+  const vid = document.querySelector("#kh-lb-media video");
+  if (vid) vid.pause();
+  renderKhLb(displayName);
+}
+
+// ── Bind KH Lightbox events ──────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  buildKhProfiles();
+
+  document.getElementById("kh-lb-close").addEventListener("click", closeKhLightbox);
+  document.getElementById("kh-lb-prev").addEventListener("click", () => khLbMove(-1));
+  document.getElementById("kh-lb-next").addEventListener("click", () => khLbMove(+1));
+  document.getElementById("kh-lb-overlay").addEventListener("click", e => {
+    if (e.target === document.getElementById("kh-lb-overlay")) closeKhLightbox();
+  });
+  document.addEventListener("keydown", e => {
+    if (document.getElementById("kh-lb-overlay").style.display !== "flex") return;
+    if (e.key === "Escape")       closeKhLightbox();
+    if (e.key === "ArrowLeft")    khLbMove(-1);
+    if (e.key === "ArrowRight")   khLbMove(+1);
+  });
+});
 </script>
 </body>
 </html>

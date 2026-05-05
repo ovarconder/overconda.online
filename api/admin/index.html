@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overconda Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #0f172a; color: #f1f5f9; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 1rem; padding: 1.25rem; }
+        .stat-value { font-size: 1.75rem; font-weight: 800; }
+        .stat-label { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+        .badge { display: inline-flex; align-items: center; border-radius: 9999px; padding: 0.125rem 0.625rem; font-size: 0.6875rem; font-weight: 600; }
+        .badge-green { background: #065f4620; color: #34d399; border: 1px solid #065f4660; }
+        .badge-amber { background: #92400e20; color: #fbbf24; border: 1px solid #92400e60; }
+        .badge-red { background: #991b1b20; color: #f87171; border: 1px solid #991b1b60; }
+        .badge-blue { background: #1e3a5f20; color: #38bdf8; border: 1px solid #1e3a5f60; }
+        .badge-purple { background: #4c1d9520; color: #a78bfa; border: 1px solid #4c1d9560; }
+        input, select { background: #0f172a; border: 1px solid #334155; border-radius: 0.5rem; padding: 0.5rem 0.75rem; color: #f1f5f9; font-size: 0.875rem; outline: none; }
+        input:focus, select:focus { border-color: #22d3ee; }
+        table { width: 100%; font-size: 0.8125rem; }
+        th { text-align: left; padding: 0.5rem 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; font-size: 0.6875rem; letter-spacing: 0.05em; border-bottom: 1px solid #1e293b; }
+        td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #1e293b; }
+        tr:hover td { background: #1e293b80; }
+        .btn { display: inline-flex; align-items: center; gap: 0.375rem; border-radius: 0.5rem; padding: 0.5rem 1rem; font-size: 0.8125rem; font-weight: 600; transition: all 0.15s; cursor: pointer; border: none; }
+        .btn-primary { background: linear-gradient(135deg, #22d3ee, #06b6d4); color: #0f172a; }
+        .btn-primary:hover { filter: brightness(1.1); }
+        .btn-secondary { background: #334155; color: #e2e8f0; }
+        .btn-secondary:hover { background: #475569; }
+        .tab { padding: 0.5rem 1rem; font-size: 0.8125rem; font-weight: 600; border-radius: 0.5rem 0.5rem 0 0; cursor: pointer; transition: all 0.15s; border: 1px solid transparent; border-bottom: none; }
+        .tab.active { background: #1e293b; border-color: #334155; color: #22d3ee; }
+        .tab:not(.active) { color: #64748b; }
+        .tab:not(.active):hover { color: #94a3b8; background: #1e293b40; }
+        .pagination { display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.8125rem; }
+        .pagination button { background: #334155; border: none; color: #e2e8f0; padding: 0.25rem 0.625rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.75rem; }
+        .pagination button:disabled { opacity: 0.4; cursor: default; }
+        .pagination span { color: #94a3b8; }
+        .toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: #1e293b; border: 1px solid #334155; border-radius: 0.75rem; padding: 0.75rem 1.25rem; font-size: 0.875rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 50; opacity: 0; transform: translateY(1rem); transition: all 0.3s; }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 40; display: none; align-items: center; justify-content: center; }
+        .modal-overlay.open { display: flex; }
+        .modal-content { background: #1e293b; border: 1px solid #334155; border-radius: 1rem; padding: 1.5rem; max-width: 480px; width: 90%; }
+        @media (max-width: 768px) { .stat-value { font-size: 1.25rem; } }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <div id="toast" class="toast"></div>
+    <div id="modal" class="modal-overlay"><div class="modal-content" id="modalContent"></div></div>
+
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <header class="flex items-center justify-between mb-6">
+            <div>
+                <h1 class="text-xl font-bold">🛠️ Overconda Admin</h1>
+                <p class="text-xs text-slate-500 mt-0.5">Dashboard &middot; Sales &middot; Licenses</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span id="loginStatus" class="text-xs text-slate-500"></span>
+                <button id="loginBtn" onclick="showLogin()" class="btn btn-secondary">🔑 Login</button>
+                <button id="logoutBtn" onclick="logout()" class="btn btn-secondary" style="display:none">🚪 Logout</button>
+            </div>
+        </header>
+
+        <div id="connError" class="card mb-4 border-rose-500/40 bg-rose-500/5 text-rose-300 text-sm" style="display:none">
+            ❌ Cannot connect to API. Check your network or API status.
+        </div>
+
+        <div id="dashboard" style="display:none">
+            <div class="flex gap-1 mb-4 border-b border-slate-800">
+                <button class="tab active" data-tab="overview" onclick="switchTab('overview')">📊 Overview</button>
+                <button class="tab" data-tab="orders" onclick="switchTab('orders')">📦 Orders</button>
+                <button class="tab" data-tab="licenses" onclick="switchTab('licenses')">🔑 Licenses</button>
+            </div>
+
+            <div id="tab-overview" class="tab-content">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5" id="statsGrid">
+                    <div class="card"><div class="stat-label">Total Revenue</div><div class="stat-value text-emerald-300" id="stat-revenue">—</div></div>
+                    <div class="card"><div class="stat-label">Total Orders</div><div class="stat-value text-cyan-300" id="stat-orders">—</div></div>
+                    <div class="card"><div class="stat-label">Today</div><div class="stat-value text-amber-300" id="stat-today">—</div></div>
+                    <div class="card"><div class="stat-label">This Month</div><div class="stat-value text-purple-300" id="stat-month">—</div></div>
+                    <div class="card"><div class="stat-label">Licenses (Total)</div><div class="stat-value text-sky-300" id="stat-licenses-total">—</div></div>
+                    <div class="card"><div class="stat-label">Activated</div><div class="stat-value text-emerald-300" id="stat-licenses-activated">—</div></div>
+                    <div class="card col-span-2"><div class="stat-label">Revenue Today</div><div class="stat-value text-emerald-200" id="stat-revenue-today">—</div></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4 mb-5">
+                    <div class="card"><h3 class="text-sm font-semibold mb-3">📊 By Plan</h3><div id="byPlanChart" class="space-y-2 text-sm"></div></div>
+                    <div class="card"><h3 class="text-sm font-semibold mb-3">🏷️ By License Type</h3><div id="byTypeChart" class="space-y-2 text-sm"></div></div>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-sm font-semibold mb-3">📋 Recent Orders</h3>
+                    <div class="overflow-x-auto">
+                        <table><thead><tr><th>Date</th><th>Email</th><th>Plan</th><th>Type</th><th>Amount</th><th>License</th></tr></thead>
+                        <tbody id="recentOrdersBody"></tbody></table>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <h3 class="text-sm font-semibold mb-3">📈 Revenue (Last 30 Days)</h3>
+                    <div id="revenueChart" class="flex items-end gap-1 h-32"></div>
+                </div>
+            </div>
+
+            <div id="tab-orders" class="tab-content" style="display:none">
+                <div class="card">
+                    <div class="flex flex-wrap gap-3 mb-4 items-center">
+                        <input type="text" id="ordersSearch" placeholder="Search email, name, key..." class="flex-1 min-w-[200px]" oninput="debounceLoadOrders()" />
+                        <select id="ordersPlanFilter" onchange="loadOrders(1)"><option value="">All Plans</option><option>personal</option><option>pro</option><option>agency</option></select>
+                        <select id="ordersTypeFilter" onchange="loadOrders(1)"><option value="">All Types</option><option>subscription</option><option>lifetime</option><option>founder</option></select>
+                        <select id="ordersStatusFilter" onchange="loadOrders(1)"><option value="">All Status</option><option>completed</option><option>pending</option><option>refunded</option></select>
+                        <span id="ordersCount" class="text-xs text-slate-500"></span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table><thead><tr><th>ID</th><th>Date</th><th>Email</th><th>Name</th><th>Plan</th><th>Type</th><th>Amount</th><th>Status</th><th>License Key</th></tr></thead>
+                        <tbody id="ordersBody"></tbody></table>
+                    </div>
+                    <div class="pagination" id="ordersPagination"></div>
+                </div>
+            </div>
+
+            <div id="tab-licenses" class="tab-content" style="display:none">
+                <div class="card">
+                    <div class="flex flex-wrap gap-3 mb-4 items-center">
+                        <input type="text" id="licSearch" placeholder="Search key or domain..." class="flex-1 min-w-[200px]" oninput="debounceLoadLicenses()" />
+                        <button onclick="showCreateLicense()" class="btn btn-primary">+ Create License</button>
+                        <span id="licCount" class="text-xs text-slate-500"></span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table><thead><tr><th>ID</th><th>License Key</th><th>Product</th><th>Type</th><th>Domain</th><th>Activated</th><th>Created</th></tr></thead>
+                        <tbody id="licensesBody"></tbody></table>
+                    </div>
+                    <div class="pagination" id="licPagination"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loginScreen" class="max-w-sm mx-auto mt-16">
+            <div class="card text-center">
+                <h2 class="text-lg font-bold mb-1">Admin Login</h2>
+                <p class="text-xs text-slate-500 mb-4">Enter your admin API token</p>
+                <input type="password" id="tokenInput" placeholder="Paste your token..." class="w-full mb-3 text-center" onkeydown="if(event.key==='Enter')login()" />
+                <button onclick="login()" class="btn btn-primary w-full justify-center">Sign In</button>
+                <p id="loginError" class="text-xs text-rose-400 mt-2" style="display:none"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const API_BASE = window.location.origin;
+    let TOKEN = localStorage.getItem('ovcd_admin_token') || '';
+    let debounceTimer;
+    let orderPage = 1;
+    let licPage = 1;
+
+    function showToast(msg, type) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.style.borderLeft = type === 'error' ? '4px solid #ef4444' : type === 'success' ? '4px solid #34d399' : '4px solid #22d3ee';
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    function api(path, opts) {
+        opts = opts || {};
+        const headers = {'Content-Type': 'application/json'};
+        if (TOKEN) headers['Authorization'] = 'Bearer ' + TOKEN;
+        return fetch(API_BASE + path, Object.assign({}, opts, {headers})).then(function(r) {
+            document.getElementById('connError').style.display = 'none';
+            return r.json();
+        }).catch(function(e) {
+            document.getElementById('connError').style.display = 'block';
+            throw e;
+        });
+    }
+
+    function fmtDate(d) {
+        if (!d) return '\u2014';
+        var dt = new Date(d.replace(' ', 'T') + 'Z');
+        return dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    }
+
+    function fmtAmount(cents) {
+        return '$' + (cents / 100).toFixed(2);
+    }
+
+    function badge(s) {
+        var map = {completed:'badge-green', pending:'badge-amber', refunded:'badge-red', subscription:'badge-blue', lifetime:'badge-purple', founder:'badge-amber', personal:'badge-blue', pro:'badge-green', agency:'badge-purple'};
+        return '<span class="badge ' + (map[s] || 'badge-blue') + '">' + (s || '\u2014') + '</span>';
+    }
+
+    function login() {
+        var t = document.getElementById('tokenInput').value.trim();
+        if (!t) return;
+        TOKEN = t;
+        localStorage.setItem('ovcd_admin_token', t);
+        document.getElementById('loginError').style.display = 'none';
+        checkAuth();
+    }
+
+    function logout() { TOKEN = ''; localStorage.removeItem('ovcd_admin_token'); location.reload(); }
+
+    function showLogin() {
+        document.getElementById('loginScreen').style.display = 'block';
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('loginBtn').style.display = 'none';
+    }
+
+    function checkAuth() {
+        if (!TOKEN) { showLogin(); return; }
+        api('/admin/stats').then(function(r) {
+            if (r.success) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                document.getElementById('loginBtn').style.display = 'none';
+                document.getElementById('logoutBtn').style.display = 'inline-flex';
+                document.getElementById('loginStatus').textContent = 'Authenticated';
+                document.getElementById('connError').style.display = 'none';
+                loadDashboard();
+            } else { showLogin(); }
+        }).catch(function() { showLogin(); });
+    }
+
+    function loadDashboard() {
+        api('/admin/stats').then(function(r) {
+            if (!r.success) return;
+            var d = r.data;
+            document.getElementById('stat-revenue').textContent = fmtAmount(d.total_revenue);
+            document.getElementById('stat-orders').textContent = d.total_orders;
+            document.getElementById('stat-today').textContent = d.orders_today + ' orders';
+            document.getElementById('stat-month').textContent = d.orders_this_month + ' orders / ' + fmtAmount(d.revenue_this_month);
+            document.getElementById('stat-licenses-total').textContent = d.total_licenses;
+            document.getElementById('stat-licenses-activated').textContent = d.activated_licenses;
+            document.getElementById('stat-revenue-today').textContent = fmtAmount(d.revenue_today);
+
+            document.getElementById('byPlanChart').innerHTML = d.by_plan.map(function(p) {
+                var pct = d.total_orders > 0 ? ((p.cnt / d.total_orders) * 100).toFixed(1) : 0;
+                return '<div class="flex items-center gap-2"><span class="w-20 text-slate-400">' + p.plan + '</span><div class="flex-1 h-5 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full" style="width:' + pct + '%"></div></div><span class="w-16 text-right text-slate-300">' + p.cnt + ' ($' + (p.rev/100).toFixed(0) + ')</span></div>';
+            }).join('');
+
+            document.getElementById('byTypeChart').innerHTML = d.by_type.map(function(t) {
+                var pct = d.total_orders > 0 ? ((t.cnt / d.total_orders) * 100).toFixed(1) : 0;
+                return '<div class="flex items-center gap-2"><span class="w-24 text-slate-400">' + t.license_type + '</span><div class="flex-1 h-5 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width:' + pct + '%"></div></div><span class="w-16 text-right text-slate-300">' + t.cnt + ' ($' + (t.rev/100).toFixed(0) + ')</span></div>';
+            }).join('');
+
+            document.getElementById('recentOrdersBody').innerHTML = d.recent_orders.map(function(o) {
+                return '<tr><td class="text-slate-500">' + fmtDate(o.created_at) + '</td><td>' + (o.customer_email || '\u2014') + '</td><td>' + badge(o.plan) + '</td><td>' + badge(o.license_type) + '</td><td class="font-mono">' + fmtAmount(o.amount) + '</td><td class="font-mono text-[10px] text-slate-500">' + (o.license_key || '\u2014') + '</td></tr>';
+            }).join('');
+
+            var rv = d.revenue_over_time || [];
+            var maxRev = Math.max.apply(null, rv.map(function(r) { return r.revenue; }).concat([1]));
+            document.getElementById('revenueChart').innerHTML = rv.length > 0
+                ? rv.map(function(r) {
+                    return '<div title="' + r.date + ': ' + fmtAmount(r.revenue) + ' (' + r.orders + ' orders)" class="flex-1 flex flex-col items-center justify-end h-full"><div class="w-full bg-cyan-500/80 rounded-t hover:bg-cyan-400 transition-all" style="height:' + ((r.revenue/maxRev)*100) + '%"></div><span class="text-[8px] text-slate-600 mt-0.5 -rotate-45 origin-left">' + r.date.slice(5) + '</span></div>';
+                }).join('')
+                : '<p class="text-sm text-slate-500 self-center w-full text-center">No data yet</p>';
+        }).catch(function() { showToast('Failed to load dashboard', 'error'); });
+    }
+
+    function loadOrders(page) {
+        orderPage = page || 1;
+        var params = new URLSearchParams({page: orderPage, per_page: 30});
+        var s = document.getElementById('ordersSearch').value; if (s) params.set('search', s);
+        var pf = document.getElementById('ordersPlanFilter').value; if (pf) params.set('plan', pf);
+        var tf = document.getElementById('ordersTypeFilter').value; if (tf) params.set('type', tf);
+        var sf = document.getElementById('ordersStatusFilter').value; if (sf) params.set('status', sf);
+
+        api('/admin/orders?' + params.toString()).then(function(r) {
+            if (!r.success) return;
+            var d = r.data;
+            document.getElementById('ordersCount').textContent = d.total + ' orders';
+            document.getElementById('ordersBody').innerHTML = d.orders.map(function(o) {
+                return '<tr><td class="text-slate-500 text-[10px]">#' + o.id + '</td><td class="text-slate-500 text-[11px]">' + fmtDate(o.created_at) + '</td><td>' + (o.customer_email || '\u2014') + '</td><td>' + (o.customer_name || '\u2014') + '</td><td>' + badge(o.plan) + '</td><td>' + badge(o.license_type) + '</td><td class="font-mono">' + fmtAmount(o.amount) + '</td><td>' + badge(o.status) + '</td><td class="font-mono text-[10px] text-slate-400 max-w-[140px] truncate" title="' + (o.license_key || '') + '">' + (o.license_key || '\u2014') + '</td></tr>';
+            }).join('');
+            document.getElementById('ordersPagination').innerHTML = '<button onclick="loadOrders(' + (orderPage-1) + ')" ' + (orderPage<=1?'disabled':'') + '>Prev</button><span>Page ' + d.page + ' of ' + d.total_pages + '</span><button onclick="loadOrders(' + (orderPage+1) + ')" ' + (orderPage>=d.total_pages?'disabled':'') + '>Next</button>';
+        });
+    }
+
+    function loadLicenses(page) {
+        licPage = page || 1;
+        var params = new URLSearchParams({page: licPage, per_page: 30});
+        var s = document.getElementById('licSearch').value; if (s) params.set('search', s);
+        api('/admin/licenses?' + params.toString()).then(function(r) {
+            if (!r.success) return;
+            var d = r.data;
+            document.getElementById('licCount').textContent = d.total + ' licenses';
+            document.getElementById('licensesBody').innerHTML = d.licenses.map(function(l) {
+                return '<tr><td class="text-slate-500 text-[10px]">#' + l.id + '</td><td class="font-mono text-[11px]">' + l.license_key + '</td><td class="text-slate-400">' + l.product_id + '</td><td>' + badge(l.license_type) + '</td><td class="text-slate-400 text-[11px]">' + (l.domain_registered || '\u2014') + '</td><td class="text-slate-500 text-[11px]">' + (l.activated_at ? fmtDate(l.activated_at) : '\u2014') + '</td><td class="text-slate-500 text-[11px]">' + fmtDate(l.created_at) + '</td></tr>';
+            }).join('');
+            document.getElementById('licPagination').innerHTML = '<button onclick="loadLicenses(' + (licPage-1) + ')" ' + (licPage<=1?'disabled':'') + '>Prev</button><span>Page ' + d.page + ' of ' + d.total_pages + '</span><button onclick="loadLicenses(' + (licPage+1) + ')" ' + (licPage>=d.total_pages?'disabled':'') + '>Next</button>';
+        });
+    }
+
+    function showCreateLicense() {
+        document.getElementById('modal').classList.add('open');
+        document.getElementById('modalContent').innerHTML = '<h3 class="text-base font-bold mb-3">Create License</h3><div class="space-y-3"><div><label class="text-xs text-slate-400 block mb-1">Product</label><input type="text" id="newLicProduct" value="404-slimmer" class="w-full" /></div><div><label class="text-xs text-slate-400 block mb-1">Type</label><select id="newLicType" class="w-full"><option value="lifetime">Lifetime</option><option value="subscription">Subscription</option><option value="founder">Founder</option></select></div><div><label class="text-xs text-slate-400 block mb-1">Customer Email (optional)</label><input type="email" id="newLicEmail" placeholder="user@example.com" class="w-full" /></div><div class="flex gap-2 justify-end pt-2"><button onclick="closeModal()" class="btn btn-secondary">Cancel</button><button onclick="createLicense()" class="btn btn-primary">Generate</button></div></div>';
+    }
+
+    function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+    function createLicense() {
+        api('/admin/create-license', {method: 'POST', body: JSON.stringify({product_id: document.getElementById('newLicProduct').value.trim(), license_type: document.getElementById('newLicType').value, customer_email: document.getElementById('newLicEmail').value.trim()})}).then(function(r) {
+            if (r.success) { showToast('License: ' + r.data.license_key, 'success'); closeModal(); loadLicenses(1); }
+            else showToast('Error: ' + (r.error || 'Unknown'), 'error');
+        }).catch(function() { showToast('Failed', 'error'); });
+    }
+
+    function switchTab(name) {
+        document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelector('.tab[data-tab="' + name + '"]').classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(function(tc) { tc.style.display = 'none'; });
+        document.getElementById('tab-' + name).style.display = 'block';
+        if (name === 'orders') loadOrders(1);
+        if (name === 'licenses') loadLicenses(1);
+    }
+
+    function debounceLoadOrders() { clearTimeout(debounceTimer); debounceTimer = setTimeout(function() { loadOrders(1); }, 300); }
+    function debounceLoadLicenses() { clearTimeout(debounceTimer); debounceTimer = setTimeout(function() { loadLicenses(1); }, 300); }
+
+    checkAuth();
+    document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+    </script>
+</body>
+</html>
