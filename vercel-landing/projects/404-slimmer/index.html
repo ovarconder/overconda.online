@@ -519,11 +519,31 @@
             btn.disabled = true;
             btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span> Redirecting...';
 
+            // Get or create stable user_id
+            var userId = localStorage.getItem('ovcd_user_id');
+            if (!userId) {
+                userId = 'user_' + crypto.randomUUID().replace(/-/g, '');
+                localStorage.setItem('ovcd_user_id', userId);
+            }
+
+            // Get email if previously saved
+            var email = localStorage.getItem('ovcd_customer_email') || '';
+
+            // Determine purchase type (default: lifetime for founder deal)
+            var type = (typeof purchaseType !== 'undefined') ? purchaseType : 'lifetime';
+
             try {
                 var res = await fetch(API_CHECKOUT, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ plan: plan }),
+                    body: JSON.stringify({
+                        plan: plan,
+                        user_id: userId,
+                        product_id: '404-slimmer',
+                        purchase_type: type,
+                        campaign: 'FOUNDER_DEAL',
+                        email: email || undefined
+                    }),
                 });
                 var data = await res.json();
 
