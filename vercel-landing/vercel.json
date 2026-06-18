@@ -1,3 +1,13 @@
 {
-  "framework": null
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/subzeed",
+      "destination": "https://subzeed-app.vercel.app/subzeed"
+    },
+    {
+      "source": "/subzeed/:path*",
+      "destination": "https://subzeed-app.vercel.app/subzeed/:path*"
+    }
+  ]
 }
